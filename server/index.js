@@ -1,8 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const morgan = require('morgan');
-const colors = require('colors');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import morgan from 'morgan';
+import colors from 'colors';
+import { config } from './config/config';
+
 const logger = require('tracer').colorConsole({
   filters: [
     colors.underline, colors.green,
@@ -13,7 +15,7 @@ const logger = require('tracer').colorConsole({
   ],
 });
 
-const config = require('./config/config');
+// const config = require('./config/config');
 
 const app = express();
 
