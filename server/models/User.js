@@ -11,18 +11,10 @@ export const schema = {
     type: String,
     required: true,
   },
-  fullname: {
+  accountType: {
     type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  role: {
-    type: String,
-    default: 'regular',
+    enum: ['individaul', 'company'],
+    default: 'individaul',
   },
   verified: {
     type: Boolean,
