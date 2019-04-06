@@ -13,22 +13,22 @@ const logger = require('tracer').colorConsole({
     colors.underline, colors.green,
     {
       warn: colors.yellow,
-      error: [ colors.red, colors.bold ]
-    }
-  ]
-})
+      error: [colors.red, colors.bold],
+    },
+  ],
+});
 
 // Connect database
 mongoose.connect(config.database, { useNewUrlParser: true })
   .then(() => {
-    logger.info(`Connected to DB: ${config.database}`)
+    logger.info(`Connected to DB: ${config.database}`);
   })
-  .catch(e => {
+  .catch((error) => {
     logger.error({
       message: 'Failed to connect to DB',
-      error: e.message
-    })
-  })
+      error: error.message,
+    });
+  });
 
   // Instantiate server
 const app = express();
