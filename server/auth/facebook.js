@@ -21,7 +21,6 @@ passport.use(new FacebookStrategy({
         return done(null, user)
       } else {
         const newUser = new User({
-          name: profile.displayName,
           firstName: profile.givenName,
           lastName: profile.familyName,
           email: profile.emails[0].value,
