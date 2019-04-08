@@ -1,19 +1,19 @@
 import passport from 'passport';
-import FacebookStrategy from ('passport-facebook').Strategy;;
+import GoogleStrategy from ('passport-google-oauth20').Strategy;
 import User from '../models/User';
 
-import {facebook} from '../config/config';
+import {google} from '../config/config';
 import initializer from './sessions';
 
 
 
-passport.use(new FacebookStrategy({
-  clientID: facebook.clientID,
-  clientSecret: facebook.clientSecret,
-  callbackURL: facebook.callbackURL,
+passport.use(new GoogleStrategy({
+  clientID: google.clientID,
+  clientSecret: google.clientSecret,
+  callbackURL: google.callbackURL,
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne ({ 
-    facebookId: profile.id 
+    id: profile.id 
   },  (err, user) => {
       if(err) return done(err);
 
@@ -21,8 +21,8 @@ passport.use(new FacebookStrategy({
         return done(null, user)
       } else {
         const newUser = new User({
-          firstName: profile.givenName,
-          lastName: profile.familyName,
+          id: profile.id,
+          name: profile.displayName,
           email: profile.emails[0].value,
           username: profile.username,
         })
