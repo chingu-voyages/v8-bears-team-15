@@ -1,5 +1,5 @@
 import passport from 'passport';
-import FacebookStrategy from ('passport-facebook').Strategy;;
+import { Strategy as FacebookStrategy } from 'passport-facebook';
 import User from '../models/User';
 
 import {facebook} from '../config/config';

@@ -1,5 +1,5 @@
 import passport from 'passport';
-import GoogleStrategy from ('passport-google-oauth20').Strategy;
+import { Strategy as GoogleStrategy} from 'passport-google-oauth20';
 import User from '../models/User';
 
 import {google} from '../config/config';
