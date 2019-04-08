@@ -18,5 +18,12 @@ export const facebook = {
 export const google = {
   clientID: process.env.GOOGLE_APP_ID,
   clientSecret: process.env.GOOGLE_APP_SECRET,
-  callbackURL: `http://127.0.0.1:${config.port}/server/auth/facebook/callback`
+  callbackURL: `http://127.0.0.1:${config.port}/server/auth/google/callback`
+}
+
+
+export const linkedIn = {
+  clientID: process.env.LINKEDIN_APP_ID,
+  clientSecret: process.env.LINKEDIN_APP_SECRET,
+  callbackURL: `http://127.0.0.1:${config.port}/server/auth/linkedIn/callback`
 }

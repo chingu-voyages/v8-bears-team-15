@@ -20,6 +20,7 @@ passport.use(new GoogleStrategy({
       if(user) {
         return done(null, user)
       } else {
+        // inspect returned profile details
         const newUser = new User({
           id: profile.id,
           name: profile.displayName,

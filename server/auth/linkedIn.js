@@ -1,16 +1,17 @@
 import passport from 'passport';
-import { Strategy as FacebookStrategy } from 'passport-facebook';
+import { Strategy as LinkedInStrategy} from 'passport-linkedin-oauth2';
 import User from '../models/User';
 
-import {facebook} from '../config/config';
+import { linkedIn } from '../config/config';
 import initializer from './sessions';
 
 
 
-passport.use(new FacebookStrategy({
-  clientID: facebook.clientID,
-  clientSecret: facebook.clientSecret,
-  callbackURL: facebook.callbackURL,
+passport.use(new LinkedInStrategy({
+  clientID: linkedIn.clientID,
+  clientSecret: linkedIn.clientSecret,
+  callbackURL: linkedIn.callbackURL,
+  scope: ['r_emailaddress', 'r_basicprofile'],
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne ({ 
     id: profile.id 
@@ -22,8 +23,8 @@ passport.use(new FacebookStrategy({
       } else {
         // inspect returned profile details
         const newUser = new User({
-          firstName: profile.givenName,
-          lastName: profile.familyName,
+          id: profile.id,
+          name: profile.displayName,
           email: profile.emails[0].value,
           username: profile.username,
         })
