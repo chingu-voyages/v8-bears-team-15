@@ -4,7 +4,7 @@ dotenv.config();
 
 export const config = {
   port: process.env.PORT || 8081,
-  database: process.env.MONGODB_URI || 'mongodb://localhost/bears04',
+  database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
   jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key'
 }
 
