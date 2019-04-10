@@ -12,22 +12,25 @@ passport.use(new GoogleStrategy({
   clientSecret: google.clientSecret,
   callbackURL: google.callbackURL,
 }, (accessToken, refreshToken, profile, done) => {
+
   User.findOne ({ 
-    id: profile.id 
+    username: profile.displayName,
   },  (err, user) => {
       if(err) return done(err);
 
       if(user) {
         return done(null, user)
       } else {
-        // inspect returned profile details
         const newUser = new User({
+          // please inspect returned profile details
           id: profile.id,
-          name: profile.displayName,
+          username: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
           email: profile.emails[0].value,
-          username: profile.username,
+          verified: profile._json.email_verified,
+          imageUrl: profile.photos[0].value,
         })
-
         newUser.save((err) => {
           if (err) {
             throw err;

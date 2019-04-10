@@ -1,10 +1,10 @@
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
-import User from '../models/User';
 
+
+import User from '../models/User';
 import {facebook} from '../config/config';
 import initializer from './sessions';
-
 
 
 passport.use(new FacebookStrategy({
@@ -13,21 +13,23 @@ passport.use(new FacebookStrategy({
   callbackURL: facebook.callbackURL,
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne ({ 
-    id: profile.id 
+    username: profile.displayName, 
   },  (err, user) => {
       if(err) return done(err);
 
       if(user) {
         return done(null, user)
       } else {
-        // inspect returned profile details
+        // please inspect returned profile details
         const newUser = new User({
-          firstName: profile.givenName,
-          lastName: profile.familyName,
+          id: profile.id,
+          username: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
           email: profile.emails[0].value,
-          username: profile.username,
+          verified: profile._json.email_verified,
+          imageUrl: profile.photos[0].value,
         })
-
         newUser.save((err) => {
           if (err) {
             throw err;
