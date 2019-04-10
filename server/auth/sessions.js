@@ -2,9 +2,9 @@ import passport from 'passport';
 import User from '../models/User';
 
 
-module.exports = () => {
+module.exports = (user) => {
   passport.serializeUser((user, done) => {
-    done(null, user.email);
+    done(null, user.id);
   });
 
   passport.deserializeUser((id, done) => {
