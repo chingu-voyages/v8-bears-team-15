@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import store from 'connect-mongo';
+import routes from './routes/index';
 
 import { config } from './config/config';
 import { logger } from './helper/logger';
@@ -50,6 +51,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
+
+/**
+ * I noticed I couldn't run the app
+ * until I commented this "if (!module.parent) {"
+ * what should be done to get it to run
+ */
 
 if (!module.parent) {
   app.listen(config.port, () => {
