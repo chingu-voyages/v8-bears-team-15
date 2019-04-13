@@ -35,8 +35,8 @@ class Home extends React.Component{
               <h1>Get matched <br></br> with a job abroad</h1>
               <p>
               Use Jobbatical to find a tech, business or creative 
-              job anywhere in the world. Because your skills matter
-               more than your passport.
+              job<br /> anywhere in the world. Because your skills matter
+               more <br /> than your passport.
               </p>
               <div className="watch">
                 <div id="play"></div>
@@ -44,9 +44,11 @@ class Home extends React.Component{
               </div>
             </div>
             <form className="social-medias">
+              <span id="signup-intro">Sign Up or Log in using:</span>
               <button id="google">Continue with Google</button>
               <button id="facebook">Continue with Facebook</button>
               <button id="linkedin">Continue with LinkedIn</button>
+              <span id="login-intro">Or continue wth email</span>
               <input id="email-box" type="text-area" placeholder="Your email address"/>
              <input type="submit" placeholder="NEXT"/>
             </form>
