@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlay,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import './Home.css';
+import '../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
 import whiteLogo from '../../images/jb_logo_white.svg';
 import googleImage from '../../images/auth/google_icon.png';
@@ -11,8 +12,6 @@ import facebookImage from '../../images/auth/facebook.png';
 import linkedinImage from '../../images/auth/linkedin.png';
 
 library.add(faPlay, faEnvelope)
-
-const envelope = <FontAwesomeIcon icon="envelope" />
 
 class Home extends React.Component{
   render() {
