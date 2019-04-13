@@ -1,7 +1,11 @@
 import React from 'react';
 
 import './Home.css';
+
 import whiteLogo from '../../images/jb_logo_white.svg';
+import googleImage from '../../images/auth/google_icon.png';
+import facebookImage from '../../images/auth/facebook.png';
+import linkedinImage from '../../images/auth/linkedin.png';
 
 class Home extends React.Component{
   render() {
@@ -44,11 +48,20 @@ class Home extends React.Component{
               </div>
             </div>
             <form className="social-medias">
-              <span id="signup-intro">Sign Up or Log in using:</span>
-              <button id="google">Continue with Google</button>
-              <button id="facebook">Continue with Facebook</button>
-              <button id="linkedin">Continue with LinkedIn</button>
-              <span id="login-intro">Or continue wth email</span>
+              <span className="auth-intro">Sign Up or Log in using:</span>
+              <button id="google">
+                <img src={googleImage} alt="google-brand" />
+                 <span className="content">Continue with Google</span>
+              </button>
+              <button id="facebook">
+                <img src={facebookImage} alt="facebook-brand" />
+                 <span className="content">Continue with Facebook</span>
+              </button>
+              <button id="linkedin">
+                <img src={linkedinImage} alt="linkedin-brand" />
+                  <span className="content">Continue with LinkedIn</span>
+               </button>
+              <span className="auth-intro">Or continue wth email</span>
               <input id="email-box" type="text-area" placeholder="Your email address"/>
              <input type="submit" placeholder="NEXT"/>
             </form>
