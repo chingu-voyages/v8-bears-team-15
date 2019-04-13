@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPlay,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import './Home.css';
 
@@ -6,6 +9,10 @@ import whiteLogo from '../../images/jb_logo_white.svg';
 import googleImage from '../../images/auth/google_icon.png';
 import facebookImage from '../../images/auth/facebook.png';
 import linkedinImage from '../../images/auth/linkedin.png';
+
+library.add(faPlay, faEnvelope)
+
+const envelope = <FontAwesomeIcon icon="envelope" />
 
 class Home extends React.Component{
   render() {
@@ -43,8 +50,12 @@ class Home extends React.Component{
                more <br /> than your passport.
               </p>
               <div className="watch">
-                <div id="play"></div>
-                <span>Watch the introduction</span>
+                  <div id="play-button">
+                   <FontAwesomeIcon icon="play" />
+                  </div>
+                <span>
+                  Watch the introduction
+                </span>
               </div>
             </div>
             <form className="social-medias">
@@ -62,7 +73,10 @@ class Home extends React.Component{
                   <span className="content">Continue with LinkedIn</span>
                </button>
               <span className="auth-intro">Or continue wth email</span>
-              <input id="email-box" type="text-area" placeholder="Your email address"/>
+              <div className="input-wrapper">
+                <FontAwesomeIcon icon="envelope" id="envelope" />
+                <input id="email-box" type="text-area" placeholder={`    Your email address`}/>
+              </div>
              <input type="submit" placeholder="NEXT"/>
             </form>
          </div>
