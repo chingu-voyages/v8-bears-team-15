@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlay,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+
 import './Home.css';
 import '../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -11,12 +15,32 @@ import googleImage from '../../images/auth/google_icon.png';
 import facebookImage from '../../images/auth/facebook.png';
 import linkedinImage from '../../images/auth/linkedin.png';
 
+import Modal from '../Modal/Modal';
+import * as homeActions from '../../actions/Home/HomeActions';
+
 library.add(faPlay, faEnvelope)
 
 class Home extends React.Component{
+  handleIntro() {
+    this.props.actions.playIntro();
+  }
+
+  closeModal() {
+    this.props.actions.closeIntro();
+  }
+  
   render() {
+    const { showModal } = this.props;
     return (
       <div>
+        {
+          showModal ? 
+         (
+            <Modal 
+            closeModal={this.closeModal.bind(this)}
+            />
+         ) : ''
+        }
         <section className="intro">
          <div className="video-div">
            <video autoPlay muted loop  id="hero-video">
@@ -49,7 +73,7 @@ class Home extends React.Component{
                more <br /> than your passport.
               </p>
               <div className="watch">
-                  <div id="play-button">
+                  <div id="play-button" onClick={this.handleIntro.bind(this)}>
                    <FontAwesomeIcon icon="play" />
                   </div>
                 <span>
@@ -87,4 +111,16 @@ class Home extends React.Component{
   }
 }
 
-export default Home;
+const MapStateToProps = (state) => {
+  return {
+    showModal: state.homeState.openIntro,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(Object.assign(homeActions), dispatch)
+  }
+}
+
+export default connect(MapStateToProps, mapDispatchToProps)(Home);
