@@ -38,13 +38,11 @@ app.use(bodyParser.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json())
 
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 
-app.use(cors())
+app.use(cors());
 
 app.use('/', routes);
-
-console.log(module.parent);
 
 if (!module.parent) {
   app.listen(config.port, () => {
