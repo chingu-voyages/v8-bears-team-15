@@ -6,9 +6,12 @@
   "author": "jidemobell <jidd32@gmail.com>, <medomwande@gmail.com>, <nedumrobert@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node start.js",
-    "test": "_mocha --require @babel/register --exit",
-    "dev": "nodemon --exec babel-node index.js"
+    "build": "babel src -d build",
+    "clean": "rm -rf build && mkdir build",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "prestart": "npm run clean && npm run build",
+    "start": "node build/index.js",
+    "test": "_mocha --require @babel/register --exit"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

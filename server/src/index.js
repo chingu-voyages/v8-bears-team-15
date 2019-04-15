@@ -44,6 +44,8 @@ app.use(cors())
 
 app.use('/', routes);
 
+console.log(module.parent);
+
 if (!module.parent) {
   app.listen(config.port, () => {
     logger.info(`CORS-enabled web server listening on port ${config.port}`)
