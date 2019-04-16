@@ -6,7 +6,7 @@
   "author": "jidemobell <jidd32@gmail.com>, <medomwande@gmail.com>, <nedumrobert@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node start.js",
+    "start": "nodemon start.js",
     "test": "_mocha --require @babel/register --exit",
     "dev": "nodemon --exec babel-node index.js"
   },
