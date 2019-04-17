@@ -56,9 +56,9 @@ class Home extends React.Component{
               {/* <span>BRAND</span> */}
             </a>
             <nav>
-              <li>Sales & marketing jobs</li>
-              <li>Software engineering jobs</li>
-              <li>Product & design, UI/UX jobs</li>
+              <li><a href="http://fakelink">Sales & marketing jobs</a></li>
+              <li><a href="http://fakelink">Software engineering jobs</a></li>
+              <li><a href="http://fakelink">Product & design, UI/UX jobs</a></li>
             </nav>
             <div id="nav-button">
             <button>

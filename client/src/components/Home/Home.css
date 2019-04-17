@@ -80,9 +80,14 @@ nav {
  margin-top: 10px;
 }
 
-nav li {
+nav li,a {
   margin-left: 40px;
   list-style: none;
+  color: grey;
+  text-decoration: none;
+}
+
+nav li,a:hover {
   color: white;
 }
 
