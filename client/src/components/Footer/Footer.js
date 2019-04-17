@@ -126,7 +126,8 @@ class Footer extends React.Component {
        </section>
        <hr />
        <section className="footer-base">
-         <p> The final footer section </p>
+         <p>&copy; Chingu Bears Team 15</p>
+         <p>&copy; Terms of service Privacy policy</p>
        </section>
      </div>
     )
