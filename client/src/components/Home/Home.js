@@ -20,6 +20,7 @@ import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
 import Footer from '../Footer/Footer';
 
+
 library.add(faPlay, faEnvelope, fab)
 
 class Home extends React.Component{
@@ -29,6 +30,11 @@ class Home extends React.Component{
 
   closeModal() {
     this.props.actions.closeIntro();
+  }
+
+  handleGoogleAuth(path) {
+    const { history } = this.props;
+    history.push(path)
   }
   
   render() {
