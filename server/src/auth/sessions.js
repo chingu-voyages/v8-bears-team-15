@@ -12,5 +12,4 @@ module.exports = (user) => {
       done(err, user);
     });
   });
-
 };
