@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlay,faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -17,8 +18,9 @@ import linkedinImage from '../../images/auth/linkedin.png';
 
 import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
+import Footer from '../Footer/Footer';
 
-library.add(faPlay, faEnvelope)
+library.add(faPlay, faEnvelope, fab)
 
 class Home extends React.Component{
   handleIntro() {
@@ -32,7 +34,7 @@ class Home extends React.Component{
   render() {
     const { showModal } = this.props;
     return (
-      <div>
+      <div className="main">
         {
           showModal ? 
          (
@@ -105,7 +107,9 @@ class Home extends React.Component{
          </div>
         </section>
         <section className="body"></section>
-        <section className="base"></section>
+        <section className="base">
+         <Footer />
+        </section>
       </div>
     )
   }
