@@ -234,9 +234,9 @@ nav li,a:hover {
 }
 
 #envelope {
-  left: 7px;
-  top: 10px;
-  font-size: 25px;
+  left: 14px;
+  top: 14px;
+  font-size: 20px;
   position: absolute;
   color: rgba(128, 128, 128, 0.39);
   margin: 2px;

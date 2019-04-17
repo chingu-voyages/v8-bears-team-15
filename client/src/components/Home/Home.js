@@ -102,7 +102,7 @@ class Home extends React.Component{
                 <FontAwesomeIcon icon="envelope" id="envelope" />
                 <input id="email-box" type="text-area" placeholder={`    Your email address`}/>
               </div>
-             <input type="submit" placeholder="NEXT"/>
+             <input type="submit" value="NEXT"/>
             </form>
          </div>
         </section>
