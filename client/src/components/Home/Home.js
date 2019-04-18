@@ -6,6 +6,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import {Route} from 'react-router-dom';
 
 
 import './Home.css';
@@ -19,9 +20,12 @@ import linkedinImage from '../../images/auth/linkedin.png';
 import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
 import Footer from '../Footer/Footer';
-
+import AuthWindow from '../Pop/Pop';
+//import { withRouter } from 'react-router-dom';
 
 library.add(faPlay, faEnvelope, fab)
+
+
 
 class Home extends React.Component{
   handleIntro() {
@@ -32,13 +36,13 @@ class Home extends React.Component{
     this.props.actions.closeIntro();
   }
 
-  handleGoogleAuth(path) {
-    const { history } = this.props;
-    history.push(path)
+  handleAuth(provider, e) {
+    e.preventDefault();
+    this.props.actions.popAuth(provider);
   }
   
   render() {
-    const { showModal } = this.props;
+    const { showModal, showPopUp } = this.props;
     return (
       <div className="main">
         {
@@ -48,6 +52,13 @@ class Home extends React.Component{
             closeModal={this.closeModal.bind(this)}
             />
          ) : ''
+        }
+
+        {
+          showPopUp ? 
+          (
+           <AuthWindow />
+          ): ''
         }
         <section className="intro">
          <div className="video-div">
@@ -91,15 +102,15 @@ class Home extends React.Component{
             </div>
             <form className="social-medias">
               <span className="auth-intro">Sign Up or Log in using:</span>
-              <button id="google">
+              <button id="google" onClick={(e) => this.handleAuth('google', e)}>
                 <img src={googleImage} alt="google-brand" />
                  <span className="content">Continue with Google</span>
               </button>
-              <button id="facebook">
+              <button id="facebook" onClick={(e) => this.handleAuth('facebook', e)}>
                 <img src={facebookImage} alt="facebook-brand" />
                  <span className="content">Continue with Facebook</span>
               </button>
-              <button id="linkedin">
+              <button id="linkedin" onClick={(e) => this.handleAuth('linkedin', e)}>
                 <img src={linkedinImage} alt="linkedin-brand" />
                   <span className="content">Continue with LinkedIn</span>
                </button>
@@ -124,6 +135,7 @@ class Home extends React.Component{
 const MapStateToProps = (state) => {
   return {
     showModal: state.homeState.openIntro,
+    showPopUp: state.homeState.popUpWindow,
   }
 }
 
