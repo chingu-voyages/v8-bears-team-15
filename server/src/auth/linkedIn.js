@@ -1,9 +1,12 @@
 import passport from 'passport';
-import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
+// import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 import User from '../models/User';
 
 import { linkedIn } from '../config/config';
 import initializer from './sessions';
+
+
 
 passport.use(
   new LinkedInStrategy(
@@ -11,9 +14,23 @@ passport.use(
       clientID: linkedIn.clientID,
       clientSecret: linkedIn.clientSecret,
       callbackURL: linkedIn.callbackURL,
-      scope: ['r_emailaddress', 'r_basicprofile']
+      scope: ['r_emailaddress', 'r_basicprofile'],
+      profileFields: [
+        "first-name",
+        "last-name",
+        "email-address",
+        "headline",
+        "summary",
+        "industry",
+        "picture-url",
+        "positions",
+        "public-profile-url",
+        "location"
+      ],
+      passReqToCallback: true,
     },
     (accessToken, refreshToken, profile, done) => {
+      console.log(profile)
       User.findOne(
         {
           username: profile.displayName

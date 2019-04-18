@@ -5,7 +5,6 @@ import User from '../models/User';
 import { google } from '../config/config';
 import initializer from './sessions';
 
-console.log
 
 passport.use(
   new GoogleStrategy(
