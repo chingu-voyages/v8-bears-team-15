@@ -1,9 +1,11 @@
-import  { PLAY_INTRO } from '../../actions/actionConstants';
+import  * as actionTypes from '../../actions/actionConstants';
 
 export default (state = {}, action ) => {
   switch (action.type) {
-    case PLAY_INTRO:
+    case actionTypes.PLAY_INTRO:
       return { ...state, openIntro: action.payload }
+    case actionTypes.POP_WINDOW:
+      return { ...state, popUpWindow: action.payload.pop }
     default:
       return state;
   }
