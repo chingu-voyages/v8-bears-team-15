@@ -3,13 +3,25 @@ import mongoose from 'mongoose';
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
-  password: {
+  firstName: {
     type: String,
-    required: true,
+    unique: true,
   },
+  lastName: {
+    type: String,
+    unique: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  // password: {
+  //   type: String,
+  //   required: true,
+  // },
   accountType: {
     type: String,
     enum: ['individaul', 'company'],
