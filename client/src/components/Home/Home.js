@@ -42,7 +42,7 @@ class Home extends React.Component{
   }
   
   render() {
-    const { showModal, showPopUp } = this.props;
+    const { showModal, showPopUp, media } = this.props;
     return (
       <div className="main">
         {
@@ -57,7 +57,9 @@ class Home extends React.Component{
         {
           showPopUp ? 
           (
-           <AuthWindow />
+           <AuthWindow
+            provider={media}
+           />
           ): ''
         }
         <section className="intro">
@@ -136,6 +138,7 @@ const MapStateToProps = (state) => {
   return {
     showModal: state.homeState.openIntro,
     showPopUp: state.homeState.popUpWindow,
+    media: state.homeState.provider,
   }
 }
 
