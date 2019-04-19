@@ -14,9 +14,12 @@ module.exports = {
     }],
     "curly": [1, "multi-line"],
     "arrow-body-style": 0,
+    "no-underscore-dangle": 0,
     "no-shadow": [1, {
       "allow": ["req", "res", "err"]
     }],
+    "linebreak-style": ["error", "windows"],
+    "no-else-return": 0,
     "no-undef": 0,
     "jsx-quotes": 1,
     "class-methods-use-this": 0,
