@@ -5,7 +5,7 @@ export default (state = {}, action ) => {
     case actionTypes.PLAY_INTRO:
       return { ...state, openIntro: action.payload }
     case actionTypes.POP_WINDOW:
-      return { ...state, popUpWindow: action.payload.pop }
+      return { ...state, popUpWindow: action.payload.pop, provider: action.payload.provider }
     default:
       return state;
   }
