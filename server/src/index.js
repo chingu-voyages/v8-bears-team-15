@@ -53,7 +53,7 @@ app.use('/', routes);
 
 if (!module.parent) {
   app.listen(config.port, () => {
-    logger.info(`CORS-enabled web server listening on port ${config.port}`)
+    logger.info(`CORS-enabled web server listening on port ${config.port}`);
   });
 }
 

@@ -1,9 +1,11 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import User from '../models/User';
-
+// import mongoose from 'mongoose';
 import { google } from '../config/config';
-import initializer from './sessions';
+
+
+import User from '../models/User';
+// import initializer from './sessions';
 
 
 passport.use(
@@ -11,12 +13,13 @@ passport.use(
     {
       clientID: google.clientID,
       clientSecret: google.clientSecret,
-      callbackURL: google.callbackURL
+      callbackURL: google.callbackURL,
+      passReqToCallBack: true,
     },
-    (accessToken, refreshToken, profile, done) => {
+    (req, accessToken, refreshToken, profile, done) => {
       User.findOne(
         {
-          username: profile.displayName
+          profileId: profile.id
         },
         (err, user) => {
           if (err) return done(err);
@@ -26,7 +29,8 @@ passport.use(
           } else {
             const newUser = new User({
               // please inspect returned profile details
-              id: profile.id,
+              profileId: profile.id,
+              userName: profile.displayName,
               email: profile.emails[0].value,
               verified: profile.emails[0].verified,
               provider: 'google',
@@ -36,7 +40,7 @@ passport.use(
               if (err) {
                 throw err;
               }
-              return done(err, user);
+              return done(null, user);
             });
           }
         }
@@ -45,6 +49,14 @@ passport.use(
   )
 );
 
-initializer();
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((profileId, done) => {
+  User.findById(profileId).then((user) => {
+    done(null, user);
+  }).catch(err => done(err, null));
+});
 
 module.exports = passport;

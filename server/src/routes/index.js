@@ -2,6 +2,7 @@ import express from 'express';
 import passportGoogle from '../auth/google';
 import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedin';
+
 // import { signIn } from '../../controllers/AuthenticationController';
 
 const router = express.Router();
@@ -26,16 +27,22 @@ router.get('/', (req, res) => {
 
 router.get('/login/google', passportGoogle.authenticate('google',
   {
-    scope: ['https://www.googleapis.com/auth/userinfo.email']
+    scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email']
   }));
 
 router.get('/login/google/callback',
-  passportGoogle.authenticate(
-    'google', {
-      failureRedirect: '/login',
-      successRedirect: '/home'
-    }
-  ));
+  passportGoogle.authenticate('google',
+
+    (err, user, info) => {
+      if (err) {
+        console.log('error', err);
+      }
+      if (!user && info) {
+        console.log('info error', info);
+      }
+    }), (req, res) => {
+    res.redirect('/');
+  });
 
 
 // FACEBOOK - may require scope definition
@@ -59,7 +66,7 @@ router.get('/login/linkedin/callback',
   }));
 
 
-// router.get('/login', signIn)
+// router.get('/home', signIn);
 
 
 module.exports = router;

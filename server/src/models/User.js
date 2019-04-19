@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
+  profileId: {
+    type: String,
+    unique: true,
+  },
   email: {
     type: String,
     unique: true,
