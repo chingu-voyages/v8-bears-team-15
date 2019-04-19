@@ -9,7 +9,8 @@ class AuthWindow extends React.Component {
   }
 
   componentDidMount() {
-     this.popup = window.open('http://localhost:3000/login/linkedin', '', 'width=500,height=600,left=200,top=200');
+    const { provider } = this.props
+     this.popup = window.open(`http://localhost:3000/login/${provider}`, '', 'width=500,height=600,left=200,top=200');
      this.popup.document.body.appendChild(this.el);
      this.el.classList.add("window");
   }
@@ -19,6 +20,8 @@ class AuthWindow extends React.Component {
   }
 
   render() {
+    console.log("props", this.props)
+    console.log("states", this.state)
     return ReactDOM.createPortal(this.props.children, this.el)
   }
 }
