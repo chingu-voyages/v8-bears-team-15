@@ -27,14 +27,12 @@ passport.use(
             const newUser = new User({
               // please inspect returned profile details
               id: profile.id,
-              username: profile.displayName,
-              firstName: profile.name.givenName,
-              lastName: profile.name.familyName,
               email: profile.emails[0].value,
-              verified: profile._json.email_verified,
+              verified: profile.emails[0].verified,
+              provider: 'google',
               imageUrl: profile.photos[0].value
             });
-            newUser.save(err => {
+            newUser.save((err) => {
               if (err) {
                 throw err;
               }

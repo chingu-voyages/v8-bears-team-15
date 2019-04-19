@@ -1,12 +1,10 @@
 import passport from 'passport';
-// import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
-var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-import User from '../models/User';
-
+import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
 import { linkedIn } from '../config/config';
 import initializer from './sessions';
 
 
+import User from '../models/User';
 
 passport.use(
   new LinkedInStrategy(
@@ -14,23 +12,10 @@ passport.use(
       clientID: linkedIn.clientID,
       clientSecret: linkedIn.clientSecret,
       callbackURL: linkedIn.callbackURL,
-      scope: ['r_emailaddress', 'r_basicprofile'],
-      profileFields: [
-        "first-name",
-        "last-name",
-        "email-address",
-        "headline",
-        "summary",
-        "industry",
-        "picture-url",
-        "positions",
-        "public-profile-url",
-        "location"
-      ],
-      passReqToCallback: true,
+      scope: ['r_emailaddress', 'r_liteprofile'],
+      passReqToCallBack: true,
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log(profile)
+    (req, accessToken, refreshToken, profile, done) => {
       User.findOne(
         {
           username: profile.displayName
@@ -48,11 +33,11 @@ passport.use(
               firstName: profile.name.givenName,
               lastName: profile.name.familyName,
               email: profile.emails[0].value,
-              verified: profile._json.email_verified,
+              // verified: profile._json.email_verified,
               imageUrl: profile.photos[0].value
             });
 
-            newUser.save(err => {
+            newUser.save((err) => {
               if (err) {
                 throw err;
               }
