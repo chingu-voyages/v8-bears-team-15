@@ -1,0 +1,42 @@
+.center-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FAFAFA;
+}
+
+
+.categories{
+  display: flex;
+  flex-direction: row;
+}
+
+.center-div h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:  45px;
+}
+
+.categories button {
+  background: #1DB6EF;
+  color: white;
+  border: none;
+  margin: 15px;
+  padding: 10px 20px 10px;
+  border-radius: 17px;
+}
+
+.select button {
+  background: white;
+  border: 1px solid #CFCFCF;
+  color: #CFCFCF;
+  transition: all;
+}
+
+.select button:hover {
+  background: #1DB6EF;
+  color: white;
+  border: none;
+  margin: 15px;
+  padding: 10px 20px 10px;
+  border-radius: 17px;
+}
