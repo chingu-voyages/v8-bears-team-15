@@ -19,6 +19,7 @@ import linkedinImage from '../../images/auth/linkedin.png';
 
 import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
+import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
 import AuthWindow from '../Pop/Pop';
 //import { withRouter } from 'react-router-dom';
@@ -28,6 +29,13 @@ library.add(faPlay, faEnvelope, fab)
 
 
 class Home extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    };
+  }
+
   handleIntro() {
     this.props.actions.playIntro();
   }
@@ -39,6 +47,21 @@ class Home extends React.Component{
   handleAuth(provider, e) {
     e.preventDefault();
     this.props.actions.popAuth(provider);
+  }
+
+
+  handleNext(e) {
+    e.preventDefault();
+    const { inputValue } = this.state
+    // validate input for errors
+    this.props.actions.signIn(inputValue) 
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({
+      inputValue: e.target.value
+    })
   }
   
   render() {
@@ -102,7 +125,10 @@ class Home extends React.Component{
                 </span>
               </div>
             </div>
-            <form className="social-medias">
+            <form 
+              className="social-medias" 
+              onSubmit={this.handleNext.bind(this)}
+            >
               <span className="auth-intro">Sign Up or Log in using:</span>
               <button id="google" onClick={(e) => this.handleAuth('google', e)}>
                 <img src={googleImage} alt="google-brand" />
@@ -119,7 +145,13 @@ class Home extends React.Component{
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">
                 <FontAwesomeIcon icon="envelope" id="envelope" />
-                <input id="email-box" type="text-area" placeholder={`    Your email address`}/>
+                <input 
+                  id="email-box" 
+                  type="email" 
+                  value={this.state.inputValue}
+                  placeholder={`    Your email address`}
+                  onChange={this.handleChange.bind(this)}
+                />
               </div>
              <input type="submit" value="NEXT"/>
             </form>
@@ -144,7 +176,7 @@ const MapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(Object.assign(homeActions), dispatch)
+    actions: bindActionCreators({...homeActions, ...userActions}, dispatch)
   }
 }
 
