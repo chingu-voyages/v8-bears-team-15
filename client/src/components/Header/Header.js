@@ -34,7 +34,8 @@ class Header extends Component{
            <div className="right-icons">
              <FontAwesomeIcon icon="bell" className="notifications" />
              <FontAwesomeIcon icon="comment" className="notifications" />
-             <FontAwesomeIcon icon="user-circle" className="avatar" />
+             <FontAwesomeIcon icon="user-circle" id="avatar" />
+             <FontAwesomeIcon icon="chevron-down" id="downshift" />
            </div>
         </div>
       </div>
