@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
 import { Router, Switch, Route} from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPlay,
+  faEnvelope,
+  faSearch,
+  faBell, 
+  faComment,
+  faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { createBrowserHistory } from 'history';
+
 
 import './App.css';
 import Home from './components/Home/Home';
 import DashBoardHome from './components/Dashboard/Home/Home';
+
+library.add(faPlay, 
+  faEnvelope,
+  faSearch,
+  faBell,
+  faComment,
+  faUserCircle,
+  fab)
 
 export const history = createBrowserHistory()
 class App extends Component {
