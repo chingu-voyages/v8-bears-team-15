@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    // required: true,
+    required: true,
     unique: true,
   },
   firstName: {
@@ -22,10 +22,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  // password: {
-  //   type: String,
-  //   required: true,
-  // },
   accountType: {
     type: String,
     enum: ['individaul', 'company'],
@@ -39,6 +35,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'http://lorempixel.com/100/100/people/'
   },
+  skills: [
+    {
+      skill: String,
+      years: Number,
+    }
+  ]
 });
 
 const User = mongoose.model('User', UserSchema);
