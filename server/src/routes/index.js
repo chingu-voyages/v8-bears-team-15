@@ -2,8 +2,9 @@ import express from 'express';
 import passportGoogle from '../auth/google';
 import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedin';
-
-// import { signIn } from '../../controllers/AuthenticationController';
+import passportLocal from '../auth/local';
+import passportJwt from '../auth/jwt';
+import { signIn, userDashboard } from '../../controllers/AuthenticationController';
 
 const router = express.Router();
 
@@ -35,9 +36,11 @@ router.get('/login/google/callback',
 
     (err, user, info) => {
       if (err) {
+        // eslint-disable-next-line no-console
         console.log('error', err);
       }
       if (!user && info) {
+        // eslint-disable-next-line no-console
         console.log('info error', info);
       }
     }), (req, res) => {
@@ -51,7 +54,7 @@ router.get('/login/facebook', passportFacebook.authenticate('facebook'));
 
 router.get('/login/facebook/callback',
   passportFacebook.authenticate('facebook', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     successRedirect: '/home'
   }));
 
@@ -61,12 +64,26 @@ router.get('/login/linkedin', passportLinkedin.authenticate('linkedin'));
 
 router.get('/login/linkedin/callback',
   passportLinkedin.authenticate('linkedin', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     successRedirect: '/home'
   }));
 
+/**
+ * I ran into lots of issues working with the APIs
+ * causing delays,
+ * I was able to get few users created from the login
+ * So I basically resorted to using the email text area
+ * to return to the app;
+ *
+ *  The email text area will go straight to this route,
+ * authentication is only done with email since it's assumed that
+ */
+router.post('/login',
+  passportLocal.authenticate('local', { session: false }),
+  signIn);
 
-// router.get('/home', signIn);
-
+router.get('/dashboard',
+  passportJwt.authenticate('jwt', { session: false }),
+  userDashboard);
 
 module.exports = router;
