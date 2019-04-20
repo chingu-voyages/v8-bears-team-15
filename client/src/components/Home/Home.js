@@ -6,7 +6,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {Route} from 'react-router-dom';
+
 
 
 import './Home.css';
