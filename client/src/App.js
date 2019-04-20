@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import './App.css';
 import Home from './components/Home/Home';
 
-const history = createBrowserHistory()
+export const history = createBrowserHistory()
 class App extends Component {
   render() {
     return (
