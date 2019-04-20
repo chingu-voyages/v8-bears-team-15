@@ -5,7 +5,7 @@ import { google } from '../config/config';
 
 
 import User from '../models/User';
-// import initializer from './sessions';
+import initializer from './sessions';
 
 
 passport.use(
@@ -49,14 +49,16 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user._id);
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user._id);
+// });
 
-passport.deserializeUser((profileId, done) => {
-  User.findById(profileId).then((user) => {
-    done(null, user);
-  }).catch(err => done(err, null));
-});
+// passport.deserializeUser((profileId, done) => {
+//   User.findById(profileId).then((user) => {
+//     done(null, user);
+//   }).catch(err => done(err, null));
+// });
+
+initializer();
 
 module.exports = passport;
