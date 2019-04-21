@@ -9,6 +9,12 @@
 .categories{
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
 }
 
 .center-div h1 {

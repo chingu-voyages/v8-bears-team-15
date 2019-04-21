@@ -13,7 +13,9 @@ class DashBoardHome extends Component{
         <div className="center-div">
           <h1>Explore jobs</h1>
           <div className="categories">
-             <button>All jobs</button>
+             <div id="all">
+               <button>All jobs</button>
+             </div>
              <div className="select">
                <button>Sales & marketing</button>
                <button>Software Engineering</button>
