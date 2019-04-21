@@ -7,6 +7,12 @@
 .left {
   display: flex;
   flex-direction: row;
+  padding-top: 20px;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
 }
 
 .search-bar {
@@ -37,13 +43,11 @@
 .header-nav {
   /* border: 2px red solid; */
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.right {
-  display: flex;
-  flex-direction: row;
-}
+
 
 .header-nav a{
   margin-left: 3px;
@@ -55,13 +59,16 @@
 .right-icons {
   margin: 20px;
   /* border: 2px black solid; */
+  display: flex;
+  flex-direction: row;
 }
 
 
 .notifications {
   color: #BBBBBB;
   font-size: 20px;
-  margin: 10px;
+  margin-top: 18px;
+  margin-left: 10px;
 }
 
 #avatar {
@@ -72,5 +79,6 @@
 
 #downshift {
   color:#0CC28F;
-  margin-top: -10px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
