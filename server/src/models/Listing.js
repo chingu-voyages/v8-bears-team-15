@@ -21,6 +21,8 @@ const ListingSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Company',
   },
+},
+{
   timestamps: true
 });
 

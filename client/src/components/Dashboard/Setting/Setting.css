@@ -1,0 +1,52 @@
+#switch {
+  background: #c8e6f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+
+}
+
+#layout {
+  width: 1000px;
+  height: 700px;
+  background: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.toggler {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+#preference {
+  background: #0CC28F;
+  color: white;
+  padding: 15px;
+  width: 500px;
+  text-align: center;
+  border: none;
+}
+
+#profile{
+  border-top-left-radius: 10px;
+  margin-right: 2px;
+  background: white;
+  color: #1E72B5;
+  padding: 15px;
+  width: 500px;
+  text-align: center;
+  /* border: 1pt solid rgba(112, 128, 144, 0.637); */
+}
+
+#preference{
+  border-top-right-radius: 10px;
+}

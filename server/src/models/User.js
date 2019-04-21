@@ -45,6 +45,8 @@ const UserSchema = new mongoose.Schema({
       ref: 'Listing',
     }
   ],
+},
+{
   timestamps: true
 });
 

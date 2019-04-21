@@ -26,6 +26,8 @@ const CompanySchema = new mongoose.Schema({
     type: String,
     default: 'http://lorempixel.com/100/100/people/'
   },
+},
+{
   timestamps: true
 });
 
