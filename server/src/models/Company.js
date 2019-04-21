@@ -1,20 +1,13 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
-  username: {
+const CompanySchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
     unique: true,
   },
-  firstName: {
+  description: {
     type: String,
-  },
-  lastName: {
-    type: String,
-  },
-  profileId: {
-    type: String,
-    unique: true,
   },
   email: {
     type: String,
@@ -23,7 +16,7 @@ const UserSchema = new mongoose.Schema({
   accountType: {
     type: String,
     enum: ['individaul', 'company'],
-    default: 'individaul',
+    default: 'company',
   },
   verified: {
     type: Boolean,
@@ -33,14 +26,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'http://lorempixel.com/100/100/people/'
   },
-  skills: [
-    {
-      skill: String,
-      years: Number,
-    }
-  ],
   timestamps: true
 });
 
-const User = mongoose.model('User', UserSchema);
-module.exports = User;
+const Company = mongoose.model('User', CompanySchema);
+module.exports = Company;
