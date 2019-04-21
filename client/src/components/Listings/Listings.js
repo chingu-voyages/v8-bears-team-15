@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
+import ProfileCard from '../Cards/Profile/ProfileCard';
 
-// import Listing from '../../Listings/Listings';
-// import Header from '../../Header/Header';
-// import Footer from '../../Footer/Footer';
+import './Listing.css'
+
 
 class Listing extends Component{
   render() {
     return (
-      <div>
-        <h1>all listings go here</h1>
+      <div className="listing-main">
+        <ProfileCard />
       </div>
     )
   }
