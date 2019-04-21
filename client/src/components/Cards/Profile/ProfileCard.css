@@ -1,0 +1,51 @@
+.profile-card-main {
+  background: slateblue;
+  padding: 14px;
+  border-radius: 5px;
+  color: white;
+  margin: 15px;
+}
+
+.listing-main hr {
+  border: none;
+  height: 0.9pt;
+  background: white;
+}
+
+#listing-head {
+  font-size: 20px;
+  color: white;
+}
+
+small {
+  color: slateblue;
+}
+
+.upload {
+  display: flex;
+  align-items: center
+}
+
+.upload span {
+  margin-left: 5px;
+}
+
+#upload-span {
+  margin-left: -22px
+}
+
+.fa-stack {
+  margin-left: -6px;
+  position: relative;
+}
+
+.fa-stack-1x {
+  font-weight: bold;
+  color: slateblue;
+  font-size: 10px;
+  top: 8px;
+  left: -6px;
+  position: absolute;
+}
+
+
