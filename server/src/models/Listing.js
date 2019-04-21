@@ -8,6 +8,19 @@ const ListingSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  validity: {
+    type: Number,
+  },
+  category: {
+    type: String,
+  },
+  expired: {
+    type: Boolean,
+  },
+  createdBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Company',
+  },
   timestamps: true
 });
 

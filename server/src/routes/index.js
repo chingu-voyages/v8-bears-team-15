@@ -4,7 +4,8 @@ import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedin';
 import passportLocal from '../auth/local';
 import passportJwt from '../auth/jwt';
-import { signIn, userDashboard } from '../../controllers/AuthenticationController';
+import { signIn } from '../../controllers/AuthenticationController';
+import { userDashboard } from '../../controllers/User';
 
 const router = express.Router();
 

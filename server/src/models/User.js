@@ -39,6 +39,12 @@ const UserSchema = new mongoose.Schema({
       years: Number,
     }
   ],
+  wishlist: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Listing',
+    }
+  ],
   timestamps: true
 });
 
