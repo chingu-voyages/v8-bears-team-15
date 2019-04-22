@@ -6,7 +6,17 @@
   flex-direction: column;
 }
 
-#main-base{
+.cv-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-row{
+  display: flex;
+  flex-direction: row;
+}
+
+#main-center{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -24,14 +34,14 @@
   font-weight: bold;
 }
 
-#main-base h4{
+#main-center h4{
   font-size: 20px;
   opacity: 0.7;
   margin-top: 15px;
   margin-bottom: 10px;
 }
 
-#main-base h4 span{
+#main-center h4 span{
   color: #0CC28F;
 }
 
@@ -56,8 +66,25 @@
   margin-right: 0;
 }
 
-#main-base p {
+#main-center p {
   text-align: center;
   margin-top: 20px;
   line-height: 25px;
+}
+
+#main-base {
+  background: rgba(128, 128, 128, 0.164);
+  justify-content: center;
+  height: 60px;
+}
+
+#main-base div{
+  background: white;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%
+}
+
+#main-base div  span {
+  cursor: pointer;
 }
