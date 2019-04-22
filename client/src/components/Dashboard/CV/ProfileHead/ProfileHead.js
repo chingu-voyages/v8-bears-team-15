@@ -4,6 +4,7 @@ import './ProfileHead.css';
 import Uploader from '../Upload/Upload';
 import ResumeBuilder from './../Resume/ResumeBuilder';
 import About from '../About/About';
+import Skills from './../Skills/Skills';
 
 class ProfileHead extends React.Component{
 constructor(props) {
@@ -73,7 +74,7 @@ constructor(props) {
          {/* {
            uploader ? <Uploader /> : <ResumeBuilder />
          } */}
-         <About />
+         <Skills />
       </div>
     );
   }

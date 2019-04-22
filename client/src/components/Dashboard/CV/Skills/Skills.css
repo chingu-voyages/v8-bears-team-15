@@ -1,0 +1,31 @@
+#skills-form{
+  padding: 30px 100px;   
+}
+
+.skills-row{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.skills-col{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#skills-layout{
+  background: rgba(128, 128, 128, 0.055);
+  padding: 40px;
+}
+
+#left-nav{
+  justify-content: center;
+  align-items: center;
+}
+
+#left-nav span {
+  margin-left: 10px;
+  font-weight: unset;
+  opacity: 0.5;
+}
