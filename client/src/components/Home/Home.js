@@ -155,9 +155,7 @@ class Home extends React.Component{
          </div>
         </section>
         <section className="body"></section>
-        <section className="base">
-         <Footer />
-        </section>
+        <Footer />
       </div>
     )
   }
