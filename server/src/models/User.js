@@ -6,9 +6,21 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: {
+  firstName: {
     type: String,
-    required: true,
+    unique: true,
+  },
+  lastName: {
+    type: String,
+    unique: true,
+  },
+  profileId: {
+    type: String,
+    unique: true,
+  },
+  email: {
+    type: String,
+    unique: true,
   },
   accountType: {
     type: String,
@@ -23,6 +35,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'http://lorempixel.com/100/100/people/'
   },
+  skills: [
+    {
+      skill: String,
+      years: Number,
+    }
+  ]
 });
 
 const User = mongoose.model('User', UserSchema);

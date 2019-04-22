@@ -1,15 +1,17 @@
 import passport from 'passport';
+// import mongoose from 'mongoose';
+
 import User from '../models/User';
 
 
-module.exports = (user) => {
+module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.profileId);
   });
 
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-      done(err, user);
-    });
+  passport.deserializeUser((profileId, done) => {
+    User.findById(profileId).then((user) => {
+      done(null, user);
+    }).catch(err => done(err, null));
   });
 };
