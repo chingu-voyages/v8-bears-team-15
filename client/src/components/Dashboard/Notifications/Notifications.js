@@ -3,7 +3,7 @@ import Switch from '../../Slider/Switch';
 
 import './Notifications.css'
 
-class Visiblity extends React.Component{
+class Notifications extends React.Component{
   render(){
     return (
       <div id="visibility-main">
@@ -75,4 +75,4 @@ class Visiblity extends React.Component{
   }
 }
 
-export default Visiblity;
+export default Notifications;

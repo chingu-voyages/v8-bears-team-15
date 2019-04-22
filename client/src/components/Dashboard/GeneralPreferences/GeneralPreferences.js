@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './GeneralPreferences.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class GeneralPreferences extends React.Component{
   render(){
@@ -32,12 +33,16 @@ class GeneralPreferences extends React.Component{
         <section id="availability" className="pr-layout">
           <h3>Availability</h3>
           <p>How fast yu will be able to join if hired</p>
-          <div>
-            <select name="option">
-              <option value="" disabled selected></option>
-              <option value="1" disabled selected>TEXT1</option>
-              <option value="2" disabled selected>TEXT2</option>
-              <option value="3" disabled selected>TEXT3</option>
+          <div id="wrapper">
+            <div id="cover" >
+             <FontAwesomeIcon icon="chevron-down" id="select-icon" />
+            </div>
+            <select name="option" >
+              <option defaultValue="" disabled></option>
+              <option value="1" >As soon as possible</option>
+              <option value="2">1 - 2 months</option>
+              <option value="3" >3 - 5 months</option>
+              <option value="3" >6+ months</option>
             </select>
           </div>
         </section>
@@ -48,7 +53,7 @@ class GeneralPreferences extends React.Component{
             move to(e.g London, Tokyo, Germany)
           </p>
           <div>
-            <input type="text" placeholder="Enter a Location"  />
+            <input type="text" placeholder="Enter a Location" className="pr-fade" />
           </div>
         </section>
         <section  id="roles" className="pr-layout upper-layout">
@@ -58,7 +63,7 @@ class GeneralPreferences extends React.Component{
             in your job search(e.g developer, system administrator)
           </p>
           <div>
-          <input type="text" placeholder="Enter a role"  />
+          <input type="text" placeholder="Enter a role" className="pr-fade" />
           </div>
         </section>
         <section id="citizenship" className="pr-layout upper-layout">
@@ -69,6 +74,7 @@ class GeneralPreferences extends React.Component{
           <div>
             <input type="text" 
               placeholder="Enter a country of your citizenship" 
+              className="pr-fade"
             />
           </div>
         </section>
@@ -84,6 +90,7 @@ class GeneralPreferences extends React.Component{
             /> */}
             <textarea 
              placeholder="Describe what you expect to find on jobbatical" 
+             className="pr-fade"
             />
           </div>
         </section>
@@ -92,7 +99,7 @@ class GeneralPreferences extends React.Component{
           <div className="connect-box">
             <div >
               <h4>You are not connected to Facebook</h4>
-              <p>
+              <p className="pr-fade">
                 Connect to be able to log in to your
                 jobbatical account with Facebook
               </p>
@@ -106,7 +113,7 @@ class GeneralPreferences extends React.Component{
           <div  className="connect-box">
             <div>
               <h4>You are not connected to Google</h4>
-              <p>
+              <p className="pr-fade">
                 Connect to be able to log in to your
                 jobbatical account with Google
               </p>
@@ -120,7 +127,7 @@ class GeneralPreferences extends React.Component{
           <div  className="connect-box">
             <div>
               <h4>You are not connected to LinkedIn</h4>
-              <p>
+              <p className="pr-fade">
                 Connect to be able to log in to your
                 jobbatical account with LinkedIn
               </p>
@@ -138,13 +145,13 @@ class GeneralPreferences extends React.Component{
           <div id="reset">
             <div className="email">
               <h4>Email address</h4>
-              <input placeholder="youremail" type="email" />
-              <text>CHANGE</text>
+              <input placeholder="youremail" type="email" className="pr-fade" />
+              <span>CHANGE</span>
             </div>
             <div className="email">
               <h4>password</h4>
-              <input placeholder="some password" type="password" />
-              <text>CHANGE</text>
+              <input placeholder="some password" type="password"  className="pr-fade" />
+              <span>CHANGE</span>
             </div>
           </div>
         </section>

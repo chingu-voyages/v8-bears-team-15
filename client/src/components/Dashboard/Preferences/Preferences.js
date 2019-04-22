@@ -2,11 +2,33 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Preferences.css';
-import Visiblity from '../Notifications/Notifications';
+import Notifications from '../Notifications/Notifications';
 import GeneralPreferences from './../GeneralPreferences/GeneralPreferences';
 
-// class Profile extends React.Component{
-function Preferences(){
+class Preferences extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      notificationsSelected: false
+    };
+  }
+
+  handleDisplay(text){
+      if(text === 'general'){
+        console.log("gen clicked")
+        this.setState({
+        notificationsSelected: false,
+      })
+      }else{
+        console.log("notes clicked")
+        this.setState({
+          notificationsSelected: true,
+        })
+      }
+  }
+
+  render(){
+    const { notificationsSelected } = this.state;
     return (
       <div id="profile-main">
         <div id="profile-message">
@@ -17,21 +39,27 @@ function Preferences(){
         </div>
         <div id="profile-toggle">
           <div id="preference-toggle">
-            <span>
-              GENERAL PREFRENCES
+            <span
+             onClick={this.handleDisplay.bind(this, 'general')}
+            >
+                GENERAL PREFRENCES
             </span>
           </div>
           <div id="notifications-toggle">
-            <span>
-              PROFILE VISIBILITY & NOTIFICATIONS
+            <span
+             onClick={this.handleDisplay.bind(this, '')}
+            >
+                PROFILE VISIBILITY & NOTIFICATIONS
             </span>
           </div>
         </div>
-        {/* <Visiblity />  */}
-        <GeneralPreferences />
+        {
+          notificationsSelected ? <Notifications /> : <GeneralPreferences />
+        }
       </div>
     )
   }
-// }
+}    
+
 
 export default Preferences;

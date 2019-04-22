@@ -15,9 +15,17 @@ article{
   padding: 30px 100px;
 }
 
-.pr-layout,.upper-layout {
+.pr-layout {
   display: flex;
  flex-direction: column;
+}
+
+.pr-fade {
+  opacity: 0.6;
+}
+
+.pr-no-fade{
+  opacity: 1;
 }
 
 .pr-layout h3 {
@@ -73,6 +81,35 @@ p:nth-child(2) {
 
 .active-status p {
   font-size: 13px;
+}
+
+/* availability */
+
+#availability select {
+  /* border: none; */
+  border: 1px gray solid;
+  background: white;
+  padding: 7px;
+  width: 250px;
+  border-radius: unset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#cover {
+  display: flex;
+  background: white;
+  justify-content: flex-end;
+  width: 250px;
+  color: #0CC28F;
+  position: relative;
+  font-weight: bold;
+}
+
+#select-icon {
+  position: absolute;
+  top: 10px;
+  right: 7px;
 }
 
 /* description */
@@ -154,7 +191,7 @@ textarea:focus{
   position: relative;
 }
 
-.email text{
+.email span{
   font-size: 10px;
   color: #0CC28F;
   position: absolute;

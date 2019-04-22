@@ -42,6 +42,14 @@
   align-items: center;
 }
 
+#preference-toggle span {
+  cursor: pointer;
+}
+
+#notifications-toggle span {
+  cursor: pointer;
+}
+
 #profile-toggle span{
   opacity: 0.5;
 }
