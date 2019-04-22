@@ -4,7 +4,7 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import './Setting.css';
 import Preferences from '../Preferences/Preferences';
-
+import ProfileHead from '../CV/ProfileHead/ProfileHead';
 
 class Setting extends React.Component{
   render(){
@@ -25,7 +25,8 @@ class Setting extends React.Component{
                  </span>
               </div>
             </div>
-            <Preferences />
+            {/* <Preferences /> */}
+            <ProfileHead />
            </div>
          </section>
        
