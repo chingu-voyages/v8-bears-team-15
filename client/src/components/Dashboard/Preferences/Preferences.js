@@ -2,7 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Preferences.css';
-import Visiblity from '../visibility/Visibility';
+import Visiblity from '../Notifications/Notifications';
+import GeneralPreferences from './../GeneralPreferences/GeneralPreferences';
 
 // class Profile extends React.Component{
 function Preferences(){
@@ -26,7 +27,8 @@ function Preferences(){
             </span>
           </div>
         </div>
-        <Visiblity />
+        {/* <Visiblity />  */}
+        <GeneralPreferences />
       </div>
     )
   }

@@ -8,9 +8,10 @@
 
 }
 
+
 #layout {
   width: 1000px;
-  height: 700px;
+  height: auto;
   background: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

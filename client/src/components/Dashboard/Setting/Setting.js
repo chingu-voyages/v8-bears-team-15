@@ -4,6 +4,8 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import './Setting.css';
 import Preferences from '../Preferences/Preferences';
+// import Visiblity from '../Notifications/Notifications';
+// import GeneralPreferences from '../GeneralPreferences/GeneralPreferences';
 
 class Setting extends React.Component{
   render(){
@@ -27,7 +29,7 @@ class Setting extends React.Component{
             <Preferences />
            </div>
          </section>
-            
+       
 
          <Footer />
       </div>

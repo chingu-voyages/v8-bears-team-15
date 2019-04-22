@@ -1,7 +1,7 @@
 import React from 'react';
 import Switch from '../../Slider/Switch';
 
-import './Visibility.css'
+import './Notifications.css'
 
 class Visiblity extends React.Component{
   render(){
