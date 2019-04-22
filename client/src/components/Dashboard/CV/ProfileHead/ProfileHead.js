@@ -3,6 +3,7 @@ import React from 'react';
 import './ProfileHead.css';
 import Uploader from '../Upload/Upload';
 import ResumeBuilder from './../Resume/ResumeBuilder';
+import About from '../About/About';
 
 class ProfileHead extends React.Component{
 constructor(props) {
@@ -69,9 +70,10 @@ constructor(props) {
             </span>
           </div>
          </div>
-         {
+         {/* {
            uploader ? <Uploader /> : <ResumeBuilder />
-         }
+         } */}
+         <About />
       </div>
     );
   }
