@@ -1,17 +1,18 @@
-#experience-layout{
-  padding: 40px 100px;
-}
+/* .experience-section{
+  width: 500px;
+  background: #0CC28F;
+} */
 
 .position{
   display: flex;
   flex-direction: row;
-  width: 100%;
-  background: #0CC28F;
   color: white;
   height: 50px;
   align-items: center;
   padding: 10px;
-  transition: background color 2s;
+  background: #0CC28F;
+  width:100%;
+  transition: background 2s;
 }
 
 .position:hover{
@@ -31,8 +32,9 @@
   font-weight: 700;
   transition: color 2ms;
   flex-basis: 80%;
+  cursor: pointer;
 }
 
-.position p:hover{
+.position:hover{
   color: #0CC28F;
 }

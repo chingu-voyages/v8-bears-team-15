@@ -1,31 +1,26 @@
 import React from 'react';
 
-import './ProfileHead.css';
+
 import Uploader from '../Upload/Upload';
-import ResumeBuilder from './../Resume/ResumeBuilder';
-import About from '../About/About';
-import Skills from './../Skills/Skills';
-import EditLanguage from './../Language/Language';
-import EditLinks from './../Links/Links';
-import AddExperience from '../AddExperience/AddExperience';
-import Experience from './../Experience/Experience';
-import Education from './../Education/Education';
-import AddEducation from './../AddEducation/AddEducation';
+import Profile from './../Profile/Profile';
+import './ProfileHead.css';
+
+
+
 
 class ProfileHead extends React.Component{
 constructor(props) {
     super(props);
     this.state = {
-      uploader: true
+      uploader: false
     };
   }
 
   handleResume(text){
       if(text === 'upload'){
-        // change to false
         this.setState({
           uploader: true,
-      })
+      })}else{
         this.setState({
           uploader: false,
         })
@@ -77,10 +72,9 @@ constructor(props) {
             </span>
           </div>
          </div>
-         {/* {
-           uploader ? <Uploader /> : <ResumeBuilder />
-         } */}
-         <AddEducation />
+         {
+           uploader ? <Uploader /> : <Profile />
+         }
       </div>
     );
   }

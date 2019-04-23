@@ -7,7 +7,7 @@ import './Experience.css';
 class Experience extends React.Component{
   render(){
     return (
-      <div id="experience-layout">
+      <div className="experience-layout">
         <div className="position">
           <FontAwesomeIcon icon="plus-circle" id="plus" />
           <p>Add a position</p>

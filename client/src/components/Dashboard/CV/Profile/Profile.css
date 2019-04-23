@@ -1,0 +1,79 @@
+/* general styles */
+#profile-container{
+  padding: 40px 100px;
+  color: #282D31; 
+}
+
+.info-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.col-marg{
+  margin-top: 50px;
+  /* margin-bottom: 50px; */
+}
+
+.col-2{
+  padding: 20px;
+}
+
+.hrs{
+  background: rgba(94, 94, 94, 0.363);
+  border: none;
+  height: 1px;
+}
+
+.edit{
+  color: #0CC28F;
+  cursor: pointer;
+}
+
+
+/* section specific styles */
+.info-col span{
+  font-weight: unset;
+  opacity: 0.6;
+}
+
+.col-1{
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+
+.edit{
+  align-items: center;
+}
+
+/* section 2 settings */
+.col-2 #info{
+  justify-content: space-between;
+}
+
+#span-2{
+  align-self: center;
+  margin-left: 10px;
+}
+
+/* experience section settings */
+.col-5{
+  background: rgba(40, 45, 49, 0.027);
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.123);
+  margin-bottom: 0;
+}
+
+.col-4{
+  margin-bottom: 0px;
+}
+
+.edit span {
+  margin-right: 5px;
+  font-weight: bolder;
+}

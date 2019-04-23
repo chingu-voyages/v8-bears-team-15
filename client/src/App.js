@@ -13,6 +13,7 @@ import { faPlay,
   faCircle,
   faShieldAlt,
   faChevronDown, 
+  faHighlighter,
   faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
@@ -36,6 +37,7 @@ library.add(faPlay,
   faCircle,
   faShieldAlt,
   faTrash,
+  faHighlighter,
   faPlusCircle,
   fab)
 
