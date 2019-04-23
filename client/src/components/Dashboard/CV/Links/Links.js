@@ -24,7 +24,7 @@ class EditLinks extends React.Component{
             professional and social media profiles.
           </p>
         {/* ends here */}
-          <section className="links-col">
+          <section className="links-col social-section">
             <div className="links-row profile">
               <label className="label">LinkedIn profile</label>
               <input type="text" placeholder="https://www.linkedin.com/in/example" />

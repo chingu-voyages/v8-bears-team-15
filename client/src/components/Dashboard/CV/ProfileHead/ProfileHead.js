@@ -7,6 +7,10 @@ import About from '../About/About';
 import Skills from './../Skills/Skills';
 import EditLanguage from './../Language/Language';
 import EditLinks from './../Links/Links';
+import AddExperience from '../AddExperience/AddExperience';
+import Experience from './../Experience/Experience';
+import Education from './../Education/Education';
+import AddEducation from './../AddEducation/AddEducation';
 
 class ProfileHead extends React.Component{
 constructor(props) {
@@ -76,7 +80,7 @@ constructor(props) {
          {/* {
            uploader ? <Uploader /> : <ResumeBuilder />
          } */}
-         <EditLinks />
+         <AddEducation />
       </div>
     );
   }
