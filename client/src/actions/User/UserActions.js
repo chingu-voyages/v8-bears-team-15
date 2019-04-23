@@ -19,7 +19,7 @@ export function signIn(email) {
           type: actionTypes.SIGN_IN,
         })
         localStorage.setItem('token', response.data.token)
-        history.push('/dashboard')
+        history.push('/jobs')
       }
     })
     .catch((err) => {

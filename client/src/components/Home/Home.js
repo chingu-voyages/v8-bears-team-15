@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlay,faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -24,7 +22,6 @@ import Footer from '../Footer/Footer';
 import AuthWindow from '../Pop/Pop';
 //import { withRouter } from 'react-router-dom';
 
-library.add(faPlay, faEnvelope, fab)
 
 
 
@@ -158,9 +155,7 @@ class Home extends React.Component{
          </div>
         </section>
         <section className="body"></section>
-        <section className="base">
-         <Footer />
-        </section>
+        <Footer />
       </div>
     )
   }

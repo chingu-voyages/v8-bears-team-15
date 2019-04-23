@@ -15,6 +15,7 @@ body{
   flex-direction: column;
   padding: 50px;
   height: 100vh;
+
 }
 
 /* intro video */
@@ -30,16 +31,7 @@ body{
   z-index: -100;
 }
 
-#hero-video {
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0; 
-  width: auto;
-  height: 100%;;
-  z-index: -100;
-  overflow: hidden; */
-  
+#hero-video { 
   position: absolute;
   min-width: 100%;
   min-height: 100%;
@@ -107,6 +99,7 @@ nav li,a:hover {
 
 .base {
   flex-basis: 60vh;
+  border: 2px solid red;
 }
 
 .hero {
@@ -140,6 +133,7 @@ nav li,a:hover {
   text-align: left;
   font-weight: bold;
   color: white;
+  opacity: unset;
   font-size: 20px;
 }
 
@@ -148,6 +142,7 @@ nav li,a:hover {
   color: white;
   font-size: 20px;
   display: flex;
+  opacity: unset;
   align-items: center;
 }
 
