@@ -5,6 +5,8 @@ import Uploader from '../Upload/Upload';
 import ResumeBuilder from './../Resume/ResumeBuilder';
 import About from '../About/About';
 import Skills from './../Skills/Skills';
+import EditLanguage from './../Language/Language';
+import EditLinks from './../Links/Links';
 
 class ProfileHead extends React.Component{
 constructor(props) {
@@ -74,7 +76,7 @@ constructor(props) {
          {/* {
            uploader ? <Uploader /> : <ResumeBuilder />
          } */}
-         <Skills />
+         <EditLinks />
       </div>
     );
   }

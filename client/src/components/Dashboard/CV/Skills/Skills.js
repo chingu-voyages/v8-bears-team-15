@@ -20,7 +20,15 @@ class Skills extends React.Component{
           </div>
           <div className="skills-col">
             <label>add new skill</label>
-            <input type="text" />
+            <input type="text" placeholder="Type in a skill and hit Enter" />
+          </div>
+          <div className="skills-row">
+            <div>
+              <button id="active">SAVE</button>
+            </div>
+            <div>
+              <button>CANCEL</button>
+            </div>
           </div>
         </div>
       </form>

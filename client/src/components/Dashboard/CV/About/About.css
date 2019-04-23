@@ -22,7 +22,7 @@
 
 .about-col input,.about-row input{
   border: none;
-  border: 1px gray solid;
+  border: 1px rgba(128, 128, 128, 0.459) solid;
   height: 30px;
 }
 
@@ -52,6 +52,13 @@
 
 #intro-box{
   width: auto;
+  border: 1px rgba(128, 128, 128, 0.459) solid;
+  transition: border 1ms;
+}
+
+#intro-box:hover{
+  /* border-color: #1E72B5; */
+  border: 1px rgba(30, 113, 181, 0.562) solid;
 }
 
 .about-col span{
@@ -65,6 +72,7 @@
   padding: 10px;
   border: none;
   background: rgba(192, 192, 192, 0.116);
+  border-color: rgba(112, 128, 144, 0.253);
   margin-right: 10px;
   width: 100px;
   color: #678BA7;

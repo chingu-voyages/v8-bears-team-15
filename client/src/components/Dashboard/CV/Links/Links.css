@@ -1,21 +1,22 @@
-#skills-form{
+#links-form{
   padding: 30px 100px;  
   color: #282D31; 
 }
 
-.skills-row{
+.links-row{
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
+  align-items: center;
 }
 
-.skills-col{
+.links-col{
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-#skills-layout{
+#links-layout{
   background: rgba(128, 128, 128, 0.055);
   padding: 40px;
 }
@@ -31,7 +32,7 @@
   opacity: 0.5;
 }
 
-.skills-col input,.skills-row input{
+.links-col input,.links-row input{
   border: none;
   border: 1px rgba(128, 128, 128, 0.459) solid;
   border-radius: 3px;
@@ -39,12 +40,17 @@
   padding: 10px;
 }
 
-.skills-col input:focus{
+.links-row input{
+  width: 450px;
+  margin-left: 20px;
+}
+
+.links-col input:focus{
    border: 1px rgba(30, 113, 181, 0.411)  solid;
    box-shadow: 0px 0px 7px rgba(30, 113, 181, 0.342);
 }
 
-.skills-col>label,.skills-row>label{
+.links-col>label,.links-row>label{
   margin-bottom: 7px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
@@ -54,8 +60,12 @@
   margin-bottom: 0px;
 }
 
+#links-message{
+  margin-top: 5px;
+}
 
-.skills-row button{
+
+.links-row button{
   padding: 10px;
   border: none;
   background: rgba(192, 192, 192, 0.116);
@@ -66,7 +76,7 @@
   font-weight: bold;
 }
 
-.skills-row button:hover{
+.links-row button:hover{
   background: rgba(192, 192, 192, 0.315);
 }
 
@@ -74,3 +84,16 @@
   background: #0CC28F;
   color: white;
 }
+
+.label{
+  font-weight: unset;
+  font-size: 13px;
+}
+
+.profile{
+  justify-content: space-between;
+}
+
+/* .profile button {
+  width: 140px;
+} */
