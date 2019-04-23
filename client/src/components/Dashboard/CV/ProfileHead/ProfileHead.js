@@ -12,7 +12,9 @@ class ProfileHead extends React.Component{
 constructor(props) {
     super(props);
     this.state = {
-      uploader: false
+      uploader: false,
+      profileActive: true,
+      uploadActive: false,
     };
   }
 
@@ -20,14 +22,18 @@ constructor(props) {
       if(text === 'upload'){
         this.setState({
           uploader: true,
+          uploadActive: true,
+          profileActive: false,
       })}else{
         this.setState({
           uploader: false,
+          uploadActive: false,
+          profileActive: true,
         })
       }
   }
   render(){
-    const { uploader } = this.state;
+    const { uploader, profileActive, uploadActive } = this.state;
     return (
       <div className="cv-main">
         <div id="main-layout">
@@ -57,14 +63,19 @@ constructor(props) {
          </section>
         </div>
         <div id="main-base" className="cv-row">
-         <div className="cv-col">
+         <div 
+           className={profileActive ? `cv-col` : `cv-col cv-col-blank` }
+         >
             <span
              onClick={this.handleResume.bind(this, '')}
             >
                 MY PROFILE
             </span>
           </div>
-          <div className="cv-col">
+          <div 
+          // className="cv-col"
+            className={uploadActive ? `cv-col` : `cv-col cv-col-blank` }
+          >
             <span
              onClick={this.handleResume.bind(this, 'upload')}
             >

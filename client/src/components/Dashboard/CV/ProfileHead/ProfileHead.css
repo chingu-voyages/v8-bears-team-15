@@ -78,8 +78,15 @@
   height: 60px;
 }
 
-#main-base div{
+#main-base .cv-col{
   background: white;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%
+}
+
+#main-base .cv-col-blank{
+  background: none;
   justify-content: center;
   align-items: center;
   flex-basis: 40%

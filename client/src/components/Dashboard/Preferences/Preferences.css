@@ -36,10 +36,14 @@
 #notifications-toggle{
   display: flex;
   width: 400px;
-  background: white;
+  /* background: white; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.col-back{
+  background: white;
 }
 
 #preference-toggle span {
