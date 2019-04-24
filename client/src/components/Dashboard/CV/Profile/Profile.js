@@ -1,6 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import About from '../About/About';
+import Skills from '../Skills/Skills';
+import AddLanguage from '../Language/Language';
+import AddLinks from '../Links/Links';
 
 import './Profile.css';
 import '../Experience/Experience.css';
@@ -8,65 +12,181 @@ import '../Experience/Experience.css';
 
 
 class Profile extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      renderAbout: false,
+      renderSkills: false,
+      renderLanguage: false,
+      renderLinks: false,
+    };
+  }
+
+  handleEdit(text){
+    switch (text) {
+      case 'about':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderAbout: false,
+          })
+        }else{
+          this.setState({
+            renderAbout: true,
+          })
+        }
+        break;
+      case 'skills':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderSkills: false,
+          })
+        }else{
+          this.setState({
+            renderSkills: true,
+          })
+        }
+        break;
+      case 'language':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderLanguage: false,
+          })
+        }else{
+          this.setState({
+            renderLanguage: true,
+          })
+        }
+        break;
+      case 'links':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderLinks: false,
+          })
+        }else{
+          this.setState({
+            renderLinks: true,
+          })
+        }
+        break;
+    
+      default:
+        break;
+    }
+  }
   render(){
+    const  { 
+      renderAbout, 
+      renderSkills,
+      renderLanguage,
+      renderLinks,
+    } = this.state;
     return (
        <div id="wrapper">
         <div id="profile-container">
-          {/* name section */}
-          <section className="info-row col-1 col-marg">
-            <div id="info" className="info-col">
-              <h2>Profile Name</h2>
+          {/* about section */}
+          {
+            !renderAbout ? 
+            (
+            <div>
+                <section className="info-row col-1 col-marg">
+                  <div id="info" className="info-col">
+                    <h2>Profile Name</h2>
+                 </div>
+                 <div 
+                    className="edit info-row"
+                    onClick={this.handleEdit.bind(this, 'about')}
+                 >
+                 <span>EDIT</span>
+                 <FontAwesomeIcon icon="highlighter" />
+                </div>
+              </section>
+              <section className="info-col">
+                <span>Introduction Message</span>
+              </section>
             </div>
-            <div className="edit info-row">
-              <span>EDIT</span>
-              <FontAwesomeIcon icon="highlighter" />
-            </div>
-          </section>
-          <section className="info-col">
-            <span>Introduction Message</span>
-          </section>
+            ) : 
+            
+            <About
+              handleClose={this.handleEdit.bind(this, 'about', 'closeProp')}
+            />
+          }
           <hr className="col-marg hrs" />
           {/* skills section     */}
-          <section className="info-col col-2 col-marg">
-            <div id="info" className="info-row">
-              <div  className="info-row">
-                <h2>Skills</h2>
-                <span id="span-2">My most important professional skills</span>
-              </div>
-              <div className="edit info-row">
-              <span>EDIT</span>
-              <FontAwesomeIcon icon="highlighter" />
-            </div>
-            </div>
-          </section>
+          {
+            !renderSkills ? 
+            (
+              <section className="info-col col-2 col-marg">
+                <div id="info" className="info-row">
+                   <div  className="info-row">
+                     <h2>Skills</h2>
+                     <span id="span-2">My most important professional skills</span>
+                    </div>
+
+                    <div 
+                      className="edit info-row"
+                      onClick={this.handleEdit.bind(this, 'skills')}
+                    >
+                      <span>EDIT</span>
+                     <FontAwesomeIcon icon="highlighter" />
+                    </div>
+                 </div>
+              </section>
+            ) : 
+            
+            <Skills 
+              handleClose={this.handleEdit.bind(this, 'skills', 'closeProp')}
+            />
+          }
           <hr className="col-marg hrs" />
           {/* language section */}
-          <section className="info-col col-2 col-marg">
-            <div id="info" className="info-row">
-              <div  className="info-row">
-                <h2>Language skills</h2>
-                <span id="span-2">My languages & proficiency levels</span>
+          {
+            !renderLanguage ? 
+            (
+              <section className="info-col col-2 col-marg">
+              <div id="info" className="info-row">
+                <div  className="info-row">
+                  <h2>Language skills</h2>
+                  <span id="span-2">My languages & proficiency levels</span>
+                </div>
+                <div 
+                  className="edit info-row"
+                  onClick={this.handleEdit.bind(this, 'language')}
+                >
+                <span>EDIT</span>
+                <FontAwesomeIcon icon="highlighter" />
               </div>
-              <div className="edit info-row">
-              <span>EDIT</span>
-              <FontAwesomeIcon icon="highlighter" />
-            </div>
-            </div>
-          </section>
+              </div>
+            </section>
+            ) :
+            <AddLanguage 
+             handleClose={this.handleEdit.bind(this, 'language', 'closeProp')}
+            />
+          }
           <hr className="col-marg hrs" />
           {/* links section */}
-          <section className="info-col col-2 col-marg col-4">
-            <div id="info" className="info-row">
-              <div  className="info-row">
-                <h2>Links</h2>
-                <span id="span-2">My social media & homepage links</span>
+          {
+            !renderLinks ? 
+            (
+            <section className="info-col col-2 col-marg col-4">
+              <div id="info" className="info-row">
+                <div  className="info-row">
+                  <h2>Links</h2>
+                  <span id="span-2">My social media & homepage links</span>
+                </div>
+                <div 
+                  className="edit info-row"
+                  onClick={this.handleEdit.bind(this, 'links')}
+                >
+                  <span>EDIT</span>
+                  <FontAwesomeIcon icon="highlighter" />
+                </div>
               </div>
-              <div className="edit info-row">
-              <span>EDIT</span>
-              <FontAwesomeIcon icon="highlighter" />
-            </div>
-            </div>
-          </section>
+            </section>
+            ) :
+            <AddLinks 
+              handleClose={this.handleEdit.bind(this, 'links', 'closeProp')}
+            />
+          }
           <hr className="col-marg hrs" />
           {/* experience section */}
           <section className="info-col col-2 col-marg col-5">

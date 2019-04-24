@@ -15,7 +15,10 @@ class EditLinks extends React.Component{
               <h1>Links</h1>
               <span>My social media & homepage links</span>
             </div>
-            <div id="awesome">
+            <div 
+              id="awesome"
+              onClick={this.props.handleClose}
+            >
               <FontAwesomeIcon  icon="times-circle"/>
             </div>
           </div>
