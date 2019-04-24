@@ -14,7 +14,10 @@ class Skills extends React.Component{
               <h1>Skills</h1>
               <span>My most important professional skills</span>
             </div>
-            <div id="awesome">
+            <div 
+              id="awesome"
+              onClick={this.props.handleClose}
+            >
               <FontAwesomeIcon  icon="times-circle"/>
             </div>
           </div>

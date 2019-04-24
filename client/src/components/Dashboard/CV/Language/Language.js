@@ -14,7 +14,10 @@ class EditLanguage extends React.Component{
               <h1>Language skills</h1>
               <span>My languages & proficiency levels</span>
             </div>
-            <div id="awesome">
+            <div 
+              id="awesome"
+              onClick={this.props.handleClose}
+            >
               <FontAwesomeIcon  icon="times-circle"/>
             </div>
           </div>

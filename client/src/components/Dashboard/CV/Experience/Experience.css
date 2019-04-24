@@ -3,7 +3,7 @@
   background: #0CC28F;
 } */
 
-.position{
+/* .position{
   display: flex;
   flex-direction: row;
   color: white;
@@ -12,7 +12,7 @@
   padding: 10px;
   background: #0CC28F;
   width:100%;
-  transition: background 2s;
+  transition: background 2ms;
 }
 
 .position:hover{
@@ -37,4 +37,4 @@
 
 .position:hover{
   color: #0CC28F;
-}
+} */

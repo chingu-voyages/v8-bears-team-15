@@ -11,7 +11,10 @@ class About extends React.Component{
         <div id="about-layout">
           <div id="about-head" className="about-row">
             <h1>About me</h1>
-            <div id="awesome">
+            <div 
+              id="awesome"
+              onClick={this.props.handleClose}
+            >
               <FontAwesomeIcon  icon="times-circle"/>
             </div>
           </div>

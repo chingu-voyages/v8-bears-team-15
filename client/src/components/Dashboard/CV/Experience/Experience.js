@@ -1,17 +1,27 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Experience.css';
+import { AddExperience } from '../AddExperience/AddExperience';
 
 
 class Experience extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      closeComponent: false,
+    };
+  }
+
+  renderThisComponet(){
+   
+  }
+
   render(){
     return (
-      <div className="experience-layout">
-        <div className="position">
-          <FontAwesomeIcon icon="plus-circle" id="plus" />
-          <p>Add a position</p>
-        </div>
+      <div>
+        <AddExperience handleClose={this.renderThisComponet.bind(this)} />
+        <AddExperience />
       </div>
     )
   }
