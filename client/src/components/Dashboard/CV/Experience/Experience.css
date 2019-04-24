@@ -1,0 +1,40 @@
+/* .experience-section{
+  width: 500px;
+  background: #0CC28F;
+} */
+
+.position{
+  display: flex;
+  flex-direction: row;
+  color: white;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+  background: #0CC28F;
+  width:100%;
+  transition: background 2s;
+}
+
+.position:hover{
+  background: white;
+  color: #0CC28F;
+}
+
+.position #plus,p{
+  margin: 7px;
+}
+
+
+.position p {
+  align-self: center;
+  color: white;
+  opacity: unset;
+  font-weight: 700;
+  transition: color 2ms;
+  flex-basis: 80%;
+  cursor: pointer;
+}
+
+.position:hover{
+  color: #0CC28F;
+}

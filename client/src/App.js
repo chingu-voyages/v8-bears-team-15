@@ -8,9 +8,13 @@ import { faPlay,
   faComment,
   faUserCircle,
   faCheckCircle,
+  faTimesCircle,
+  faTrash,
   faCircle,
   faShieldAlt,
-  faChevronDown } from '@fortawesome/free-solid-svg-icons';
+  faChevronDown, 
+  faHighlighter,
+  faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { createBrowserHistory } from 'history';
@@ -29,8 +33,12 @@ library.add(faPlay,
   faUserCircle,
   faChevronDown,
   faCheckCircle,
+  faTimesCircle,
   faCircle,
   faShieldAlt,
+  faTrash,
+  faHighlighter,
+  faPlusCircle,
   fab)
 
 export const history = createBrowserHistory()
