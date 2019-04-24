@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import About from '../About/About';
 import Skills from '../Skills/Skills';
 import AddLanguage from '../Language/Language';
+import Experience from '../Experience/Experience';
+import * as experienceComps from '../AddExperience/AddExperience';
 import AddLinks from '../Links/Links';
 
 import './Profile.css';
@@ -19,6 +21,9 @@ class Profile extends React.Component{
       renderSkills: false,
       renderLanguage: false,
       renderLinks: false,
+      renderExperience: false,
+      experienceArray: [],
+      stackExperience: false,
     };
   }
 
@@ -68,18 +73,44 @@ class Profile extends React.Component{
           })
         }
         break;
+      case 'experience':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderExperience: false,
+            experienceArray: []
+          })
+        }else{
+          this.setState({
+            renderExperience: true,
+            stackExperience: true,
+          })
+        }
+        break;
     
       default:
         break;
     }
   }
+  
+  closeThis() {
+    this.setState({
+      experienceArray: [],
+      stackExperience: false,
+    })
+  }
+
   render(){
     const  { 
       renderAbout, 
       renderSkills,
       renderLanguage,
       renderLinks,
+      renderExperience,
+      experienceArray,
+      stackExperience,
     } = this.state;
+
+    // let freeArray = [];
     return (
        <div id="wrapper">
         <div id="profile-container">
@@ -189,20 +220,62 @@ class Profile extends React.Component{
           }
           <hr className="col-marg hrs" />
           {/* experience section */}
-          <section className="info-col col-2 col-marg col-5">
-            <div id="info" className="info-row experience-section">
-              <div  className="info-row">
-                <h2>Work experience</h2>
-                <span id="span-2">Previous & current positions</span>
-              </div>
-            </div>
-          </section>
-          <section>
-              <div className="position">
-              <FontAwesomeIcon icon="plus-circle" id="plus" />
-              <p>Add a position</p>
-            </div>
-          </section>
+          {
+            !renderExperience ?
+             (
+               <div>
+                  <section className="info-col col-2 col-marg col-5">
+                   <div id="info" className="info-row experience-section">
+                     <div  className="info-row">
+                       <h2>Work experience</h2>
+                       <span id="span-2">Previous & current positions</span>
+                     </div>
+                    </div>
+                  </section>
+                  <section>
+                    <div 
+                      className="position"
+                      onClick={this.handleEdit.bind(this, 'experience')}
+                    >
+                      <FontAwesomeIcon icon="plus-circle" id="plus" />
+                      <p>Add a position</p>
+                    </div>
+                 </section>
+               </div>
+             ) :
+             
+             <div>
+             <section className="info-col col-2 col-marg col-5">
+              <div id="info" className="info-row experience-section">
+                <div  className="info-row">
+                  <h2>Work experience</h2>
+                  <span id="span-2">Previous & current positions</span>
+                </div>
+                <div 
+                  id="awesome"
+                  onClick={this.handleEdit.bind(this, 'experience',  'closeProp')}
+                >
+                  <FontAwesomeIcon  icon="times-circle"/>
+               </div>
+               </div>
+             </section>
+             <section>
+               <div className="position">
+                 <FontAwesomeIcon icon="plus-circle" id="plus" />
+                 <p>Add a position</p>
+               </div>
+            </section>
+            {
+              (experienceArray.length === 0 && stackExperience) && 
+              experienceArray.push(
+              < experienceComps.AddExperience 
+                key={experienceArray.length++} 
+                closeThis={this.closeThis.bind(this)}
+              />
+              ) && experienceArray  
+            }
+          </div>
+          }
           {/* education section */}
           <section className="info-col col-2 col-marg col-5">
             <div id="info" className="info-row experience-section">

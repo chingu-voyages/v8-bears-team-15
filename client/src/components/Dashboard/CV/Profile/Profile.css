@@ -77,3 +77,42 @@
   margin-right: 5px;
   font-weight: bolder;
 }
+
+.position{
+  display: flex;
+  flex-direction: row;
+  color: white;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+  background: #0CC28F;
+  width:100%;
+  transition: background 2ms;
+}
+
+.position:hover{
+  background: white;
+  color: #0CC28F;
+  border: 1px solid rgba(0, 0, 0, 0.123);
+}
+
+.position #plus,p{
+  margin: 7px;
+}
+
+
+.position p {
+  align-self: center;
+  color: white;
+  opacity: unset;
+  font-weight: 700;
+  transition: color 1ms;
+  flex-basis: 80%;
+  cursor: pointer;
+  padding-top: 15px; 
+  padding-bottom: 15px;
+}
+
+.position p:hover{
+  color: #0CC28F;
+}
