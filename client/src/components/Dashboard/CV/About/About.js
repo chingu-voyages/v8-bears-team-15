@@ -36,9 +36,9 @@ class About extends React.Component{
             <label>Introduction <span>Just a few words about me</span></label>
             <textarea id="intro-box" />
           </div>
-          <div>
+          {/* <div>
             <label>Professional experience since</label>
-          </div>
+          </div> */}
           <div className="about-row">
             <div>
               <button>SAVE</button>
