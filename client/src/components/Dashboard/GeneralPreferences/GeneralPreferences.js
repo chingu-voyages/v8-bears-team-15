@@ -1,7 +1,11 @@
 import React from 'react';
+// import { formValueSelector } from 'redux-form';
+import Select from 'react-select';
 
 import './GeneralPreferences.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 
 class GeneralPreferences extends React.Component{
   render(){
