@@ -30,6 +30,8 @@ class Setting extends React.Component{
         })
       }
   }
+
+
   render(){
     const { preference, changeProfileClass, changePrefClass } = this.state;
     return (
@@ -56,7 +58,7 @@ class Setting extends React.Component{
               </div>
             </div>
             {
-              preference ? <Preferences /> : <ProfileHead />
+              preference ? <Preferences /> : <ProfileHead  />
             }
            </div>
          </section>

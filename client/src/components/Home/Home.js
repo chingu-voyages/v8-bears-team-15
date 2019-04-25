@@ -145,7 +145,7 @@ class Home extends React.Component{
                 <input 
                   id="email-box" 
                   type="email" 
-                  value={this.state.inputValue}
+                  defaultValue={this.state.inputValue}
                   placeholder={`    Your email address`}
                   onChange={this.handleChange.bind(this)}
                 />

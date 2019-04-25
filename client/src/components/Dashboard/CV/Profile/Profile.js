@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import About from '../About/About';
 import Skills from '../Skills/Skills';
 import AddLanguage from '../Language/Language';
-import Experience from '../Experience/Experience';
-import * as experienceComps from '../AddExperience/AddExperience';
+// import Experience from '../Experience/Experience';
+import AddExperience from '../AddExperience/AddExperience';
+import AddEducation from './../AddEducation/AddEducation';
 import AddLinks from '../Links/Links';
 
 import './Profile.css';
@@ -24,6 +25,9 @@ class Profile extends React.Component{
       renderExperience: false,
       experienceArray: [],
       stackExperience: false,
+      renderEducation: false,
+      educationArray: [],
+      stackEducation: false,
     };
   }
 
@@ -86,18 +90,39 @@ class Profile extends React.Component{
           })
         }
         break;
+      case 'education':
+        if(arguments[1] === 'closeProp') {
+          this.setState({
+            renderEducation: false,
+            educationArray: []
+          })
+        }else{
+          this.setState({
+            renderEducation: true,
+            stackEducation: true,
+          })
+        }
+        break;
     
       default:
         break;
     }
   }
   
-  closeThis() {
-    this.setState({
-      experienceArray: [],
-      stackExperience: false,
-    })
+  closeThis(text) {
+    if(text === 'experience'){
+      this.setState({
+        experienceArray: [],
+        stackExperience: false,
+      })
+    }else{
+      this.setState({
+        educationArray: [],
+        stackEducation: false,
+      })
+    }  
   }
+
 
   render(){
     const  { 
@@ -108,6 +133,9 @@ class Profile extends React.Component{
       renderExperience,
       experienceArray,
       stackExperience,
+      renderEducation,
+      stackEducation,
+      educationArray,
     } = this.state;
 
     // let freeArray = [];
@@ -152,6 +180,7 @@ class Profile extends React.Component{
                      <h2>Skills</h2>
                      <span id="span-2">My most important professional skills</span>
                     </div>
+
 
                     <div 
                       className="edit info-row"
@@ -268,29 +297,71 @@ class Profile extends React.Component{
             {
               (experienceArray.length === 0 && stackExperience) && 
               experienceArray.push(
-              < experienceComps.AddExperience 
+              < AddExperience 
                 key={experienceArray.length++} 
-                closeThis={this.closeThis.bind(this)}
+                closeThis={this.closeThis.bind(this, '')}
               />
               ) && experienceArray  
             }
           </div>
           }
           {/* education section */}
-          <section className="info-col col-2 col-marg col-5">
-            <div id="info" className="info-row experience-section">
-              <div  className="info-row">
-                <h2>Education</h2>
-                <span id="span-2">Previous & current positions</span>
-              </div>
-            </div>
-          </section>
-          <section>
-            <div className="position">
-              <FontAwesomeIcon icon="plus-circle" id="plus" />
-              <p>Add Education</p>
-            </div>
-          </section>
+          {
+            !renderEducation ?
+             (
+               <div>
+                  <section className="info-col col-2 col-marg col-5">
+                   <div id="info" className="info-row experience-section">
+                     <div  className="info-row">
+                       <h2>Education</h2>
+                       <span id="span-2">Previous & current positions</span>
+                     </div>
+                    </div>
+                  </section>
+                  <section>
+                    <div 
+                      className="position"
+                      onClick={this.handleEdit.bind(this, 'education')}
+                    >
+                      <FontAwesomeIcon icon="plus-circle" id="plus" />
+                      <p>Add a position</p>
+                    </div>
+                 </section>
+               </div>
+             ) :
+             
+             <div>
+             <section className="info-col col-2 col-marg col-5">
+              <div id="info" className="info-row experience-section">
+                <div  className="info-row">
+                  <h2>Education</h2>
+                  <span id="span-2">Previous & current positions</span>
+                </div>
+                <div 
+                  id="awesome"
+                  onClick={this.handleEdit.bind(this, 'education',  'closeProp')}
+                >
+                  <FontAwesomeIcon  icon="times-circle"/>
+               </div>
+               </div>
+             </section>
+             <section>
+               <div className="position">
+                 <FontAwesomeIcon icon="plus-circle" id="plus" />
+                 <p>Add Education</p>
+               </div>
+            </section>
+            {
+              (educationArray.length === 0 && stackEducation) && 
+              educationArray.push(
+              < AddEducation 
+                key={educationArray.length++} 
+                closeThis={this.closeThis.bind(this, 'education')}
+              />
+              ) && educationArray  
+            }
+          </div>
+          }
         </div>
        </div>
     )
