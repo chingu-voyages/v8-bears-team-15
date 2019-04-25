@@ -81,7 +81,7 @@ class AboutForm extends React.Component{
 // export default About;
 
 const mapStatetToProps = (state) => {
-  console.log("state at about", state.form.aboutForm)
+ // console.log("state at about", state.form.aboutForm)
   return {
     aboutEntries: state.form.aboutForm,
   };
