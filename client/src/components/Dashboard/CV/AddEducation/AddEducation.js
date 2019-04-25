@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './AddEducation.css';
@@ -100,14 +100,14 @@ class AddEducationForm extends React.Component{
   }
 }
 
-const mapStatetToProps = (state) => {
-  return {
-    educationsEntries: state.form.educationForm,
-  };
-};
+// const mapStatetToProps = (state) => {
+//   return {
+//     educationsEntries: state.form.educationForm,
+//   };
+// };
 
-const AddEducation = connect(mapStatetToProps)(reduxForm({
+const AddEducation = reduxForm({
   form: 'educationForm'
-})(AddEducationForm))
+})(AddEducationForm)
 
 export default AddEducation;

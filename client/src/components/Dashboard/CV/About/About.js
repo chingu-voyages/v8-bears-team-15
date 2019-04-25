@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -80,16 +80,16 @@ class AboutForm extends React.Component{
 
 // export default About;
 
-const mapStatetToProps = (state) => {
- // console.log("state at about", state.form.aboutForm)
-  return {
-    aboutEntries: state.form.aboutForm,
-  };
-};
+// const mapStatetToProps = (state) => {
+//  // console.log("state at about", state.form.aboutForm)
+//   return {
+//     aboutEntries: state.form.aboutForm,
+//   };
+// };
 
-const About = connect(mapStatetToProps)(reduxForm({
+const About = reduxForm({
   form: 'aboutForm'
-})(AboutForm))
+})(AboutForm)
 
 export default About;
 

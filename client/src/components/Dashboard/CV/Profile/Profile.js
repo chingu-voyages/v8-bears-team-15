@@ -5,7 +5,7 @@ import About from '../About/About';
 import Skills from '../Skills/Skills';
 import AddLanguage from '../Language/Language';
 // import Experience from '../Experience/Experience';
-import * as experienceComps from '../AddExperience/AddExperience';
+import AddExperience from '../AddExperience/AddExperience';
 import AddEducation from './../AddEducation/AddEducation';
 import AddLinks from '../Links/Links';
 
@@ -297,7 +297,7 @@ class Profile extends React.Component{
             {
               (experienceArray.length === 0 && stackExperience) && 
               experienceArray.push(
-              < experienceComps.AddExperience 
+              < AddExperience 
                 key={experienceArray.length++} 
                 closeThis={this.closeThis.bind(this, '')}
               />

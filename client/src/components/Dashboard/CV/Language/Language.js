@@ -1,13 +1,21 @@
 import React from 'react';
+import { reduxForm, Field } from 'redux-form';
+// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Language.css';
 
 
-class EditLanguage extends React.Component{
+class LanguageForm extends React.Component{
   render(){
+    const { handleSubmit, reset } = this.props;
     return (
-      <form id="languages-form">
+      <form 
+        id="languages-form"
+        onSubmit={
+          handleSubmit(val => console.log(val))
+          }
+      >
         <div id="languages-layout">
           <div id="about-head" className="languages-row">
             <div className="languages-row" id="left-nav">
@@ -23,14 +31,19 @@ class EditLanguage extends React.Component{
           </div>
           <div className="languages-col">
             <label>add new language</label>
-            <input type="text" placeholder="Type a language" />
+            <Field 
+              type="text" 
+              placeholder="Type a language"
+              component="input"
+              name="language" 
+            />
           </div>
           <div className="languages-row">
             <div>
-              <button>SAVE</button>
+              <button type="submit">SAVE</button>
             </div>
             <div>
-              <button>CANCEL</button>
+              <button onClick={reset}>CANCEL</button>
             </div>
           </div>
         </div>
@@ -38,5 +51,15 @@ class EditLanguage extends React.Component{
     )
   }
 }
+
+// const mapStatetToProps = (state) => {
+//   return {
+//     languageEntries: state.form.LanguageForm,
+//   };
+// };
+
+const EditLanguage = reduxForm({
+  form: 'LanguageForm'
+})(LanguageForm)
 
 export default EditLanguage;

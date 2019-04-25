@@ -1,13 +1,20 @@
 import React from 'react';
+import { reduxForm, Field } from 'redux-form';
+// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Skills.css';
 
 
-class Skills extends React.Component{
+class SkillsForm extends React.Component{
   render(){
+    const { handleSubmit, reset } = this.props;
     return (
-      <form id="skills-form">
+      <form id="skills-form"
+        onSubmit={
+        handleSubmit(val => console.log(val))
+        }
+      >
         <div id="skills-layout">
           <div id="about-head" className="skills-row">
             <div className="skills-row" id="left-nav">
@@ -23,14 +30,19 @@ class Skills extends React.Component{
           </div>
           <div className="skills-col">
             <label>add new skill</label>
-            <input type="text" placeholder="Type in a skill and hit Enter" />
+            <Field 
+              component="input" 
+              name="skill"
+              type="text" 
+              placeholder="Type in a skill and hit Enter" 
+            />
           </div>
           <div className="skills-row">
             <div>
-              <button id="active">SAVE</button>
+              <button id="active" type="submit">SAVE</button>
             </div>
             <div>
-              <button>CANCEL</button>
+              <button onClick={reset}>CANCEL</button>
             </div>
           </div>
         </div>
@@ -38,5 +50,15 @@ class Skills extends React.Component{
     )
   }
 }
+
+// const mapStatetToProps = (state) => {
+//    return {
+//      skillsEntries: state.form.skillsForm,
+//    };
+//  };
+ 
+ const Skills = reduxForm({
+   form: 'skillsForm'
+ })(SkillsForm)
 
 export default Skills;

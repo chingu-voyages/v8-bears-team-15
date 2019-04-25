@@ -1,13 +1,21 @@
 import React from 'react';
+import { reduxForm, Field } from 'redux-form';
+// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Links.css';
 
 
-class EditLinks extends React.Component{
+class LinksForm extends React.Component{
   render(){
+    const { handleSubmit, reset } = this.props;
     return (
-      <form id="links-form">
+      <form 
+        id="links-form"
+        onSubmit={
+          handleSubmit(val => console.log(val))
+          }
+      >
         <div id="links-layout">
         {/* first section */}
           <div id="about-head" className="links-row">
@@ -30,35 +38,65 @@ class EditLinks extends React.Component{
           <section className="links-col social-section">
             <div className="links-row profile">
               <label className="label">LinkedIn profile</label>
-              <input type="text" placeholder="https://www.linkedin.com/in/example" />
+              <Field 
+                type="text" 
+                placeholder="https://www.linkedin.com/in/example" 
+                component="input"
+                name="linkedin"
+              />
             </div>
             <div className="links-row profile">
               <label className="label">Personal Website</label>
-              <input type="text" placeholder="http://www.example.com" />
-            </div>
-            <div className="links-row profile">
-              <label className="label">LinkedIn profile</label>
-              <input type="text" placeholder="https://www.facebook.com/example" />
+              <Field 
+                type="text" 
+                placeholder="http://www.example.com" 
+                component="input"
+                name="website"
+              />
             </div>
             <div className="links-row profile">
               <label className="label">Facebook</label>
-              <input type="text" placeholder="Type a language" />
+              <Field 
+                type="text" 
+                placeholder="https://www.facebook.com/example" 
+                component="input"
+                name="facebook"
+              />
             </div>
+            {/* <div className="links-row profile">
+              <label className="label">Facebook</label>
+              <Field 
+                type="text" 
+                placeholder="Type a language" 
+                component="input"
+                name=""
+              />
+            </div> */}
             <div className="links-row profile">
               <label className="label">Twitter handle</label>
-              <input type="text" placeholder="@example" />
+              <Field 
+                type="text" 
+                placeholder="@example"
+                name="twitter"
+                component="input" 
+              />
             </div>
             <div className="links-row profile">
               <label className="label">Google</label>
-              <input type="text" placeholder="https://plus.google.com/+example" />
+              <Field 
+                type="text" 
+                placeholder="https://plus.google.com/+example"
+                name="google"
+                component="input"
+              />
             </div>
           </section>
           <div className="links-row">
             <div>
-              <button>SAVE</button>
+              <button type="submit">SAVE</button>
             </div>
             <div>
-              <button>CANCEL</button>
+              <button type="button" onClick={reset}>CANCEL</button>
             </div>
           </div>
         </div>
@@ -66,5 +104,15 @@ class EditLinks extends React.Component{
     )
   }
 }
+
+// const mapStatetToProps = (state) => {
+//   return {
+//     linkEntries: state.form.LinksForm,
+//   };
+// };
+
+const EditLinks = reduxForm({
+  form: 'LinksForm'
+})(LinksForm)
 
 export default EditLinks;
