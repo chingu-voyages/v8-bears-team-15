@@ -97,6 +97,16 @@ class GeneralPreferences extends React.Component{
             List countries and/or cities you'd love to
             move to(e.g London, Tokyo, Germany)
           </p>
+          <div>
+            <input type="text" placeholder="Enter a role" className="pr-fade" />
+          </div>
+        </section>
+        <section  id="roles" className="pr-layout upper-layout">
+          <h3>Job Preferences</h3>
+          <p>
+            List job titles or keywords that interest you most
+            in your job search(e.g developer, system administrator)
+          </p>
           <div id="location">
             <div className="pr-row locations">
              {inputArr.map((item, i) => item.component)}
@@ -107,16 +117,6 @@ class GeneralPreferences extends React.Component{
               className="pr-fade inputs" 
               onKeyDown={this.handleKeyDown.bind(this)}
             />
-          </div>
-        </section>
-        <section  id="roles" className="pr-layout upper-layout">
-          <h3>Job Preferences</h3>
-          <p>
-            List job titles or keywords that interest you most
-            in your job search(e.g developer, system administrator)
-          </p>
-          <div>
-          <input type="text" placeholder="Enter a role" className="pr-fade" />
           </div>
         </section>
         <section id="citizenship" className="pr-layout upper-layout">
