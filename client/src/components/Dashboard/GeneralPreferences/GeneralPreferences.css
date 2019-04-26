@@ -21,6 +21,11 @@ article{
  flex-direction: column;
 }
 
+.pr-row{
+  display: flex;
+ flex-direction: row;
+}
+
 .pr-fade {
   opacity: 0.6;
 }
@@ -198,4 +203,37 @@ textarea:focus{
   position: absolute;
   right: 20px;
   bottom: 10px;
+}
+
+/* wrapper */
+
+#location {
+  /* position: relative; */
+  border: 1px gray solid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 700px;
+  padding: 7px;
+}
+
+#location:hover{
+  border:1px solid rgba(21, 90, 168, 0.294);
+}
+
+.locations {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  flex-direction: row;
+  width: auto;
+}
+
+#location input {
+  /* padding-left: 15px; */
+  display: flex;
+  /* flex-direction: row; */
+  width: auto;
+  border: none;
+  font-weight: bold;
 }

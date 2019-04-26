@@ -1,14 +1,55 @@
 import React from 'react';
-// import { formValueSelector } from 'redux-form';
-import Select from 'react-select';
+// import Select from 'react-select';
 
 import './GeneralPreferences.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import JobPreferenceCard from '../../Cards/JobPreference/JobPreference';
 
 
 
 class GeneralPreferences extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: null,
+      inputArr: [],
+    };
+  }
+
+ 
+  deleteCard(e){
+    let popVal = e.target.parentElement.textContent;
+    let arr = popVal.split('')
+    arr.shift()
+    arr.pop()
+    let finalVal = arr.join('')
+    this.setState({
+      inputArr: this.state.inputArr.filter((item) => {
+        return (item.value !== finalVal)
+      })
+    })
+  }
+
+  
+  handleKeyDown(e) {
+    if(e.key === 'Enter') {
+      this.setState({
+      inputArr: this.state.inputArr.concat(
+        [{
+          component: <JobPreferenceCard
+          value={e.target.value} 
+          key={`key ${this.state.inputArr.length}`} 
+          destroyCard={this.deleteCard.bind(this)}
+          />,
+          value: e.target.value
+        }]
+        ),
+      })
+      e.currentTarget.value="";
+    }
+  }
   render(){
+    const { inputArr } = this.state;
     return (
       <div id="preferences-main">
         <article>
@@ -50,14 +91,22 @@ class GeneralPreferences extends React.Component{
             </select>
           </div>
         </section>
-        <section id="location" className="pr-layout upper-layout">
+        <section  className="pr-layout upper-layout">
           <h3>Location Preferences</h3>
           <p>
             List countries and/or cities you'd love to
             move to(e.g London, Tokyo, Germany)
           </p>
-          <div>
-            <input type="text" placeholder="Enter a Location" className="pr-fade" />
+          <div id="location">
+            <div className="pr-row locations">
+             {inputArr.map((item, i) => item.component)}
+            </div>
+            <input 
+              type="text" 
+              placeholder={`Enter a Location`}
+              className="pr-fade inputs" 
+              onKeyDown={this.handleKeyDown.bind(this)}
+            />
           </div>
         </section>
         <section  id="roles" className="pr-layout upper-layout">
