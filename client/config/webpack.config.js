@@ -23,6 +23,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const Dotenv = require('dotenv-webpack');
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -468,6 +469,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new Dotenv(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
