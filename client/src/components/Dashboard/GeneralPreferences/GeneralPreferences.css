@@ -237,3 +237,46 @@ textarea:focus{
   border: none;
   font-weight: bold;
 }
+
+/* calender */
+
+
+
+.year-cover{
+  display: flex;
+  background: white;
+  /* justify-content: flex-end; */
+  width: 100px;
+  color: #0CC28F;
+  position: relative;
+  font-weight: bold;
+  justify-content: space-between;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  bottom:-48px;
+  margin: 10px;
+}
+
+.year-cover span{
+  color: #282D31;
+  align-self: flex-start;
+  font-size: 18px;
+}
+
+
+.year-cover #select-icon{
+  top: 5px;
+  font-size: 15px;
+}
+
+#my-day-cover{
+  width: 65px
+}
+
+#calendar{
+  justify-content: space-between;
+}
+
+#my-gender-cover{
+  width: 200px
+}
