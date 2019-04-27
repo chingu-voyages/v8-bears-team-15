@@ -167,7 +167,7 @@ class GeneralPreferences extends React.Component{
           </p>
           <div>
           <Script 
-              url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiRZl8qnVuqtdVCfSyX6azajHeersk8B0&libraries=places"
+              url="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places"
               onLoad={this.handleScriptLoad.bind(this)}
            />
             <input 
