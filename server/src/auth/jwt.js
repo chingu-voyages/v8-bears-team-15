@@ -5,7 +5,9 @@ import {
 } from 'passport-jwt';
 
 import User from '../models/User';
-import { config } from '../config/config';
+import { envConfig } from '../config/config';
+
+const config = envConfig();
 
 const jwtOptions = {
   jwtFromRequest: ExtractToken.fromAuthHeaderAsBearerToken(),

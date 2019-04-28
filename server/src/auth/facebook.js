@@ -33,7 +33,7 @@ passport.use(
               verified: profile._json.email_verified,
               imageUrl: profile.photos[0].value
             });
-            newUser.save(err => {
+            newUser.save((err) => {
               if (err) {
                 throw err;
               }
