@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken';
 
-import { config } from '../src/config/config';
+import { envConfig } from '../src/config/config';
 import User from '../src/models/User';
+
+const config = envConfig();
 
 const generateToken = (user) => {
   return jwt.sign(user, config.jwtPrivateKey, {

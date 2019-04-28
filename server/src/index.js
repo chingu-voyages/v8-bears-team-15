@@ -9,9 +9,10 @@ import morgan from 'morgan';
 import store from 'connect-mongo';
 import routes from './routes/index';
 
-import { config } from './config/config';
+import { envConfig } from './config/config';
 import { logger } from './helper/logger';
 
+const config = envConfig();
 // Connect database
 mongoose.connect(config.database, { useNewUrlParser: true })
   .then(() => {

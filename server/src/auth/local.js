@@ -19,7 +19,6 @@ passport.use(new LocalStrategy(options,
       }, (err, user) => {
         if (err) { return done(err); }
         if (!user) { return done(null, false); }
-
         return done(null, user);
       }
     );
