@@ -80,6 +80,7 @@ p:nth-child(2) {
   padding: 12px;
   width: 700px;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .active-status h6 {
@@ -100,6 +101,7 @@ p:nth-child(2) {
   padding: 12px;
   width: 700px;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .status-active h6 {

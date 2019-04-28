@@ -1,6 +1,4 @@
 #visibility-main {
-  /* padding-left: 70px;
-  padding-right: 70px; */
   padding-top: 30px;
   display: flex;
   justify-content: center;
@@ -8,17 +6,24 @@
   align-items: center;
   background: white;
   padding-bottom: 50px;
+  color: #282D31; 
+}
+
+#notifications-layout{
+  padding: 30px 100px;
 }
 
 #column-1{
   display: flex;
   justify-content: flex-start;
   align-self: flex-start;
-  margin-left: 140px;
+  /* margin-left: 140px; */
 }
 
-.visibility-main h3{
- align-self: flex-start
+.column-1 h3{
+ align-self: flex-start;
+ margin-left: unset;
+ padding-left: unset;
 }
 
 section {
@@ -26,6 +31,7 @@ section {
   flex-direction: row;
   font-size: 15px;
   margin-bottom: 14px;
+  justify-content: space-between;
 }
 
 section span {
@@ -37,8 +43,9 @@ section p {
   max-width: 600px;
   opacity: 0.5;
   margin-top: 5px;
+  margin-left: unset;
 }
 
 section #left {
-  margin-right: 70px;
+  /* margin-right: 70px; */
 }
