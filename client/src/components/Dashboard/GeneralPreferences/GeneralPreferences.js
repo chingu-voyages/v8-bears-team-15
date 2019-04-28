@@ -13,6 +13,11 @@ import {DayPicker,
   GenderPicker,
 } from '../../helpModules/Calender/Date';
 
+import facebook from '../../../images/social-media/facebook.png';
+import goog from '../../../images/auth/goog.png';
+// import googlep from '../../../images/social-media/googleplus.png';
+import linkedin from '../../../images/social-media/linkedin.png';
+
 
 // const google = window.google;
 class GeneralPreferences extends React.Component{
@@ -26,7 +31,10 @@ class GeneralPreferences extends React.Component{
       city: '',
       query: '',
       country: '',
-      cQuery: ''
+      cQuery: '',
+      activeLooking: false,
+      openToOffers: false,
+      noLooking: false,
     };
   }
    
@@ -102,41 +110,69 @@ class GeneralPreferences extends React.Component{
     })
   }
 
-  
-
-  // handlePlaceSelect() {
-  //   let place = this.autocomplete.getPlace();
-  //   let address = place.address_components;
-
-  //   if(address) {
-  //     this.setState({
-  //       city: address[0].long_name,
-  //       query: place.formatted_address,
-  //     })
-  //   }
-  // }
+  handleStatus(status){
+     switch (status) {
+       case 'looking':
+         this.setState({
+          activeLooking: true,
+          openToOffers: false,
+          noLooking: false,
+         })
+         break;
+       case 'open':
+         this.setState({
+          activeLooking: false,
+          openToOffers: true,
+          noLooking: false,
+         })
+         break;
+      case 'closed':
+         this.setState({
+          activeLooking: false,
+          openToOffers: false,
+          noLooking: true,
+         })
+         break;
+     
+       default:
+         break;
+     }
+  }
 
   render(){
-    const { inputArr } = this.state;
+    const { 
+      inputArr, 
+      openToOffers,
+      noLooking,
+      activeLooking } = this.state;
     return (
       <div id="preferences-main">
         <article>
         <h3>Personal preferences</h3>
         <section id="status">
           <h4>Current job search status</h4>
-          <div  className="active-status">
+          <div  
+            className={activeLooking ? 'status-active': 'active-status'}
+            onClick={this.handleStatus.bind(this, 'looking')}
+          >
             <h6>Actively looking</h6>
             <p>Looking and applying for jobs, 
               ready to interview
             </p>
           </div>
-          <div className="active-status">
+          <div 
+            className={openToOffers ? 'status-active': 'active-status'}
+            onClick={this.handleStatus.bind(this, 'open')}
+          >
             <h6>Open to offers</h6>
             <p>Not looking right now but open 
               if the right opportunity comes along
             </p>
           </div>
-          <div className="active-status">
+          <div 
+            className={noLooking ? 'status-active': 'active-status'}
+            onClick={this.handleStatus.bind(this, 'closed')}
+          >
             <h6>Not Open to offers</h6>
             <p>
               Not looking and not interested ina new job
@@ -273,7 +309,8 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div className="connect-button">
-              <button>
+              <button id="facebook" className="pr-row">
+                <img src={facebook} alt="facebook-icon" />
                 <span>CONNECT WITH FACEBOOK</span>
               </button>
             </div>
@@ -287,7 +324,8 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div  className="connect-button">
-              <button>
+              <button id="google" className="pr-row">
+                <img src={goog} alt="google-icon" />
                 <span>CONNECT WITH GOOGLE</span>
               </button>
             </div>
@@ -301,7 +339,8 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div  className="connect-button">
-              <button>
+              <button  id="linkedin" className="pr-row">
+                <img src={linkedin} alt="google-icon" />
                 <span>CONNECT WITH LINKEDIN</span>
               </button>
             </div>
