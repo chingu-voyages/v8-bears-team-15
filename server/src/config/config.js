@@ -2,11 +2,39 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const config = {
-  port: process.env.PORT || 8081,
-  database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
-  jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+const env = process.env.NODE_ENV || 'development';
+
+
+export const allConfig = {
+  test: {
+    port: process.env.PORT || 8081,
+    database: process.env.MONGODB_URI || 'mongodb://localhost/bears15Test',
+    jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+  },
+  development: {
+    port: process.env.PORT || 8081,
+    database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
+    jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+  }
 };
+
+export const envConfig = () => {
+  if (env === 'test') {
+    return allConfig.test;
+  }
+  if (env === 'development') {
+    return allConfig.development;
+  }
+};
+
+const config = envConfig();
+
+
+// export const config = {
+//   port: process.env.PORT || 8081,
+//   database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
+//   jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+// };
 
 export const facebook = {
   clientID: process.env.FACEBOOK_APP_ID,
