@@ -76,3 +76,7 @@
 #profile span, #preference span {
   cursor: pointer;
 }
+
+#preference span{
+  margin-right: 9px;
+}
