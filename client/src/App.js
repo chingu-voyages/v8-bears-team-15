@@ -14,7 +14,10 @@ import { faPlay,
   faShieldAlt,
   faChevronDown, 
   faHighlighter,
-  faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+  faChevronLeft,
+  faChevronRight,
+  faPlusCircle,
+  } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { createBrowserHistory } from 'history';
@@ -39,6 +42,8 @@ library.add(faPlay,
   faTrash,
   faHighlighter,
   faPlusCircle,
+  faChevronLeft,
+  faChevronRight,
   fab)
 
 export const history = createBrowserHistory()

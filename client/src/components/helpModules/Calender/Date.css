@@ -1,0 +1,27 @@
+.month-select{
+  border: 1px rgba(128, 128, 128, 0.52) solid;
+  border-radius: unset;
+  background: white;
+  padding: 25px;
+  width: 130px;
+  height: 30px;;
+  border-radius: unset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+/* .picker-main{
+  border: 1px green solid;
+} */
+
+#day-picker{
+  width: 80px;
+}
+
+#gender-picker{
+  width: 250px;
+}

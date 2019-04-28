@@ -5,6 +5,7 @@ import Footer from '../../Footer/Footer';
 import './Setting.css';
 import Preferences from '../Preferences/Preferences';
 import ProfileHead from '../CV/ProfileHead/ProfileHead';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Setting extends React.Component{
   constructor(props) {
@@ -13,6 +14,8 @@ class Setting extends React.Component{
       preference: true,
       changeProfileClass: false,
       changePrefClass: true,
+      showLeftChevron: true,
+      showRightChevron: false,
     };
   }
 
@@ -21,19 +24,28 @@ class Setting extends React.Component{
         this.setState({
           preference: false,
           changeProfileClass: true,
-          changePrefClass: false
+          changePrefClass: false,
+          showLeftChevron: false,
+          showRightChevron: true,
       })}else{
         this.setState({
           preference: true,
           changePrefClass: true,
-          changeProfileClass: false
+          changeProfileClass: false,
+          showLeftChevron: true,
+          showRightChevron: false,
         })
       }
   }
 
 
   render(){
-    const { preference, changeProfileClass, changePrefClass } = this.state;
+    const { preference, 
+      changeProfileClass, 
+      changePrefClass, 
+      showLeftChevron,
+      showRightChevron,
+    } = this.state;
     return (
       <div className="setting-main">
          <Header />
@@ -43,6 +55,10 @@ class Setting extends React.Component{
               <div id="profile" 
                 className={ changeProfileClass ? 'white-head':'green-head' }
               > 
+                
+                {
+                  showLeftChevron ? <FontAwesomeIcon icon="chevron-left"/> : ''
+                }
                 <span
                  onClick={this.handlePref.bind(this, 'profile')}
                 >
@@ -55,6 +71,9 @@ class Setting extends React.Component{
                  >
                     MY PREFENCES
                  </span>
+                 {
+                  showRightChevron ? <FontAwesomeIcon icon="chevron-right"/> : ''
+                 }
               </div>
             </div>
             {
