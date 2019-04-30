@@ -20,11 +20,11 @@ const jwtOptions = {
 
 
 passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
-  User.findById(payload.sub, (err, user) => {
-    if (err) { return done(err, false); }
+  User.findOne({ _id: payload.sub }, { password: 0 }, (err, user) => {
+    if (err) { console.log('jwt error', err); return done(err, false); }
     // eslint-disable-next-line no-console
-    console.log('jwt error', err);
-    if (user) { return done(null, user); }
+    if (user) { console.log('user found at jwt', user); return done(null, user); }
+    return done(null, null);
   });
 }));
 

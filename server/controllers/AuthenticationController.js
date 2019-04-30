@@ -25,6 +25,7 @@ export const signIn = (req, res) => {
 
 
 export const userDashboard = (req, res) => {
+  console.log('loading dashboard');
   // eslint-disable-next-line no-console
   // all user details with applications
   // and application updates should be returned at dashboard
@@ -37,6 +38,7 @@ export const userDashboard = (req, res) => {
     } else {
       // fetch application data from mongo and add
       // to payload
+      console.log('NOERRER');
       Listing.find({}, (err, lists) => {
         if (err) {
           console.log('find listing error', err);
@@ -45,10 +47,11 @@ export const userDashboard = (req, res) => {
             error: err
           });
         } else {
+          console.log(lists);
           res.json({
             success: true,
             user,
-            listings: [...lists]
+            listings: lists
           });
         }
       });

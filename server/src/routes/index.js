@@ -35,16 +35,6 @@ router.get('/login/google', passportGoogle.authenticate('google',
 router.get('/login/google/callback',
   passportGoogle.authenticate('google',
 
-    // (err, user, info) => {
-    //   if (err) {
-    //     // eslint-disable-next-line no-console
-    //     console.log('error', err);
-    //   }
-    //   if (!user && info) {
-    //     // eslint-disable-next-line no-console
-    //     console.log('info error', info);
-    //   }
-    // },
     { session: false }), signIn);
 
 

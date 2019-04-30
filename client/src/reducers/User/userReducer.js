@@ -5,7 +5,7 @@ export default (state = {}, action ) => {
     case actionTypes.SIGN_IN:
       return { ...state, authenticated: true, user: action.payload }
     case actionTypes.USER_DASHBOARD:
-      return { ...state, user: action.payload.user, allListings: action.payload.listings }
+      return { ...state, dashBoadUser: action.payload.user, allListings: action.payload.listings }
     case actionTypes.USER_ERROR:
       return { ...state, error: action.payload }
     case actionTypes.LOGGED_IN:

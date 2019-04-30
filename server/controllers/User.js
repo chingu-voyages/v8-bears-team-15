@@ -1,4 +1,5 @@
 import User from '../src/models/User';
+import Listing from '../src/models/Listing';
 
 // eslint-disable-next-line import/prefer-default-export
 export const userDashboard = (req, res) => {
@@ -15,10 +16,21 @@ export const userDashboard = (req, res) => {
     } else {
       // fetch application data from mongo and add
       // to payload
-      res.json({
-        success: true,
-        user,
-        // otherdata: data
+      Listing.find({}, (err, lists) => {
+        if (err) {
+          console.log('find listing error', err);
+          res.json({
+            success: false,
+            error: err
+          });
+        } else {
+          console.log(lists);
+          res.json({
+            success: true,
+            user,
+            listings: lists
+          });
+        }
       });
     }
   });
