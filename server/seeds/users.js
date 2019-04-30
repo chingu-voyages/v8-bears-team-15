@@ -3,12 +3,12 @@
 // eslint-disable-next-line no-unused-vars
 const users = [
   {
-    // id: genObjectId('user1'),
     firstName: 'first',
     lastName: 'user',
     email: 'test@user1.com',
     accountType: 'individual',
     verified: true,
+    timestamp: Date.now,
     skills: [
       {
         skill: 'React',
@@ -17,7 +17,6 @@ const users = [
     ]
   },
   {
-    // id: genObjectId('user2'),
     firstName: 'second',
     lastName: 'user2',
     email: 'test@user2.com',
@@ -28,10 +27,10 @@ const users = [
         skill: 'Node',
         years: 3
       }
-    ]
+    ],
+    timestamp: Date.now,
   },
   {
-    // id: genObjectId('user3'),
     firstName: 'third',
     lastName: 'user',
     email: 'test@user3.com',
@@ -42,7 +41,8 @@ const users = [
         skill: 'Express',
         years: 7
       }
-    ]
+    ],
+    timestamp: Date.now,
   }
 ];
 

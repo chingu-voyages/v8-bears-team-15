@@ -36,14 +36,13 @@ export function popAuth(provider) {
   }
 }
 
-export function closePopAuth(provider) {
+export function closePopAuth() {
   return (dispatch) => {
     dispatch(
       {
         type: actionTypes.POP_WINDOW,
         payload: {
           pop: false,
-          provider
         },
       }
     )

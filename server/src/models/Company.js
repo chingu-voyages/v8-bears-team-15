@@ -9,6 +9,12 @@ const CompanySchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  Location: {
+    type: String,
+  },
+  link: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,
@@ -31,5 +37,5 @@ const CompanySchema = new mongoose.Schema({
   timestamps: true
 });
 
-const Company = mongoose.model('User', CompanySchema);
+const Company = mongoose.model('Company', CompanySchema);
 module.exports = Company;

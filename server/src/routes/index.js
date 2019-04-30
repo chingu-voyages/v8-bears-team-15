@@ -35,18 +35,17 @@ router.get('/login/google', passportGoogle.authenticate('google',
 router.get('/login/google/callback',
   passportGoogle.authenticate('google',
 
-    (err, user, info) => {
-      if (err) {
-        // eslint-disable-next-line no-console
-        console.log('error', err);
-      }
-      if (!user && info) {
-        // eslint-disable-next-line no-console
-        console.log('info error', info);
-      }
-    }), (req, res) => {
-    res.redirect('/');
-  });
+    // (err, user, info) => {
+    //   if (err) {
+    //     // eslint-disable-next-line no-console
+    //     console.log('error', err);
+    //   }
+    //   if (!user && info) {
+    //     // eslint-disable-next-line no-console
+    //     console.log('info error', info);
+    //   }
+    // },
+    { session: false }), signIn);
 
 
 // FACEBOOK - may require scope definition
@@ -83,7 +82,7 @@ router.post('/login',
   passportLocal.authenticate('local', { session: false }),
   signIn);
 
-router.get('/dashboard',
+router.get('/jobs',
   passportJwt.authenticate('jwt', { session: false }),
   userDashboard);
 

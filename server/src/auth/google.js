@@ -22,6 +22,7 @@ passport.use(
           profileId: profile.id
         },
         (err, user) => {
+          // console.log(user);
           if (err) return done(err);
 
           if (user) {
@@ -35,7 +36,7 @@ passport.use(
               verified: profile.emails[0].verified,
               provider: 'google',
               imageUrl: profile.photos[0].value
-            });
+            });    
             newUser.save((err) => {
               if (err) {
                 throw err;

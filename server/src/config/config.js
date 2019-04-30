@@ -10,11 +10,13 @@ export const allConfig = {
     port: process.env.PORT || 8081,
     database: process.env.MONGODB_URI || 'mongodb://localhost/bears15Test',
     jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+    jwtSecret: process.env.JWT_SECRET,
   },
   development: {
     port: process.env.PORT || 8081,
     database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
     jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+    jwtSecret: process.env.JWT_SECRET,
   }
 };
 

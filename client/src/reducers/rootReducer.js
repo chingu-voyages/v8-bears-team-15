@@ -5,7 +5,7 @@ import UserReducer from './User/userReducer';
 
 const rootReducer = combineReducers({
   homeState: HomeReducer,
-  userReducer: UserReducer,
+  userState: UserReducer,
   form: formReducer,
 })
 

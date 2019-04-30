@@ -309,7 +309,7 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div className="connect-button">
-              <button id="facebook" className="pr-row">
+              <button id="facebook-pref" className="pr-row">
                 <img src={facebook} alt="facebook-icon" />
                 <span>CONNECT WITH FACEBOOK</span>
               </button>
@@ -324,7 +324,7 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div  className="connect-button">
-              <button id="google" className="pr-row">
+              <button id="google-pref" className="pr-row">
                 <img src={goog} alt="google-icon" />
                 <span>CONNECT WITH GOOGLE</span>
               </button>
@@ -339,7 +339,7 @@ class GeneralPreferences extends React.Component{
               </p>
             </div>
             <div  className="connect-button">
-              <button  id="linkedin" className="pr-row">
+              <button  id="linkedin-pref" className="pr-row">
                 <img src={linkedin} alt="google-icon" />
                 <span>CONNECT WITH LINKEDIN</span>
               </button>

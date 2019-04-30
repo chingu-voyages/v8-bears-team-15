@@ -33,6 +33,7 @@ app.server = http.createServer(app);
 app.use(bodyParser.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 app.use(session({
   store: new MongoStore({
@@ -45,10 +46,9 @@ app.use(session({
 
 app.use(morgan('dev'));
 
-app.use(cors());
-
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use('/', routes);
 
