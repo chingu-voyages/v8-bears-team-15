@@ -4,7 +4,6 @@ import Listing from '../src/models/Listing';
 // eslint-disable-next-line import/prefer-default-export
 export const userDashboard = (req, res) => {
   // eslint-disable-next-line no-console
-  console.log('REQ', req.headers);
   // all user details with applications
   // and application updates should be returned at dashboard
   User.findOne({ _id: req.user._id }, (err, user) => {
@@ -18,13 +17,11 @@ export const userDashboard = (req, res) => {
       // to payload
       Listing.find({}, (err, lists) => {
         if (err) {
-          console.log('find listing error', err);
           res.json({
             success: false,
             error: err
           });
         } else {
-          console.log(lists);
           res.json({
             success: true,
             user,

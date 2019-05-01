@@ -1,6 +1,8 @@
 .listing-main{
   display: flex;
   align-items: center;
-  max-width: 1000px;
+  justify-content: center;
+  max-width: 100%;
   flex-wrap: wrap;
+  padding: 100px;
 }

@@ -13,14 +13,30 @@ import AuxComp from './../../../HOC/AuxComp/AuxComp';
 class DashBoardHome extends Component{
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
-    super(props) 
+    super(props)
+    this.state={
+      listArray: []
+    }
   }
 
   componentWillMount() {
     this.props.actions.userDashBoard()
   }
 
+  componentWillReceiveProps(nextProps){
+    if(this.listings !== nextProps.listings){
+     this.setState({
+       listArray: nextProps.listings
+     })
+    }
+  }
+
+  getListArray(){
+
+  }
+
   render() {
+    const { listArray } = this.state;
     return (
       <AuxComp>
       <div className="main">
@@ -37,7 +53,9 @@ class DashBoardHome extends Component{
                <button>Product & design, UI/UX</button>
              </div>
           </div>
-          <Listing />
+          <Listing
+            data={listArray}
+           />
         </div>
         <Footer />
       </div>
@@ -55,8 +73,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log("list at home", state.userState.allListings)
   return {
-    user: state.userState.user,
+    user: state.userState.user, 
+    listings: state.userState.allListings,
   }
 }
 
