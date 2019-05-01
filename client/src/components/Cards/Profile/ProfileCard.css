@@ -1,20 +1,24 @@
 .profile-card-main {
   background: slateblue;
-  padding: 14px;
+  padding: 20px;
   border-radius: 5px;
   color: white;
   margin: 15px;
+  width: 300px;
+  height: 350px;
 }
 
 .listing-main hr {
   border: none;
   height: 0.9pt;
   background: white;
+  margin-bottom: 10px;
 }
 
 #listing-head {
   font-size: 20px;
   color: white;
+  margin-bottom: 30px;
 }
 
 small {
@@ -37,15 +41,21 @@ small {
 .fa-stack {
   margin-left: -6px;
   position: relative;
+  margin-right: 15px;
 }
 
 .fa-stack-1x {
   font-weight: bold;
   color: slateblue;
-  font-size: 10px;
+  font-size: 13px;
   top: 8px;
-  left: -6px;
+  left: -13px;
   position: absolute;
+
 }
 
+
+#divider{
+  margin-bottom: 25px;
+}
 

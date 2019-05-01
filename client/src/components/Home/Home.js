@@ -66,7 +66,7 @@ class Home extends React.Component{
   }
   
   render() {
-    const { showModal, showPopUp, media } = this.props;
+    const { showModal, showPopUp } = this.props;
     return (
       <div className="main">
         {

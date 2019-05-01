@@ -6,6 +6,19 @@ import ListingCard from '../Cards/Listings/ListingCard';
 
 
 class Listing extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  increment() {
+    let cards = this.state;
+    this.setState({
+      count: cards++
+    })
+  }
   render() {
     return (
       <div className="listing-main">
@@ -13,7 +26,9 @@ class Listing extends Component{
         <ProfileCard /> */}
         {
           this.props.data !== undefined && 
-          this.props.data.map((list) => {
+          this.props.data.splice(2, 0, {}) &&
+          this.props.data.map((list, i) => {
+            if(i === 2) return <ProfileCard />
             return (
               <ListingCard 
               list = {list}

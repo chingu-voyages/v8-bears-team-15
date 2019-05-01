@@ -14,7 +14,7 @@ function ProfileCard() {
         </p>
       </h1>
       <hr />
-      <p>
+      <p id="divider">
         To see a personalized feed oj jobs that <br />
         match your interests and experiences:
       </p>
