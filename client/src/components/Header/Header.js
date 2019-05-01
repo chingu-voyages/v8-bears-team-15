@@ -1,11 +1,34 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 import Jobbatical from '../../images/jobbatical_logo_blue.svg'
 import './Header.css';
 
+
+import DropDownPortal from '../Portals/DropBar/Bar';
+import { history } from '../../App';
+
+
 class Header extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      showProfilePortal: false
+    };
+  }
+
+  handleProfileModal(){
+    console.log("avatar clicked")
+    this.setState(
+      {
+        showProfilePortal: true,
+      }
+    )
+  }
+
   render() {
+    const { showProfilePortal } = this.state;
     return (
       <div className="header-main">
         <div className="left">
@@ -22,7 +45,7 @@ class Header extends Component{
         <div className="right">
            <nav className="header-nav">
              <li>
-               <a href="https://fakelink">EXPLORE JOBS</a>
+               <a href="https://fakelink"><Link to="/jobs">EXPLORE JOBS</Link></a>
              </li>
              <li>
                <a href="https://fakelink">MY SAVED JOBS</a>
@@ -35,7 +58,25 @@ class Header extends Component{
              <FontAwesomeIcon icon="bell" className="notifications" />
              <FontAwesomeIcon icon="comment" className="notifications" />
              <FontAwesomeIcon icon="user-circle" id="avatar" />
-             <FontAwesomeIcon icon="chevron-down" id="downshift" />
+             <div onClick={this.handleProfileModal.bind(this)} >
+               <FontAwesomeIcon icon="chevron-down" id="downshift" />
+             </div>
+            <DropDownPortal
+              open={showProfilePortal}
+              onClose={(text) =>
+                {
+                  console.log(text)
+                  this.setState({
+                    showProfilePortal: false
+                  })
+                  setTimeout(()=> {
+                    if(text === 'profile' || text === 'preference'){
+                      history.push('/setting')
+                    }
+                  }, 500)
+                }
+              }
+            />
            </div>
         </div>
       </div>
