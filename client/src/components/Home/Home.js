@@ -19,7 +19,7 @@ import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
 import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
-// import AuthWindow from '../Portal/Pop';
+import AuthWindow from '../Portal/Pop';
 //import { withRouter } from 'react-router-dom';
 
 
@@ -29,7 +29,8 @@ class Home extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ''
+      inputValue: '',
+      media: ''
     };
   }
 
@@ -78,17 +79,17 @@ class Home extends React.Component{
          ) : ''
         }
 
-        {/* {
+        {
           showPopUp ? 
           (
            <AuthWindow
-            provider={media}
+            provider={this.props.media}
             onClose={this.closeAuth}
            />
           ): ''
-        } */}
+        }
 
-        {
+        {/* {
           showPopUp ? 
           (
             <PopOut 
@@ -99,7 +100,7 @@ class Home extends React.Component{
               onError={() => console.log("popout blocked")}
             />
           ) : ''
-        }
+        } */}
         <section className="intro">
          <div className="video-div">
            <video autoPlay muted loop  id="hero-video">
