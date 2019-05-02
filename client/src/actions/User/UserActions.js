@@ -36,13 +36,14 @@ export function signIn(email) {
 }
 
 
-// export function socialSignIn(provider) {
-//   console.log("socially signing", provider)
+// export function socialSignIn() {
+//   console.log("socially signing")
 //   return (dispatch) => {
-//     axios.get(`http://127.0.0.1:3000/login/${provider}`)
+//     axios.get(`http://localhost:3000/success`)
 //     .then((response) => {
+//       console.log("social media response", response)
 //       dispatch({
-//         type: actionTypes.SIGN_IN, 
+//         type: actionTypes.SIGN_IN,
 //       })
 //       localStorage.setItem('token', response.data.token)
 //       history.push('/jobs')

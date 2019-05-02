@@ -8490,6 +8490,13 @@ react-load-script@^0.0.6:
   resolved "https://registry.yarnpkg.com/react-load-script/-/react-load-script-0.0.6.tgz#db6851236aaa25bb622677a2eb51dad4f8d2c258"
   integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
 
+react-new-window@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/react-new-window/-/react-new-window-0.0.12.tgz#6bc8e96f42da6ffe7ca253b68bddf8c2b3c650c0"
+  integrity sha512-E1DQJy4+Vx1mJ132rc1/epXI/4Q02v+StN9XCQb1NK4z+wyKgbKcKeEFKREM9DCcURq7BWSh/yiiKrHfgEkWpw==
+  dependencies:
+    prop-types "^15.6.1"
+
 react-onclickoutside@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.8.0.tgz#9f91b5b3ed59f4d9e43fd71620dc200773a4d569"

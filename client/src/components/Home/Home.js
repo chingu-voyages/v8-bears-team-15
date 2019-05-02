@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PopOut from 'react-popout';
+
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,8 +19,8 @@ import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
 import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
-import AuthWindow from '../Portal/Pop';
-//import { withRouter } from 'react-router-dom';
+
+import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
 
 
 
@@ -78,29 +78,6 @@ class Home extends React.Component{
             />
          ) : ''
         }
-
-        {
-          showPopUp ? 
-          (
-           <AuthWindow
-            provider={this.props.media}
-            onClose={this.closeAuth}
-           />
-          ): ''
-        }
-
-        {/* {
-          showPopUp ? 
-          (
-            <PopOut 
-              url='http://127.0.0.1:3000/login/google'
-              title="auth window" 
-              onClosing={(e) => this.closeAuth.bind(this)}
-              options={{ width:'500px',height: '600px',left:'200',top:'200'}}
-              onError={() => console.log("popout blocked")}
-            />
-          ) : ''
-        } */}
         <section className="intro">
          <div className="video-div">
            <video autoPlay muted loop  id="hero-video">
@@ -151,6 +128,10 @@ class Home extends React.Component{
                 <img src={googleImage} alt="google-brand" />
                  <span className="content">Continue with Google</span>
               </button>
+              {
+                showPopUp ?
+                <AuthPortal  /> : ''
+              }
               <button id="facebook" onClick={(e) => this.handleAuth('facebook', e)}>
                 <img src={facebookImage} alt="facebook-brand" />
                  <span className="content">Continue with Facebook</span>

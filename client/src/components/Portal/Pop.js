@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+
 import * as userActions from '../../actions/User/UserActions';
+
 
 class AuthWindow extends React.Component {
   constructor(props){
@@ -22,16 +24,21 @@ class AuthWindow extends React.Component {
      this.el.setAttribute("Ref", `${this.pops}`)
   }
 
+  componentWillReceiveProps(nextProps){
+    if(this.props !== nextProps){
+      console.log("Portal Props", nextProps)
+    }
+  }
+
 
   render() {
-    return ReactDOM.createPortal(this.props.children, this.el)
+     return ReactDOM.createPortal(this.props.children, this.el)
   }
 }
 
 // export default AuthWindow;
 
 const MapStateToProps = (state) => {
-  console.log("state at auth")
   return {
     pop: state.homeState.popUpWindow,
   }
