@@ -140,9 +140,10 @@ class Home extends React.Component{
                 </span>
               </div>
             </div>
+            <section id="all-forms">
             <form 
               className="social-medias" 
-              onSubmit={this.handleNext.bind(this)}
+              id="form-1"
             >
               <span className="auth-intro">Sign Up or Log in using:</span>
               <button id="google" onClick={(e) => this.handleAuth('google', e)}>
@@ -157,6 +158,12 @@ class Home extends React.Component{
                 <img src={linkedinImage} alt="linkedin-brand" />
                   <span className="content">Continue with LinkedIn</span>
                </button>
+            </form>
+              
+            <form 
+              className="social-medias" id="form-2"
+              onSubmit={this.handleNext.bind(this)}
+            >
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">
                 <FontAwesomeIcon icon="envelope" id="envelope" />
@@ -170,9 +177,9 @@ class Home extends React.Component{
               </div>
              <input type="submit" value="NEXT"/>
             </form>
+            </section>
          </div>
         </section>
-        <section className="body"></section>
         <Footer />
       </div>
     )

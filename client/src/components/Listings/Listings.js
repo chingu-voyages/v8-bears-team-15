@@ -28,7 +28,7 @@ class Listing extends Component{
           this.props.data !== undefined && 
           this.props.data.splice(2, 0, {}) &&
           this.props.data.map((list, i) => {
-            if(i === 2) return <ProfileCard />
+            if(i === 2) return <ProfileCard key={`lone-child-${i}`} />
             return (
               <ListingCard 
               list = {list}

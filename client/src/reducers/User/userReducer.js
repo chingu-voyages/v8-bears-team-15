@@ -11,7 +11,7 @@ export default (state = {}, action ) => {
     case actionTypes.LOGGED_IN:
       return {...state, authenticated: true}
     case actionTypes.LOGGED_OUT:
-      return {...state, authenticated: true}
+      return {...state, authenticated: false}
     default:
       return state;
   }

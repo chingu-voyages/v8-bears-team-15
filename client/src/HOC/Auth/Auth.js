@@ -35,6 +35,7 @@ export default (ComposedComponent) => {
   }
 
   const mapStateToProps = (state) => {
+    console.log('state at auth', state)
     return { authenticated: state.userState.authenticated }
   }
 

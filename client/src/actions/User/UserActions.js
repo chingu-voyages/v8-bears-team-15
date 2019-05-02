@@ -36,19 +36,19 @@ export function signIn(email) {
 }
 
 
-export function socialSignIn(provider) {
-  console.log("socially signing", provider)
-  return (dispatch) => {
-    axios.get(`http://127.0.0.1:3000/login/${provider}`)
-    .then((response) => {
-      dispatch({
-        type: actionTypes.SIGN_IN, 
-      })
-      localStorage.setItem('token', response.data.token)
-      history.push('/jobs')
-    })
-  }
-}
+// export function socialSignIn(provider) {
+//   console.log("socially signing", provider)
+//   return (dispatch) => {
+//     axios.get(`http://127.0.0.1:3000/login/${provider}`)
+//     .then((response) => {
+//       dispatch({
+//         type: actionTypes.SIGN_IN, 
+//       })
+//       localStorage.setItem('token', response.data.token)
+//       history.push('/jobs')
+//     })
+//   }
+// }
 
 export function userDashBoard(){
   return (dispatch) => {

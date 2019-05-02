@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Jobbatical from '../../images/jobbatical_logo_blue.svg'
 import './Header.css';
 
-
+import { signOut } from '../../actions/User/UserActions';
 import DropDownPortal from '../Portals/DropBar/Bar';
 import { history } from '../../App';
 
@@ -45,7 +45,7 @@ class Header extends Component{
         <div className="right">
            <nav className="header-nav">
              <li>
-               <a href="https://fakelink"><Link to="/jobs">EXPLORE JOBS</Link></a>
+               <Link to="/jobs">EXPLORE JOBS</Link>
              </li>
              <li>
                <a href="https://fakelink">MY SAVED JOBS</a>
@@ -65,13 +65,15 @@ class Header extends Component{
               open={showProfilePortal}
               onClose={(text) =>
                 {
-                  console.log(text)
                   this.setState({
                     showProfilePortal: false
                   })
                   setTimeout(()=> {
                     if(text === 'profile' || text === 'preference'){
                       history.push('/setting')
+                    }else{
+                      signOut();
+                      history.push('/')
                     }
                   }, 500)
                 }
