@@ -19,17 +19,7 @@ class DropDownPortal extends React.Component {
     modalRoot.removeChild(this.el);
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if(this.component !== nextProps.component){
-  //     console.log("I recieved")
-  //     if(nextProps.component === 'profile'){
-  //       this.setState({
-  //         renderedChild: <ProfileModal {...this.props} />
-  //       })
-  //       this.forceUpdate()
-  //     }
-  //   }
-  // }
+ 
 
   render() {
     return ReactDOM.createPortal(

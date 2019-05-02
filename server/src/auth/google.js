@@ -7,7 +7,6 @@ import { google } from '../config/config';
 import User from '../models/User';
 import initializer from './sessions';
 
-
 passport.use(
   new GoogleStrategy(
     {
@@ -36,7 +35,7 @@ passport.use(
               verified: profile.emails[0].verified,
               provider: 'google',
               imageUrl: profile.photos[0].value
-            });    
+            }); 
             newUser.save((err) => {
               if (err) {
                 throw err;

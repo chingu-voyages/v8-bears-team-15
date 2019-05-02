@@ -16,6 +16,8 @@ const generateToken = (user) => {
 export const signIn = (req, res) => {
   // eslint-disable-next-line no-console
  // console.log('user at signin', res.req.user);
+//  console.log("initial res", req);
+//  console.log("all user req", res);
   res.json({
     success: true,
     user: res.req.user,
@@ -25,7 +27,6 @@ export const signIn = (req, res) => {
 
 
 export const userDashboard = (req, res) => {
-  console.log('loading dashboard');
   // eslint-disable-next-line no-console
   // all user details with applications
   // and application updates should be returned at dashboard
@@ -38,16 +39,13 @@ export const userDashboard = (req, res) => {
     } else {
       // fetch application data from mongo and add
       // to payload
-      console.log('NOERRER');
       Listing.find({}, (err, lists) => {
         if (err) {
-          console.log('find listing error', err);
           res.json({
             success: false,
             error: err
           });
         } else {
-          console.log(lists);
           res.json({
             success: true,
             user,

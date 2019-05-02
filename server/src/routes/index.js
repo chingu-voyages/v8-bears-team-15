@@ -51,9 +51,7 @@ router.get('/login/google', passportGoogle.authenticate('google',
   }));
 
 router.get('/login/google/callback',
-  passportGoogle.authenticate('google',
-
-    { session: false }), signIn);
+  passportGoogle.authenticate('google',{ session: false }), signIn);
 
 
 // FACEBOOK - may require scope definition
@@ -95,6 +93,8 @@ router.post('/login',
 router.get('/jobs',
   passportJwt.authenticate('jwt', { session: false }),
   userDashboard);
+
+router.get('/success', signIn);
 
 // router.post('/uploads', (req, res) => {
 //   upload(req, res, (err) => {
