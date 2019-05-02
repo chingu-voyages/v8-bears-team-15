@@ -56,7 +56,7 @@ class Uploader extends React.Component{
           ref={this.fileInput}
         />
           <button id="btn" onClick={this.handleUploader.bind(this)}>UPLOAD YOUR CV</button>
-          <button id="btn" onClick={this.UploadHandler.bind(this)}>UPLOAD</button>
+          {/* <button id="btn" onClick={this.UploadHandler.bind(this)}>UPLOAD</button> */}
         </div>
         </div>
       </div>
