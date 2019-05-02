@@ -78,3 +78,10 @@ export function signOut(){
     type: actionTypes.LOGGED_OUT
   })
 }
+
+
+// export function filterListings(option, array){
+//    array.filter((entry) => {
+
+//    })
+// }

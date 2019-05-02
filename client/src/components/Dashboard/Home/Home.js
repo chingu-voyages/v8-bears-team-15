@@ -15,12 +15,13 @@ class DashBoardHome extends Component{
   constructor(props){
     super(props)
     this.state={
-      listArray: []
+      listArray: [],
+      tempArray: []
     }
   }
 
   componentWillMount() {
-    this.props.actions.userDashBoard()
+    this.props.actions.userDashBoard();
   }
 
   componentWillReceiveProps(nextProps){
@@ -31,12 +32,36 @@ class DashBoardHome extends Component{
     }
   }
 
-  getListArray(){
+  // getAllArray()
 
+  filterListings(option, array) {
+    console.log("state", array)
+    let newArray =  array.filter((item) => {
+      console.log("items", item)
+      if(item.type === option){
+        return item;
+      }
+    })
+    this.setState({
+      tempArray: newArray,
+    })
+  }
+
+  handleSelect(option){
+    let array = this.state.listArray;
+    // this.filterListings(option, stateArray)
+    if(this.state.tempArray.length === 0) {
+      this.filterListings(option, array)
+    }else{
+      this.setState({
+        tempArray: [],
+      })
+      this.filterListings(option, array)
+    }
   }
 
   render() {
-    const { listArray } = this.state;
+    const { listArray, tempArray } = this.state;
     return (
       <AuxComp>
       <div className="main">
@@ -45,16 +70,24 @@ class DashBoardHome extends Component{
           <h1>Explore jobs</h1>
           <div className="categories">
              <div id="all">
-               <button>All jobs</button>
+               <button 
+                // onClick={this.getAllArray.bind(this)}
+               >All jobs</button>
              </div>
              <div className="select">
-               <button>Sales & marketing</button>
-               <button>Software Engineering</button>
-               <button>Product & design, UI/UX</button>
+               <button 
+                 onClick={this.handleSelect.bind(this, 'sales')}
+               >Sales & marketing</button>
+               <button
+                  onClick={this.handleSelect.bind(this, 'software')}
+               >Software Engineering</button>
+               <button
+                  onClick={this.handleSelect.bind(this, 'ui')}
+               >Product & design, UI/UX</button>
              </div>
           </div>
           <Listing
-            data={listArray}
+            data={tempArray.length === 0 ? listArray : tempArray }
            />
         </div>
         <Footer />
