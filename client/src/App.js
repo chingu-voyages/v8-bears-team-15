@@ -10,9 +10,11 @@ import { faPlay,
   faCheckCircle,
   faTimesCircle,
   faTrash,
+  faSortUp,
   faCircle,
   faShieldAlt,
   faChevronDown, 
+  faBookmark,
   faHighlighter,
   faChevronLeft,
   faChevronRight,
@@ -27,6 +29,8 @@ import './App.css';
 import Home from './components/Home/Home';
 import DashBoardHome from './components/Dashboard/Home/Home';
 import Setting from './components/Dashboard/Setting/Setting';
+import AuxComp from '../src/HOC/AuxComp/AuxComp';
+import Auth from '../src/HOC/Auth/Auth';
 
 library.add(faPlay, 
   faEnvelope,
@@ -38,11 +42,13 @@ library.add(faPlay,
   faCheckCircle,
   faTimesCircle,
   faCircle,
+  faBookmark,
   faShieldAlt,
   faTrash,
   faHighlighter,
   faPlusCircle,
   faChevronLeft,
+  faSortUp,
   faChevronRight,
   fab)
 
@@ -50,13 +56,16 @@ export const history = createBrowserHistory()
 class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route  path="/jobs" component={DashBoardHome} />
-          <Route  path="/setting" component={Setting} />
-        </Switch>
+      <AuxComp>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path='/login' component={Home} />
+            <Route  path="/jobs" component={Auth(DashBoardHome)} />
+            <Route  path="/setting" component={Auth(Setting)} />
+         </Switch>
       </Router>
+      </AuxComp>
     );
   }
 }

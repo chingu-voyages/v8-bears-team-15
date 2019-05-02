@@ -7,11 +7,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
+import {LOGGED_IN} from '../src/actions/actionConstants';
 
 
 
 
 const store = configureStore();
+
+const token = localStorage.getItem('token');
+if(token){
+  store.dispatch({
+    type: LOGGED_IN
+  })
+}
 
 const renderApp = () => 
 render(
@@ -21,12 +29,6 @@ render(
  document.getElementById('root')
  );
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('root')
-// )
 
  if (process.env.NODE_ENV !== 'production' && module.hot) {
   module.hot.accept( App, renderApp)

@@ -1,4 +1,8 @@
 import express from 'express';
+// import multer from 'multer';
+
+// import User from '../models/User';
+
 import passportGoogle from '../auth/google';
 import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedin';
@@ -7,8 +11,22 @@ import passportJwt from '../auth/jwt';
 import { signIn } from '../../controllers/AuthenticationController';
 import { userDashboard } from '../../controllers/User';
 
+
 const router = express.Router();
 
+// upload storage
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, '../uploaded');
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, `${file.originalname}-${Date.now()}`);
+//   }
+// });
+
+
+// eslint-disable-next-line import/prefer-default-export
+// const upload = multer({ storage }).single('file');
 
 // Messages
 router.get('/', (req, res) => {
@@ -35,18 +53,7 @@ router.get('/login/google', passportGoogle.authenticate('google',
 router.get('/login/google/callback',
   passportGoogle.authenticate('google',
 
-    (err, user, info) => {
-      if (err) {
-        // eslint-disable-next-line no-console
-        console.log('error', err);
-      }
-      if (!user && info) {
-        // eslint-disable-next-line no-console
-        console.log('info error', info);
-      }
-    }), (req, res) => {
-    res.redirect('/');
-  });
+    { session: false }), signIn);
 
 
 // FACEBOOK - may require scope definition
@@ -79,12 +86,26 @@ router.get('/login/linkedin/callback',
  *  The email text area will go straight to this route,
  * authentication is only done with email since it's assumed that
  */
+
 router.post('/login',
   passportLocal.authenticate('local', { session: false }),
   signIn);
 
-router.get('/dashboard',
+router.get('/jobs',
   passportJwt.authenticate('jwt', { session: false }),
   userDashboard);
+
+// router.post('/uploads', (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err instanceof multer.MulterError) {
+//       console.log("mutler error", err);
+//       return res.status(500).json(err);
+//     } else if (err) {
+//       console.log("other mutler error", err);
+//       return res.status(500).json(err);
+//     }
+//     return res.status(200).send(req.file);
+//   });
+// });
 
 module.exports = router;

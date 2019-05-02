@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import PopOut from 'react-popout';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ import Modal from '../Modal/Modal';
 import * as homeActions from '../../actions/Home/HomeActions';
 import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
-import AuthWindow from '../Pop/Pop';
+// import AuthWindow from '../Portal/Pop';
 //import { withRouter } from 'react-router-dom';
 
 
@@ -45,7 +45,11 @@ class Home extends React.Component{
     e.preventDefault();
     this.props.actions.popAuth(provider);
   }
-
+  
+  closeAuth(e) {
+    e.preventDefault();
+    this.props.actions.closePopAuth();
+  }
 
   handleNext(e) {
     e.preventDefault();
@@ -62,7 +66,7 @@ class Home extends React.Component{
   }
   
   render() {
-    const { showModal, showPopUp, media } = this.props;
+    const { showModal, showPopUp } = this.props;
     return (
       <div className="main">
         {
@@ -74,13 +78,27 @@ class Home extends React.Component{
          ) : ''
         }
 
-        {
+        {/* {
           showPopUp ? 
           (
            <AuthWindow
             provider={media}
+            onClose={this.closeAuth}
            />
           ): ''
+        } */}
+
+        {
+          showPopUp ? 
+          (
+            <PopOut 
+              url='http://127.0.0.1:3000/login/google'
+              title="auth window" 
+              onClosing={(e) => this.closeAuth.bind(this)}
+              options={{ width:'500px',height: '600px',left:'200',top:'200'}}
+              onError={() => console.log("popout blocked")}
+            />
+          ) : ''
         }
         <section className="intro">
          <div className="video-div">
@@ -122,9 +140,10 @@ class Home extends React.Component{
                 </span>
               </div>
             </div>
+            <section id="all-forms">
             <form 
               className="social-medias" 
-              onSubmit={this.handleNext.bind(this)}
+              id="form-1"
             >
               <span className="auth-intro">Sign Up or Log in using:</span>
               <button id="google" onClick={(e) => this.handleAuth('google', e)}>
@@ -139,6 +158,12 @@ class Home extends React.Component{
                 <img src={linkedinImage} alt="linkedin-brand" />
                   <span className="content">Continue with LinkedIn</span>
                </button>
+            </form>
+              
+            <form 
+              className="social-medias" id="form-2"
+              onSubmit={this.handleNext.bind(this)}
+            >
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">
                 <FontAwesomeIcon icon="envelope" id="envelope" />
@@ -152,9 +177,9 @@ class Home extends React.Component{
               </div>
              <input type="submit" value="NEXT"/>
             </form>
+            </section>
          </div>
         </section>
-        <section className="body"></section>
         <Footer />
       </div>
     )
@@ -162,6 +187,7 @@ class Home extends React.Component{
 }
 
 const MapStateToProps = (state) => {
+  console.log("state at home now", state.homestate)
   return {
     showModal: state.homeState.openIntro,
     showPopUp: state.homeState.popUpWindow,

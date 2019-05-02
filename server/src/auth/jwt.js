@@ -1,26 +1,30 @@
+
 import passport from 'passport';
 import {
   Strategy as JwtStrategy,
   ExtractJwt as ExtractToken
 } from 'passport-jwt';
 
-import User from '../models/User';
 import { envConfig } from '../config/config';
+
+
+import User from '../models/User';
+
 
 const config = envConfig();
 
 const jwtOptions = {
   jwtFromRequest: ExtractToken.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.jwtPrivateKey,
+  secretOrKey: config.jwtSecret,
 };
 
-passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
-  User.findById(payload.sub, (err, user) => {
-    if (err) { return done(err, false); }
-    // eslint-disable-next-line no-console
-    console.log('jwt error', err);
 
-    if (user) { return done(null, user); }
+passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
+  User.findOne({ _id: payload.sub }, { password: 0 }, (err, user) => {
+    if (err) { console.log('jwt error', err); return done(err, false); }
+    // eslint-disable-next-line no-console
+    if (user) { console.log('user found at jwt', user); return done(null, user); }
+    return done(null, null);
   });
 }));
 

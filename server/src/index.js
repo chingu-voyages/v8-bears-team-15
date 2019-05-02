@@ -4,6 +4,7 @@ import session from 'express-session';
 import passport from 'passport';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+// import multer from 'multer';
 import cors from 'cors';
 import morgan from 'morgan';
 import store from 'connect-mongo';
@@ -11,6 +12,9 @@ import routes from './routes/index';
 
 import { envConfig } from './config/config';
 import { logger } from './helper/logger';
+
+// // upload storage
+
 
 const config = envConfig();
 // Connect database
@@ -33,6 +37,7 @@ app.server = http.createServer(app);
 app.use(bodyParser.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 app.use(session({
   store: new MongoStore({
@@ -44,8 +49,6 @@ app.use(session({
 }));
 
 app.use(morgan('dev'));
-
-app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());

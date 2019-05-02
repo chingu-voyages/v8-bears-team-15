@@ -194,36 +194,36 @@ textarea:focus{
   font-size: 10px;
 }
 
-#facebook{
+#facebook-pref{
   background: #3F51B5;
   align-items: center;
   cursor: pointer;
 }
 
-#facebook span{
+#facebook-pref span{
   color: white;
   font-weight: bolder;
   font-size: 10px;
 }
 
-#facebook img {
+#facebook-pref img {
   width: 20px;
 }
 
 
-#google,#linkedin{
+#google-pref,#linkedin-pref{
   align-items: center;
   background: white;
   cursor: pointer;
 }
 
-#google span,#linkedin span{
+#google-pref span,#linkedin-pref span{
   color: #282D31;
   font-weight: bolder;
   font-size: 10px;
 }
 
-#google img,#linkedin img {
+#google-pref img,#linkedin-pref img {
   width: 20px;
 }
 

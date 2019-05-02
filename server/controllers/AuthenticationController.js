@@ -1,14 +1,15 @@
-import jwt from 'jsonwebtoken';
+import jwt from 'jwt-simple';
 
 import { envConfig } from '../src/config/config';
 import User from '../src/models/User';
+import Listing from '../src/models/Listing';
 
 const config = envConfig();
 
+
 const generateToken = (user) => {
-  return jwt.sign(user, config.jwtPrivateKey, {
-    expiresIn: '7d',
-  });
+  const timeStamp = new Date().getTime();
+  return jwt.encode({ sub: user._id, iat: timeStamp }, config.jwtSecret);
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -16,14 +17,16 @@ export const signIn = (req, res) => {
   // eslint-disable-next-line no-console
  // console.log('user at signin', res.req.user);
   res.json({
+    success: true,
     user: res.req.user,
-    token: generateToken(res.req.user.toJSON())
+    token: generateToken(req.user)
   });
 };
 
+
 export const userDashboard = (req, res) => {
+  console.log('loading dashboard');
   // eslint-disable-next-line no-console
-  console.log('REQ', req.headers);
   // all user details with applications
   // and application updates should be returned at dashboard
   User.findOne({ _id: req.user._id }, (err, user) => {
@@ -35,10 +38,22 @@ export const userDashboard = (req, res) => {
     } else {
       // fetch application data from mongo and add
       // to payload
-      res.json({
-        success: true,
-        user,
-        // otherdata: data
+      console.log('NOERRER');
+      Listing.find({}, (err, lists) => {
+        if (err) {
+          console.log('find listing error', err);
+          res.json({
+            success: false,
+            error: err
+          });
+        } else {
+          console.log(lists);
+          res.json({
+            success: true,
+            user,
+            listings: lists
+          });
+        }
       });
     }
   });
