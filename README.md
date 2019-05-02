@@ -8,10 +8,6 @@ Add-project-description-here | Voyage-8 | https://chingu.io/
 ## Description
 A clone of the "jobbatical" job listings and applications app
 
-## Features
-* User Sign Up
-* Fully Responsive
-* Applications status notice and employer messages 
 
 
 ### Developers
