@@ -9,6 +9,7 @@ const listings = [
     location: 'Kuala lumpur',
     country: 'malaysia',
     validity: 23,
+    type: 'software',
     image: 'https://res.cloudinary.com/jidemobell/image/upload/v1556633480/nick-kane-747702-unsplash_ssbmhg.jpg'
   },
   {
@@ -19,6 +20,7 @@ const listings = [
     location: 'Kuala lumpur',
     country: 'malaysia',
     validity: 23,
+    type: 'sales',
     image: 'https://res.cloudinary.com/jidemobell/image/upload/v1556633480/nick-kane-747702-unsplash_ssbmhg.jpg'
   },
   {
@@ -29,6 +31,7 @@ const listings = [
     location: 'Kuala lumpur',
     country: 'malaysia',
     validity: 23,
+    type: 'sales',
     image: 'https://res.cloudinary.com/jidemobell/image/upload/v1556633480/nick-kane-747702-unsplash_ssbmhg.jpg'
   },
   {
@@ -39,6 +42,7 @@ const listings = [
     location: 'Kuala lumpur',
     country: 'malaysia',
     validity: 23,
+    type: 'sales',
     image: 'https://res.cloudinary.com/jidemobell/image/upload/v1556633480/nick-kane-747702-unsplash_ssbmhg.jpg'
   },
   {
@@ -49,6 +53,7 @@ const listings = [
     location: 'talinn',
     country: 'estonia',
     validity: 30,
+    type: 'ui',
     image: 'https://res.cloudinary.com/jidemobell/image/upload/v1556633483/paolo-nicolello-739296-unsplash_qghgyt.jpg',
   },
 ];
