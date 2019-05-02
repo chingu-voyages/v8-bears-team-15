@@ -19,7 +19,27 @@ class Listing extends Component{
       count: cards++
     })
   }
+  
+  // generateArray() {
+  //  return  new Promise((resolve, reject ) => {
+  //     const newArray =
+  //     this.props.data !== undefined &&
+  //     this.props.data.map((list, i) => {
+  //       return (
+  //         <ListingCard 
+  //         list = {list}
+  //         key={`${list._id}`}
+  //       />
+  //       )
+  //     })
+  //     newArray.push(<ProfileCard key={`lone-child-doc`} />)
+  //     resolve(newArray);
+  //   })
+  // }
+
   render() {
+    
+
     return (
       <div className="listing-main">
         {/* <ListingCard />

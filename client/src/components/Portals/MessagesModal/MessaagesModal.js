@@ -3,10 +3,9 @@ import onClickOutside from "react-onclickoutside";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './ProfileModal.css'
+import './MessagesModal.css'
 
-class ProfileModal extends Component {
-  
+class MessagesModal extends Component {
   handleClickOutside = evt => {
     // ..handling code goes here...
     console.log("you clicked outside")
@@ -17,26 +16,26 @@ class ProfileModal extends Component {
     return this.props.open ? (
       <div>
         <div className="modal-background"  onClick={() => console.log('background clicked')}/>
-        <div role="dialog" className="profile-modal-dialog">
+        <div role="dialog" className="messages-modal-dialog">
           <FontAwesomeIcon icon="sort-up" id="modal-arrow" />
           <div className="modal-content">
               {/* <div id="item-0" className="items">
                 
               </div> */}
               <div id="item-1" className="items"
-                onClick={() => this.props.onClose('profile')}
+                onClick={() => this.props.onClose('messages')}
               >
-                <p>My Profile</p>
+                <p>Messages</p>
               </div>
               <div id="item-2" className="items"
-                onClick={() => this.props.onClose('preference')}
+                onClick={() => this.props.onClose('status')}
               >
-                <p>My Preferences</p>
+                <p>You have no messages!</p>
               </div>
               <div id="item-3" className="items"
-                onClick={() => this.props.onClose('logout')}
+                onClick={() => this.props.onClose('all')}
               >
-                <p>Log Out</p>
+                <p>VIEW ALL</p>
               </div>
           </div>
         </div>
@@ -45,4 +44,4 @@ class ProfileModal extends Component {
   }
 }
 
-export default onClickOutside(ProfileModal);
+export default onClickOutside(MessagesModal);

@@ -66,6 +66,7 @@ router.get('/login/facebook/callback',
     successRedirect: '/home'
   }));
 
+
 // LINKEDIN - may require scope definition
 
 router.get('/login/linkedin', passportLinkedin.authenticate('linkedin'));
