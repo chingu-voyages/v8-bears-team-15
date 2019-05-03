@@ -3,12 +3,9 @@ import express from 'express';
 
 // import User from '../models/User';
 
-import passportGoogle from '../auth/google';
-import passportFacebook from '../auth/facebook';
-import passportLinkedin from '../auth/linkedin';
-import passportLocal from '../auth/local';
-import passportJwt from '../auth/jwt';
-import { signIn } from '../../controllers/AuthenticationController';
+import auth from '../auth/passport';
+
+import { signIn, signup } from '../../controllers/AuthenticationController';
 import { userDashboard } from '../../controllers/User';
 
 
@@ -43,37 +40,19 @@ router.get('/', (req, res) => {
 // });
 
 
-// GOOGLE - may require scope definition
+// GOOGLE AUTH
 
-router.get('/login/google', passportGoogle.authenticate('google',
-  {
-    scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email']
-  }));
+router.get('/login/google', auth.googleAuthenticate);
+router.get('/login/google/callback', auth.googleRedirectAuthenticate, auth.signToken);
 
-router.get('/login/google/callback',
-  passportGoogle.authenticate('google',{ session: false }), signIn);
+// FACEBOOK AUTH
+router.get('/login/facebook', auth.facebookAuthenticate);
+router.get('/login/facebook/callback', auth.facebookRedirectAuthenticate, auth.signToken);
 
+// LINKEDIN AUTH
 
-// FACEBOOK - may require scope definition
-
-router.get('/login/facebook', passportFacebook.authenticate('facebook'));
-
-router.get('/login/facebook/callback',
-  passportFacebook.authenticate('facebook', {
-    failureRedirect: '/',
-    successRedirect: '/home'
-  }));
-
-
-// LINKEDIN - may require scope definition
-
-router.get('/login/linkedin', passportLinkedin.authenticate('linkedin'));
-
-router.get('/login/linkedin/callback',
-  passportLinkedin.authenticate('linkedin', {
-    failureRedirect: '/',
-    successRedirect: '/home'
-  }));
+router.get('/login/linkedin', auth.linkedinAuthenticate);
+router.get('/login/linkedin/callback', auth.linkedinRedirectAuthenticate, auth.signToken);
 
 /**
  * I ran into lots of issues working with the APIs
@@ -86,13 +65,11 @@ router.get('/login/linkedin/callback',
  * authentication is only done with email since it's assumed that
  */
 
-router.post('/login',
-  passportLocal.authenticate('local', { session: false }),
-  signIn);
+// LOCAL AUTH
+router.post('/register', signup);
+router.post('/login', auth.authenticate, signIn);
 
-router.get('/jobs',
-  passportJwt.authenticate('jwt', { session: false }),
-  userDashboard);
+router.get('/jobs', auth.restricted, userDashboard);
 
 router.get('/success', signIn);
 

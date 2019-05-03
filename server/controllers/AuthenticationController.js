@@ -1,28 +1,66 @@
-import jwt from 'jwt-simple';
-
-import { envConfig } from '../src/config/config';
 import User from '../src/models/User';
+import auth from '../src/auth/passport';
+
 import Listing from '../src/models/Listing';
 
-const config = envConfig();
+// Register a new user
+export const signup = (req, res) => {
+  const {
+    username, password, email, firstName, lastName
+  } = req.body;
+  const newUserInfo = {
+    username, password, email, firstName, lastName
+  };
 
-
-const generateToken = (user) => {
-  const timeStamp = new Date().getTime();
-  return jwt.encode({ sub: user._id, iat: timeStamp }, config.jwtSecret);
+  User.findOne({ 'local.email': email }).then((existingUser) => {
+    // If user with that email exists
+    if (existingUser) {
+      // if user already signed up locally
+      if (existingUser.local.password) {
+        return res.status(409).json({ message: 'problem signing up' });
+      } else {
+        try {
+          /**
+           * if user had previously signed up with an OAuth strategy this
+           * condition will now link the two in the database
+           */
+          const updatedUser = existingUser.linkAccounts(User, newUserInfo);
+          const token = makeToken(updatedUser);
+          res.status(201).json({ token });
+        } catch (err) {
+          // pass 'err' to 'next()' if anything goes wrong updating the user
+          next(err);
+        }
+      }
+    } else {
+      const user = new User({
+        method: 'local',
+        local: {
+          username,
+          password,
+          email
+        },
+      });
+      user
+        .save()
+        .then((newUser) => {
+          const token = makeToken(newUser);
+          res.status(201).json({ token });
+        })
+        .catch((err) => {
+          res.status(500).json(err);
+        });
+    }
+  });
 };
 
-// eslint-disable-next-line import/prefer-default-export
+
+// Login a user locally
 export const signIn = (req, res) => {
-  // eslint-disable-next-line no-console
- // console.log('user at signin', res.req.user);
-//  console.log("initial res", req);
-//  console.log("all user req", res);
-  res.json({
-    success: true,
-    user: res.req.user,
-    token: generateToken(req.user)
-  });
+  if (!req.user) {
+    return res.status(422);
+  }
+  res.status(200).json({ token: auth.makeToken(req.user), user: req.user });
 };
 
 
