@@ -31,6 +31,8 @@ export const envConfig = () => {
 
 const config = envConfig();
 
+console.log("config", config);
+
 
 // export const config = {
 //   port: process.env.PORT || 8081,
