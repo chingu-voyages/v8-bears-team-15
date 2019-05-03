@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import testpic from '../../../images/testcard.jpg'
+// import testpic from '../../../images/testcard.jpg'
 import './ListingCard.css';
 
 function ListingCard(props) {

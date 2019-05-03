@@ -8,12 +8,12 @@
   "scripts": {
     "build": "babel src -d build",
     "clean": "rm -rf build && mkdir build",
-    "dev": "nodemon --exec babel-node src/index.js",
+    "server": "nodemon --exec babel-node src/index.js",
     "prestart": "npm run clean && npm run build",
     "start": "node build/index.js",
     "test": "_mocha --require @babel/register --exit",
     "client": "cd .. && cd client && yarn start",
-    "devs": "concurrently --kill-others-on-fail \"yarn dev\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn dev\" \"yarn client\""
 
   },
   "devDependencies": {
