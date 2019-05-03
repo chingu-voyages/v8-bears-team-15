@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "A jobbatical clone App.",
   "repository": "https://github.com/chingu-voyages/v8-bears-team-15.git",
   "author": "jidemobell <jidd32@gmail.com>, <medomwande@gmail.com>, <nedumrobert@gmail.com>",
   "license": "MIT",
@@ -11,12 +12,15 @@
     "server": "nodemon --exec babel-node src/index.js" ,
     "seed": "seed",
     "prestart": "npm run clean && npm run build",
-    "start": "node build/index.js",
-    "start2": "nodemon src/index.js",
+    "start": "babel-node  src/index.js",
     "test": "_mocha --require @babel/register --exit",
     "client": "cd .. && cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn seed\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn seed\" \"yarn client\"",
+    "heroku-postbuild": "cd .. && cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn run build"
 
+  },
+  "engines": {
+    "node": "10.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

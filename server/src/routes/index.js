@@ -51,7 +51,7 @@ router.get('/login/google', passportGoogle.authenticate('google',
   }));
 
 router.get('/login/google/callback',
-  passportGoogle.authenticate('google',{ session: false }), signIn);
+  passportGoogle.authenticate('google', { session: false }), signIn);
 
 
 // FACEBOOK - may require scope definition

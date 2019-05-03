@@ -1,5 +1,4 @@
 import jwt from 'jwt-simple';
-
 import { envConfig } from '../src/config/config';
 import User from '../src/models/User';
 import Listing from '../src/models/Listing';
