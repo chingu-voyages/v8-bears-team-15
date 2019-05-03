@@ -1,15 +1,17 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable semi */
-/* eslint-disable linebreak-style */
 /* eslint-disable no-tabs */
-/* eslint-disable indent */
-/* eslint-disable quote-props */
 /* eslint-disable quotes */
-// eslint-disable-next-line linebreak-style
-process.env.NODE_ENV = "test"
+/* eslint-disable quote-props */
+/* eslint-disable indent */
+
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+// eslint-disable-next-line no-unused-vars
+const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
 	"test": "mongodb://localhost/bears15Test",
-	"dev": "localhost/DEV_DB_NAME",
+	"development": "mongodb://localhost/bears15",
 	"prod": "localhost/PROD_DB_NAME"
-}
+};
