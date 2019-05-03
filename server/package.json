@@ -9,12 +9,13 @@
     "build": "babel src -d build",
     "clean": "rm -rf build && mkdir build",
     "server": "nodemon --exec babel-node src/index.js" ,
+    "seed": "seed",
     "prestart": "npm run clean && npm run build",
     "start": "node build/index.js",
     "start2": "nodemon src/index.js",
     "test": "_mocha --require @babel/register --exit",
     "client": "cd .. && cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn seed\" \"yarn client\""
 
   },
   "devDependencies": {
