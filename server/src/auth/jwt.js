@@ -23,7 +23,7 @@ passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
   User.findOne({ _id: payload.sub }, { password: 0 }, (err, user) => {
     if (err) { console.log('jwt error', err); return done(err, false); }
     // eslint-disable-next-line no-console
-    if (user) { console.log('user found at jwt', user); return done(null, user); }
+    if (user) { return done(null, user); }
     return done(null, null);
   });
 }));

@@ -32,12 +32,10 @@ class DashBoardHome extends Component{
     }
   }
 
-  // getAllArray()
-
   filterListings(option, array) {
     console.log("state", array)
+    // eslint-disable-next-line array-callback-return
     let newArray =  array.filter((item) => {
-      console.log("items", item)
       if(item.type === option){
         return item;
       }

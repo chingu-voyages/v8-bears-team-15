@@ -5,7 +5,7 @@
 
 export function upload(data){
 
-  fetch('http://localhost:3000/uploads',
+  fetch('http://localhost:4000/uploads',
   {
     method: 'POST',
     body: data

@@ -5,7 +5,7 @@ import { history } from '../../App';
 
 export function signIn(email) {
   return (dispatch) => {
-    axios.post('http://localhost:3000/login', {
+    axios.post('http://localhost:4000/login', {
       email
     })
     .then((response) => {
@@ -55,7 +55,7 @@ export function userDashBoard(){
   return (dispatch) => {
     let token = localStorage.getItem('token');
     console.log("Token", token)
-    axios.get('http://localhost:3000/jobs', {
+    axios.get('http://localhost:4000/jobs', {
       headers: {
         Authorization: `Bearer ${token}`
       }
