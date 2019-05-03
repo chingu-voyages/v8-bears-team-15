@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import {
@@ -74,7 +75,6 @@ const googleStrategy = new GoogleStrategy(
             existingUser.google.id = profile.id;
             existingUser.google.username = profile.displayName;
             existingUser.google.email = profile.emails[0].value;
-            existingUser.google.thumbnail = profile._json.image.url;
             existingUser.save();
           }
           done(null, existingUser);
@@ -85,7 +85,6 @@ const googleStrategy = new GoogleStrategy(
               id: profile.id,
               email: profile.emails[0].value,
               username: profile.displayName,
-              thumbnail: profile._json.image.url
             }
           });
           newUser.local.email = profile.emails[0].value;

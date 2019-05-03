@@ -36,9 +36,6 @@ const UserSchema = new mongoose.Schema({
       type: String,
       lowercase: true
     },
-    thumbnail: {
-      type: String
-    },
     verified: {
       type: Boolean,
       default: false
