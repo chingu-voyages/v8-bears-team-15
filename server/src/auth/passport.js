@@ -257,11 +257,9 @@ const signToken = (req, res) => {
   };
   jwt.sign(payload, config.jwtSecret, options, (err, token) => {
     if (err) {
-      // TODO: redirect
-      res.redirect(`${ROOT_URL.WEB}/login#err=${err}`);
+      res.redirect(`${config.WEB_URL}/login#err=${err}`);
     } else {
-      // TODO: redirect
-      res.redirect(`${ROOT_URL.WEB}/upload#token=${token}`);
+      res.redirect(`${config.WEB_URL}/jobs#token=${token}`);
     }
   });
 };
