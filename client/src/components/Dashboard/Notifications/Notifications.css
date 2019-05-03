@@ -1,0 +1,51 @@
+#visibility-main {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding-bottom: 50px;
+  color: #282D31; 
+}
+
+#notifications-layout{
+  padding: 30px 100px;
+}
+
+#column-1{
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  /* margin-left: 140px; */
+}
+
+.column-1 h3{
+ align-self: flex-start;
+ margin-left: unset;
+ padding-left: unset;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  margin-bottom: 14px;
+  justify-content: space-between;
+}
+
+section span {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+section p {
+  max-width: 600px;
+  opacity: 0.5;
+  margin-top: 5px;
+  margin-left: unset;
+}
+
+section #left {
+  /* margin-right: 70px; */
+}

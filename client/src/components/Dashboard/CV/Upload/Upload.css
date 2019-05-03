@@ -1,0 +1,28 @@
+#uploader-main {
+  padding: 50px 100px;
+}
+
+#upload-layout{
+  border: 2px  dashed #0CC28F;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#upload-layout section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn{
+  border: none;
+  background: #0CC28F;
+  padding: 15px;
+  color: white;
+}
+

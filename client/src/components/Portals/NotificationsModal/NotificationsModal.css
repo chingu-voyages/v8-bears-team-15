@@ -1,0 +1,76 @@
+.modal-background {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(33, 33, 33, 0.85);
+}
+
+.notifications-modal-dialog {
+  position: fixed;
+  top: 12%;
+  right: 8%;
+  bottom: 20%;
+  width: 300px;
+  height: 200px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px rgba(40, 45, 49, 0.068) solid;
+  font-family: 'Roboto', sans-serif;
+  color: #282D31;
+  background-color: rgba(250, 250, 250, 1);
+  box-shadow: rgba(40, 45, 49, 0.157) 0px 10px 25px;
+  margin-top: 0;
+}
+
+.items{
+  display: flex;
+  flex-basis: 60%;
+  justify-content: flex-start;
+  padding: 10px;
+  border-top: 1px rgba(40, 45, 49, 0.068) solid;
+  border-bottom: 1px rgba(40, 45, 49, 0.068) solid;
+  background: none;
+  transition: background 1ms;
+}
+
+#item-3{
+  border-bottom: 1px rgba(40, 45, 49, 0.192) solid;
+}
+
+#item-1{
+  border-top: 1px rgba(40, 45, 49, 0.281) solid;
+}
+
+.items:hover{
+  background: rgba(40, 45, 49, 0.014)
+}
+
+#item-0{
+  
+  justify-content: flex-end;
+  
+}
+
+.arrow{
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  height: 50px;
+}
+
+#modal-arrow{
+  font-size: 45px;
+  margin-bottom: -27px;
+  align-self: flex-end;
+  justify-self: baseline;
+  color: rgba(128, 128, 128, 0.404)
+}

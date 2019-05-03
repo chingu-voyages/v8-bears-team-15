@@ -1,0 +1,83 @@
+/* .modal-back {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.733);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0;
+  animation: 1s fadein 0.5s forwards; 
+}
+
+.modal header {
+  width: 460px;
+  position: relative;
+}
+
+.modal header h3 {
+  margin:  0 auto;
+}
+
+.modal img {
+  width: 500px;
+}
+
+.modal .description {
+margin-top: 15px;
+font-size: 15px;
+}
+
+.modal .skills {
+  color: #3C415E;
+  margin-top: 15px;
+  padding: 5px;
+  background: rgba(112, 128, 144, 0.226)
+}
+
+#cross {
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  font-size: 20px;
+  left: 480px;
+  cursor: pointer;
+} */
+
+.container {
+  height: 100%;
+  width: 100%;
+  background: black;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.frame {
+  width: 90%;
+  height: 90%;
+}
+
+.container span {
+  color: white;
+  align-self: flex-start;
+  margin-top: 10px;
+  font-weight: bold;
+}

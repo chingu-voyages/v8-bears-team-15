@@ -1,0 +1,75 @@
+.listing-card-main{
+  max-width: 400px;
+  max-height: 400px;
+  padding: 30px;
+  border: 1px rgba(40, 45, 49, 0.068) solid;
+  color: #282D31;
+  cursor: pointer; 
+  margin: 10px;
+}
+
+.listing-card-main:hover{
+  box-shadow: rgba(40, 45, 49, 0.157) 0px 10px 25px;
+  transform: translate3d(0px, -1px, 0px);
+}
+
+.card-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-col{
+  display: flex;
+  flex-direction: column;
+}
+
+#card-layout{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#card-image{
+  width: 270px;
+  height: 190px;
+  margin-bottom: 30px;
+  margin-top: 7px;
+}
+
+#left-content{
+  justify-content: space-between;
+  color: #0CC28F;
+}
+
+.properties{
+  justify-content: space-between;
+}
+
+.properties span{
+  font-weight: bold;
+}
+
+span:first-child{
+  font-size: 11px;
+}
+
+#left-content span{
+  margin-right: 7px;
+  font-weight: bold;
+}
+
+
+
+#bookmark{
+  margin-left:10px;
+
+}
+
+#card-head{
+  margin-top: 7px;
+}
+
+#card-location{
+  font-weight: bold;
+  font-size: 10px;
+}
