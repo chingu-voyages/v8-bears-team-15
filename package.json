@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "heroku-prebuild": "cd api && npm install && cd .. && cd aclient && yarn install  && yarn install --only=dev --no-shrinkwrap && yarn run build",
+    "heroku-prebuild": "cd api && npm install && cd .. && cd client && yarn install  && yarn install --only=dev --no-shrinkwrap && yarn run build",
     "start": "cd server && npm start"
   }
 }
