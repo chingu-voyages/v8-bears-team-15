@@ -20,7 +20,8 @@ import * as homeActions from '../../actions/Home/HomeActions';
 import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
 
-import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
+// import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
+import AuthWindow from './../Portal/Pop';
 
 
 
@@ -130,7 +131,9 @@ class Home extends React.Component{
               </button>
               {
                 showPopUp ?
-                <AuthPortal  /> : ''
+                <AuthWindow
+                
+                /> : ''
               }
               <button id="facebook" onClick={(e) => this.handleAuth('facebook', e)}>
                 <img src={facebookImage} alt="facebook-brand" />

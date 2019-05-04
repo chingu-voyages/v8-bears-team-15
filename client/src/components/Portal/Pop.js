@@ -30,6 +30,10 @@ class AuthWindow extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    this.popup.close()
+  }
+
 
   render() {
      return ReactDOM.createPortal(this.props.children, this.el)
@@ -41,6 +45,7 @@ class AuthWindow extends React.Component {
 const MapStateToProps = (state) => {
   return {
     pop: state.homeState.popUpWindow,
+    provider: state.homeState.provider
   }
 }
 
