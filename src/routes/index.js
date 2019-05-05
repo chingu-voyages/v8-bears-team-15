@@ -5,7 +5,7 @@ import express from 'express';
 
 import passportGoogle from '../auth/google';
 import passportFacebook from '../auth/facebook';
-import passportLinkedin from '../auth/linkedin';
+import passportLinkedin from '../auth/linkedIn';
 import passportLocal from '../auth/local';
 import passportJwt from '../auth/jwt';
 import { signIn } from '../../controllers/AuthenticationController';
