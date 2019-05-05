@@ -33,6 +33,9 @@ export const envConfig = () => {
   if (env === 'development') {
     return allConfig.development;
   }
+  if (env === 'production') {
+    return allConfig.production;
+  }
 };
 
 const config = envConfig();
