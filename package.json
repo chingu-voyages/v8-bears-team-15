@@ -16,7 +16,7 @@
     "test": "_mocha --require @babel/register --exit",
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn seed\" \"yarn client\"",
-    "heroku-postbuild": "cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn run build"
+    "heroku-postbuild": "cd client && yarn install &&  yarn  && yarn run build"
   },
   "engines": {
     "node": "10.x"
