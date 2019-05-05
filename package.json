@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "description": "A jobbatical clone App.",
   "repository": "https://github.com/chingu-voyages/v8-bears-team-15.git",
