@@ -8,8 +8,8 @@ import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedIn';
 import passportLocal from '../auth/local';
 import passportJwt from '../auth/jwt';
-import { signIn } from '../../controllers/AuthenticationController';
-import { userDashboard } from '../../controllers/User';
+import { signIn } from '../controllers/AuthenticationController';
+import { userDashboard } from '../controllers/User';
 
 
 const router = express.Router();
