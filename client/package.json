@@ -1,8 +1,12 @@
 {
   "name": "client",
-  "version": "0.1.0",
   "private": true,
-  "proxy": "http://127.0.0.1:4000",
+  "main": "index.js",
+  "proxy": "http://localhost:4000",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chingu-voyages/v8-bears-team-15.git"
+  },
   "dependencies": {
     "@babel/core": "7.2.2",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
@@ -78,7 +82,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
