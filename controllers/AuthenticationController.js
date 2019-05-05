@@ -1,9 +1,12 @@
-import jwt from 'jwt-simple';
+// import jwt from 'jwt-simple';
+
+
 import { envConfig } from '../src/config/config';
 import User from '../src/models/User';
 import Listing from '../src/models/Listing';
 
 const config = envConfig();
+const jwt = require('jwt-simple');
 
 
 const generateToken = (user) => {
