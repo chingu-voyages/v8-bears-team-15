@@ -5,6 +5,7 @@ import passport from 'passport';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 // import multer from 'multer';
+import path from 'path';
 import cors from 'cors';
 import morgan from 'morgan';
 import store from 'connect-mongo';
