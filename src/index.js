@@ -55,6 +55,15 @@ app.use(passport.session());
 
 app.use('/', routes);
 
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  Server.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  Server.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
 if (!module.parent) {
   app.listen(config.port, () => {
     logger.info(`CORS-enabled web server listening on port ${config.port}`);

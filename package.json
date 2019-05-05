@@ -12,7 +12,7 @@
     "server": "nodemon --exec babel-node src/index.js",
     "seed": "seed",
     "prestart": "npm run clean && npm run build",
-    "start": "npm run prestart && node build/index.js && cd client yarn start",
+    "start": "npm run prestart && node build/index.js",
     "test": "_mocha --require @babel/register --exit",
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn seed\" \"yarn client\"",
