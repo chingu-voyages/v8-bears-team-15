@@ -13,5 +13,5 @@ const env = process.env.NODE_ENV || 'development';
 module.exports = {
 	"test": "mongodb://localhost/bears15Test",
 	"development": "mongodb://localhost/bears15",
-	"prod": "localhost/PROD_DB_NAME"
+	"prod": "mongodb://admin:bears15admin@ds151066.mlab.com:51066/jobbatical-clone"
 };
