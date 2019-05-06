@@ -18,7 +18,7 @@ class AuthWindow extends React.Component {
 
   componentDidMount() {
      const { provider } = this.props
-     this.popup = window.open(`http://localhost:3000/login/${provider}`, '', 'width=500,height=600,left=200,top=200');
+     this.popup = window.open(`http://localhost:4000/login/${provider}`, '', 'width=500,height=600,left=200,top=200');
      this.popup.document.body.appendChild(this.el);
      this.el.classList.add("window");
      this.el.setAttribute("Ref", `${this.pops}`)
