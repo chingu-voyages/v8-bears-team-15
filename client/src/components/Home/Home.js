@@ -147,7 +147,7 @@ class Home extends React.Component{
               
             <form 
               className="social-medias" id="form-2"
-              onSubmit={this.handleNext.bind(this)}
+              onSubmit={() => this.handleNext.bind(this)}
             >
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">
