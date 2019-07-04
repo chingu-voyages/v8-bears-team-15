@@ -40,6 +40,7 @@ export const envConfig = () => {
 
 const config = envConfig();
 
+
 export const facebook = {
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
