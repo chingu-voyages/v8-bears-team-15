@@ -174,3 +174,4 @@ UserSchema.methods.linkAccounts = async function (userModel = {}, userInfo = {})
 };
 
 module.exports = mongoose.model('User', UserSchema);
+

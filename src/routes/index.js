@@ -3,10 +3,12 @@ import express from 'express';
 
 // import User from '../models/User';
 
+
 import auth from '../auth/passport';
 
 import { signIn, signup } from '../../controllers/AuthenticationController';
 import { userDashboard } from '../../controllers/User';
+
 
 
 const router = express.Router();
@@ -40,6 +42,7 @@ router.get('/', (req, res) => {
 // });
 
 
+
 // GOOGLE AUTH
 
 router.get('/login/google', auth.googleAuthenticate);
@@ -53,6 +56,7 @@ router.get('/login/facebook/callback', auth.facebookRedirectAuthenticate, auth.s
 
 router.get('/login/linkedin', auth.linkedinAuthenticate);
 router.get('/login/linkedin/callback', auth.linkedinRedirectAuthenticate, auth.signToken);
+
 
 /**
  * I ran into lots of issues working with the APIs
@@ -70,6 +74,7 @@ router.post('/register', signup);
 router.post('/login', auth.authenticate, signIn);
 
 router.get('/jobs', auth.restricted, userDashboard);
+
 
 router.get('/success', signIn);
 

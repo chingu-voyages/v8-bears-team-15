@@ -20,7 +20,8 @@ import * as homeActions from '../../actions/Home/HomeActions';
 import * as userActions from '../../actions/User/UserActions';
 import Footer from '../Footer/Footer';
 
-import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
+// import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
+import AuthWindow from './../Portal/Pop';
 
 
 
@@ -130,7 +131,9 @@ class Home extends React.Component{
               </button>
               {
                 showPopUp ?
-                <AuthPortal  /> : ''
+                <AuthWindow
+                
+                /> : ''
               }
               <button id="facebook" onClick={(e) => this.handleAuth('facebook', e)}>
                 <img src={facebookImage} alt="facebook-brand" />
@@ -144,7 +147,7 @@ class Home extends React.Component{
               
             <form 
               className="social-medias" id="form-2"
-              onSubmit={this.handleNext.bind(this)}
+              onSubmit={() => this.handleNext.bind(this)}
             >
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">

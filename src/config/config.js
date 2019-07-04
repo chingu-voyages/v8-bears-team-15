@@ -17,6 +17,12 @@ export const allConfig = {
     database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
     jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
     jwtSecret: process.env.JWT_SECRET,
+  },
+  production: {
+    port: process.env.PORT || 8081,
+    database: process.env.MONGODB_URI || 'mongodb://admin:bears15admin@ds151066.mlab.com:51066/jobbatical-clone',
+    jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
+    jwtSecret: process.env.JWT_SECRET,
   }
 };
 
@@ -27,16 +33,13 @@ export const envConfig = () => {
   if (env === 'development') {
     return allConfig.development;
   }
+  if (env === 'production') {
+    return allConfig.production;
+  }
 };
 
 const config = envConfig();
 
-
-// export const config = {
-//   port: process.env.PORT || 8081,
-//   database: process.env.MONGODB_URI || 'mongodb://localhost/bears15',
-//   jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
-// };
 
 export const facebook = {
   clientID: process.env.FACEBOOK_APP_ID,

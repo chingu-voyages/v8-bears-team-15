@@ -18,7 +18,7 @@ class AuthWindow extends React.Component {
 
   componentDidMount() {
      const { provider } = this.props
-     this.popup = window.open(`http://localhost:3000/login/${provider}`, '', 'width=500,height=600,left=200,top=200');
+     this.popup = window.open(`http://localhost:4000/login/${provider}`, '', 'width=500,height=600,left=200,top=200');
      this.popup.document.body.appendChild(this.el);
      this.el.classList.add("window");
      this.el.setAttribute("Ref", `${this.pops}`)
@@ -28,6 +28,10 @@ class AuthWindow extends React.Component {
     if(this.props !== nextProps){
       console.log("Portal Props", nextProps)
     }
+  }
+
+  componentWillUnmount(){
+    this.popup.close()
   }
 
 
@@ -41,6 +45,7 @@ class AuthWindow extends React.Component {
 const MapStateToProps = (state) => {
   return {
     pop: state.homeState.popUpWindow,
+    provider: state.homeState.provider
   }
 }
 

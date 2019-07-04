@@ -5,6 +5,9 @@ import passport from 'passport';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 // import multer from 'multer';
+
+import path from 'path';
+
 import cors from 'cors';
 import morgan from 'morgan';
 import store from 'connect-mongo';
@@ -54,6 +57,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 if (!module.parent) {
   app.listen(config.port, () => {
