@@ -6,6 +6,8 @@ export const userDashboard = (req, res) => {
   // eslint-disable-next-line no-console
   // all user details with applications
   // and application updates should be returned at dashboard
+
+  console.log("fetching dashboard")
   User.findOne({ _id: req.user._id }, (err, user) => {
     if (err) {
       res.json({

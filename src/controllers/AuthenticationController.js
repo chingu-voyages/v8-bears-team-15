@@ -19,6 +19,9 @@ export const signIn = (req, res) => {
  // console.log('user at signin', res.req.user);
 //  console.log("initial res", req);
 //  console.log("all user req", res);
+
+ console.log("user to sign-in", res.req.user)
+
   res.json({
     success: true,
     user: res.req.user,

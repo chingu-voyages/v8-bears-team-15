@@ -29,7 +29,7 @@ const router = express.Router();
 // const upload = multer({ storage }).single('file');
 
 // Messages
-router.get('/', (req, res) => {
+router.get('/welcome', (req, res) => {
   res.status(200).send({
     message: 'Welcome to Jobbatical clone application API'
   });

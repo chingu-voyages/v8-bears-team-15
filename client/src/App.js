@@ -60,7 +60,7 @@ class App extends Component {
         <Router history={history}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path='/login' component={Home} />
+            {/* <Route exact path='/login' component={Home} /> */}
             <Route  path="/jobs" component={Auth(DashBoardHome)} />
             <Route  path="/setting" component={Auth(Setting)} />
          </Switch>

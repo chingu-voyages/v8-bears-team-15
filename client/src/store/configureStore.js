@@ -14,6 +14,8 @@ export default function configureStore(preloadedState) {
   const composedEnhancers = composeWithDevTools(...enhancers)
 
   const store = createStore(rootReducer, preloadedState, composedEnhancers)
+
+  console.log("environment detais", process.env.NODE_ENV)
   
   if (process.env.NODE_ENV !== 'production' && module.hot) {
     module.hot.accept('../reducers/rootReducer', () => store.replaceReducer(rootReducer))

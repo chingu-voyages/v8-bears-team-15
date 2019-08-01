@@ -4,6 +4,8 @@ dotenv.config();
 
 const env = process.env.NODE_ENV || 'development';
 
+console.log("the environment in use", env)
+
 
 export const allConfig = {
   test: {

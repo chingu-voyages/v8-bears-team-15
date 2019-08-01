@@ -18,12 +18,13 @@ const jwtOptions = {
   secretOrKey: config.jwtSecret,
 };
 
+//console.log("allRequest", jwtOptions.secretOrKey,jwtOptions.jwtFromRequest)
 
 passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
   User.findOne({ _id: payload.sub }, { password: 0 }, (err, user) => {
     if (err) { console.log('jwt error', err); return done(err, false); }
     // eslint-disable-next-line no-console
-    if (user) { return done(null, user); }
+    if (user) { console.log("jwt user found"); return done(null, user); }
     return done(null, null);
   });
 }));

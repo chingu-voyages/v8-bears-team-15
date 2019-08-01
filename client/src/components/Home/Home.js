@@ -54,13 +54,17 @@ class Home extends React.Component{
   }
 
   handleNext(e) {
-    e.preventDefault();
+    console.log("NEXT CLICKED")
+      e.preventDefault();
+   
     const { inputValue } = this.state
+    console.log("value",inputValue)
     // validate input for errors
     this.props.actions.signIn(inputValue) 
   }
 
   handleChange(e) {
+    console.log(e.target.value)
     e.preventDefault();
     this.setState({
       inputValue: e.target.value
@@ -147,7 +151,7 @@ class Home extends React.Component{
               
             <form 
               className="social-medias" id="form-2"
-              onSubmit={() => this.handleNext.bind(this)}
+              onSubmit={this.handleNext.bind(this)}
             >
               <span className="auth-intro">Or continue wth email</span>
               <div className="input-wrapper">
@@ -172,7 +176,7 @@ class Home extends React.Component{
 }
 
 const MapStateToProps = (state) => {
-  console.log("state at home now", state.homestate)
+  console.log("state at home now", state)
   return {
     showModal: state.homeState.openIntro,
     showPopUp: state.homeState.popUpWindow,
