@@ -36,21 +36,29 @@ export function signIn(email) {
   }
 }
 
+export function checkLogin(){
+  return (dispatch) => {
+    axios.get('http://localhost:4000/success')
+    .then((response) => {
+        if((response.status !== 401 || response.status !== 400)){
+          dispatch({
+            type: actionTypes.SIGN_IN,
+            payload: response.data.user,
+          })
+          localStorage.setItem('token', response.data.token)
+          history.push('/jobs')       
+        } else{
+          dispatch({
+            type: actionTypes.USER_ERROR,
+            payload: response.data.error
+          })
+        } 
+    }).catch((err) => {
+       console.log("ERROR AT SUCCESSS", err)
+    })
+  }
+}
 
-// export function socialSignIn() {
-//   console.log("socially signing")
-//   return (dispatch) => {
-//     axios.get(`http://localhost:3000/success`)
-//     .then((response) => {
-//       console.log("social media response", response)
-//       dispatch({
-//         type: actionTypes.SIGN_IN,
-//       })
-//       localStorage.setItem('token', response.data.token)
-//       history.push('/jobs')
-//     })
-//   }
-// }
 
 export function userDashBoard(){
   return (dispatch) => {
@@ -80,10 +88,3 @@ export function signOut(){
     type: actionTypes.LOGGED_OUT
   })
 }
-
-
-// export function filterListings(option, array){
-//    array.filter((entry) => {
-
-//    })
-// }

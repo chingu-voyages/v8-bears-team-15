@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import cors from 'cors';
 import morgan from 'morgan';
-import store from 'connect-mongo';
+import connectStore from 'connect-mongo';
 import routes from './routes/index';
 
 import { envConfig } from './config/config';
@@ -18,6 +18,7 @@ import { logger } from './helper/logger';
 
 
 const config = envConfig();
+
 // Connect database
 mongoose.connect(config.database, { useNewUrlParser: true })
   .then(() => {
@@ -32,24 +33,32 @@ mongoose.connect(config.database, { useNewUrlParser: true })
 
 // Instantiate server
 const app = express();
-const MongoStore = store(session);
+const MongoStore = connectStore(session);
 app.server = http.createServer(app);
 
 app.use(bodyParser.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
 app.use(session({
   store: new MongoStore({
-    mongooseConnection: mongoose.connection
+    url: config.database
   }),
+  name: 'jobbatical',
   secret: process.env.COOKIE_SECRET,
-  resave: true,
-  saveUninitialized: false,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
+  }
 }));
 
-app.use(morgan('dev'));
+
+
+
+// app.use(morgan('dev'));
 
 app.use(passport.initialize());
 app.use(passport.session());

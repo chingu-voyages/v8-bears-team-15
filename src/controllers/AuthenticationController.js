@@ -8,10 +8,15 @@ import Listing from '../models/Listing';
 const config = envConfig();
 
 
-const generateToken = (user) => {
+export const generateToken = (user) => {
   const timeStamp = new Date().getTime();
+  if(!user._id && user.profileId){
+    return jwt.encode({ sub: user.profileId, iat: timeStamp }, config.jwtSecret);
+  } 
   return jwt.encode({ sub: user._id, iat: timeStamp }, config.jwtSecret);
 };
+
+
 
 // eslint-disable-next-line import/prefer-default-export
 export const signIn = (req, res) => {
@@ -29,6 +34,21 @@ export const signIn = (req, res) => {
   });
 };
 
+
+export const socialSignIn = (req, res) => {
+  // eslint-disable-next-line no-console
+ // console.log('user at signin', res.req.user);
+//  console.log("initial res", req);
+//  console.log("all user req", res);
+
+ console.log("user to sign-in", res.req.user)
+
+  res.json({
+    success: true,
+    user: res.req.user,
+    token: generateToken(req.user)
+  });
+};
 
 export const userDashboard = (req, res) => {
   // eslint-disable-next-line no-console

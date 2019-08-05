@@ -35,6 +35,8 @@ class Home extends React.Component{
     };
   }
 
+  
+
   handleIntro() {
     this.props.actions.playIntro();
   }
@@ -46,7 +48,15 @@ class Home extends React.Component{
   handleAuth(provider, e) {
     e.preventDefault();
     this.props.actions.popAuth(provider);
+    // this.props.actions.checkLogin();
+   let t = setInterval( () => {
+      console.log("checking");
+      this.props.actions.checkLogin();
+    }, 1000);
+    
   }
+
+  
   
   closeAuth(e) {
     e.preventDefault();

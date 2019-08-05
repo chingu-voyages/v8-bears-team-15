@@ -8,25 +8,15 @@ import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedIn';
 import passportLocal from '../auth/local';
 import passportJwt from '../auth/jwt';
-import { signIn } from '../controllers/AuthenticationController';
+import { signIn, generateToken } from '../controllers/AuthenticationController';
 import { userDashboard } from '../controllers/User';
+
+let sess;
+
+// import { sess } from '../index';
 
 
 const router = express.Router();
-
-// upload storage
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, '../uploaded');
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, `${file.originalname}-${Date.now()}`);
-//   }
-// });
-
-
-// eslint-disable-next-line import/prefer-default-export
-// const upload = multer({ storage }).single('file');
 
 // Messages
 router.get('/welcome', (req, res) => {
@@ -34,13 +24,6 @@ router.get('/welcome', (req, res) => {
     message: 'Welcome to Jobbatical clone application API'
   });
 });
-
-// Default
-// router.get('/*', (req, res) => {
-//   res.status(200).send({
-//     message: 'The endpoint you have hit does not exist'
-//   });
-// });
 
 
 // GOOGLE - may require scope definition
@@ -51,7 +34,18 @@ router.get('/login/google', passportGoogle.authenticate('google',
   }));
 
 router.get('/login/google/callback',
-  passportGoogle.authenticate('google', { session: false }), signIn);
+  passportGoogle.authenticate('google'), (req, res) => {
+     req.session.user = res.req.user;
+     console.log({
+      type: typeof req.session.user,
+      user: req.session.user
+     })
+     if(req.session.user){
+      sess = req.session.user
+      res.redirect('/success')
+     }
+     
+  });
 
 
 // FACEBOOK - may require scope definition
@@ -75,16 +69,6 @@ router.get('/login/linkedin/callback',
     successRedirect: '/home'
   }));
 
-/**
- * I ran into lots of issues working with the APIs
- * causing delays,
- * I was able to get few users created from the login
- * So I basically resorted to using the email text area
- * to return to the app;
- *
- *  The email text area will go straight to this route,
- * authentication is only done with email since it's assumed that
- */
 
 router.post('/login',
   passportLocal.authenticate('local', { session: false }),
@@ -94,19 +78,15 @@ router.get('/jobs',
   passportJwt.authenticate('jwt', { session: false }),
   userDashboard);
 
-router.get('/success', signIn);
+router.get('/success', (req, res) => {
+  if(sess !== undefined){
+    res.json({
+      success: true,
+      user: sess,
+      token: generateToken(sess)
+    })
+  }  
+});
 
-// router.post('/uploads', (req, res) => {
-//   upload(req, res, (err) => {
-//     if (err instanceof multer.MulterError) {
-//       console.log("mutler error", err);
-//       return res.status(500).json(err);
-//     } else if (err) {
-//       console.log("other mutler error", err);
-//       return res.status(500).json(err);
-//     }
-//     return res.status(200).send(req.file);
-//   });
-// });
 
 module.exports = router;

@@ -19,12 +19,15 @@ passport.use(
       User.findOne(
         {
           profileId: profile.id
+        // email: profile.emails[0].value
+       //  _id: profile._id
         },
         (err, user) => {
-          // console.log(user);
+          
           if (err) return done(err);
 
           if (user) {
+            console.log("found the user", user);
             return done(null, user);
           } else {
             const newUser = new User({
