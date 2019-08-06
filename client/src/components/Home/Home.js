@@ -57,16 +57,12 @@ class Home extends React.Component {
   }
 
   handleNext(e) {
-    console.log("NEXT CLICKED");
     e.preventDefault();
-
     const { inputValue } = this.state;
-    console.log("value", inputValue);
     this.props.actions.signIn(inputValue);
   }
 
   handleChange(e) {
-    console.log(e.target.value);
     e.preventDefault();
     this.setState({
       inputValue: e.target.value
