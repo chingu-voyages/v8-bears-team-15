@@ -30,24 +30,26 @@ a test deply of this app is hosted on heroku (link below), please note the follo
 
 ### Project Link | https://voyage8-jobbatical-clone.herokuapp.com/
 
-## Built With
 
+
+
+
+
+
+## Built With
 * [React](https://reactjs.org)
 * [Redux](https://redux.js.org)
 
 
-
-
-
 ### Developers
-Nedu Robert
-Jide Olaniyan
-Mark Edomwande
-
-
-## Author
-* **Jide Olaniyan** 
+- Nedu Robert
+- Jide Olaniyan
+- Mark Edomwande
 
 
 #### Chingu Voyage-8 | https://chingu.io/
 #### Trello Board | https://trello.com/b/O1kzl8V0/jobbatical-clone-bears-team-15
+
+
+## Author
+* **Jide Olaniyan** 
