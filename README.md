@@ -25,8 +25,8 @@ $ yarn dev
 ## live
 a test deply of this app is hosted on heroku (link below), please note the following while using the deployed app
 
-..* only the google social media button is active and working,
-..* the deployed app has a seed data you can use for testing, enter email address (test@user1.com) and click next
+* only the google social media button is active and working,
+* the deployed app has a seed data you can use for testing, enter email address (test@user1.com) and click next
 
 ### Project Link | https://voyage8-jobbatical-clone.herokuapp.com/
 
