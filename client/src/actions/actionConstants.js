@@ -10,4 +10,5 @@ export const LOGGED_IN ='LOGGED_IN';
 export const LOGGED_OUT ='LOGGED_OUT';
 
 //helper actions
-export const UPLOAD = 'UPLOAD'
+export const UPLOAD = 'UPLOAD';
+export const HOME = 'HOME';

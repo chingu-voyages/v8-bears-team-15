@@ -18,7 +18,10 @@ export function signIn(email) {
       }else{
         dispatch({
           type: actionTypes.SIGN_IN,
-          payload: response.data.user,
+          payload: {
+            data: response.data.user,
+            // openInterval: false, 
+          }
         })
         localStorage.setItem('token', response.data.token)
         history.push('/jobs')
@@ -43,7 +46,10 @@ export function checkLogin(){
         if((response.status !== 401 || response.status !== 400)){
           dispatch({
             type: actionTypes.SIGN_IN,
-            payload: response.data.user,
+            payload: {
+              data: response.data.user,
+              openInterval: false, 
+            }
           })
           localStorage.setItem('token', response.data.token)
           history.push('/jobs')       

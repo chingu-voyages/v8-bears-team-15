@@ -55,11 +55,7 @@ app.use(session({
   }
 }));
 
-
-
-
 // app.use(morgan('dev'));
-
 app.use(passport.initialize());
 app.use(passport.session());
 

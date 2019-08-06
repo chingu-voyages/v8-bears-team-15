@@ -29,6 +29,7 @@ export function popAuth(provider) {
         type: actionTypes.POP_WINDOW,
         payload: {
           pop: true,
+          openInterval: true,
           provider
         },
       }
@@ -44,6 +45,19 @@ export function closePopAuth() {
         payload: {
           pop: false,
         },
+      }
+    )
+  }
+}
+
+export function setIntervalID(value) {
+  return (dispatch) => {
+    dispatch(
+      {
+        type: actionTypes.HOME,
+       payload: {
+         id: value,
+       }
       }
     )
   }

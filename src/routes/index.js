@@ -1,8 +1,4 @@
 import express from 'express';
-// import multer from 'multer';
-
-// import User from '../models/User';
-
 import passportGoogle from '../auth/google';
 import passportFacebook from '../auth/facebook';
 import passportLinkedin from '../auth/linkedIn';
@@ -12,13 +8,9 @@ import { signIn, generateToken } from '../controllers/AuthenticationController';
 import { userDashboard } from '../controllers/User';
 
 let sess;
-
-// import { sess } from '../index';
-
-
 const router = express.Router();
 
-// Messages
+// ************API WELCOME MESSAGE***************
 router.get('/welcome', (req, res) => {
   res.status(200).send({
     message: 'Welcome to Jobbatical clone application API'
@@ -70,22 +62,30 @@ router.get('/login/linkedin/callback',
   }));
 
 
+// ************LOGIN***************
 router.post('/login',
   passportLocal.authenticate('local', { session: false }),
   signIn);
 
+
+  // ************JOBS***************
 router.get('/jobs',
   passportJwt.authenticate('jwt', { session: false }),
   userDashboard);
 
-router.get('/success', (req, res) => {
-  if(sess !== undefined){
-    res.json({
-      success: true,
-      user: sess,
-      token: generateToken(sess)
-    })
-  }  
+
+// ************SOCIAL AUTH SUCCESS***************
+router.get('/success', (req, res) => {  
+  const response = {
+    success: true,
+    user: sess,
+    token: generateToken(sess)
+  }
+  setTimeout( () => {
+    if(sess !== undefined){
+      res.json(response)
+    }
+  }, 2000)
 });
 
 

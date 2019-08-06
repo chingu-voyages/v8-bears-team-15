@@ -8,6 +8,7 @@ import Footer from '../../Footer/Footer';
 import './Home.css';
 
 import * as userActions from '../../../actions/User/UserActions';
+import * as homeActions from '../../../actions/Home/HomeActions';
 import AuxComp from './../../../HOC/AuxComp/AuxComp';
 
 class DashBoardHome extends Component{
@@ -29,6 +30,7 @@ class DashBoardHome extends Component{
      this.setState({
        listArray: nextProps.listings
      })
+    clearTimeout(this.props.id)
     }
   }
 
@@ -99,15 +101,16 @@ class DashBoardHome extends Component{
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({...userActions}, dispatch)
+    actions: bindActionCreators({...userActions, ...homeActions}, dispatch)
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("list at home", state.userState.allListings)
+  console.log("state at dashboard", state)
   return {
     user: state.userState.user, 
     listings: state.userState.allListings,
+    id: state.homeState.id
   }
 }
 

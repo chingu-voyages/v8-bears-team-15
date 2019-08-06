@@ -12,7 +12,6 @@ export default (ComposedComponent) => {
     
     componentWillMount() {
       if(!this.props.authenticated) {
-        console.log("all props", this.props)
         console.log("failue redirecting")
         this.props.history.push('/login')
       }
@@ -35,7 +34,6 @@ export default (ComposedComponent) => {
   }
 
   const mapStateToProps = (state) => {
-    console.log('state at auth', state)
     return { authenticated: state.userState.authenticated }
   }
 

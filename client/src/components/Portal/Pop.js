@@ -28,11 +28,8 @@ class AuthWindow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props !== nextProps) {
-      console.log("Portal Props", nextProps);
       if (this.popup.opener) {
         this.popup.opener.focus();
-            
-        console.log("all opener details", this.popup.opener)
 
         if (this.popup.opener.loginCallBack) {
           this.popup.opener.loginCallBack();
