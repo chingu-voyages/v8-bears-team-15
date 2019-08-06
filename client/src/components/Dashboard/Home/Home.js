@@ -30,7 +30,8 @@ class DashBoardHome extends Component{
      this.setState({
        listArray: nextProps.listings
      })
-    clearTimeout(this.props.id)
+    clearTimeout(this.props.id);
+    this.props.actions.closePopAuth();
     }
   }
 
