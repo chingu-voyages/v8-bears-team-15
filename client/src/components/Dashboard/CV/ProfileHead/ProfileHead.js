@@ -73,7 +73,6 @@ constructor(props) {
             </span>
           </div>
           <div 
-          // className="cv-col"
             className={uploadActive ? `cv-col` : `cv-col cv-col-blank` }
           >
             <span

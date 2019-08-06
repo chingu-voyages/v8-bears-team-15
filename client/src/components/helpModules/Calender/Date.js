@@ -51,7 +51,6 @@ export function YearPicker(){
 export function DayPicker(){
   let days = Array.from(Array(31).keys());
   days.shift();
- // years.reverse()
   return (
     <div className="picker-main">
     <select name="option" className="month-select" id="day-picker">

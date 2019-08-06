@@ -62,7 +62,6 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route  path="/jobs" component={Auth(DashBoardHome)} />
             <Route  path="/setting" component={Auth(Setting)} />
-            {/* <Route path="/close" component={Closer} /> */}
          </Switch>
       </Router>
       </AuxComp>

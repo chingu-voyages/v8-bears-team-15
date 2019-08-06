@@ -43,7 +43,6 @@ class Preferences extends React.Component{
         </div>
         <div id="profile-toggle">
           <div id="preference-toggle"
-          //  className="col-back"
            className={ prefsActive ? `col-back` : `` }
           >
             <span

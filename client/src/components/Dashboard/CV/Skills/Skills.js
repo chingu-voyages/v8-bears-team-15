@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Skills.css';
@@ -51,11 +50,6 @@ class SkillsForm extends React.Component{
   }
 }
 
-// const mapStatetToProps = (state) => {
-//    return {
-//      skillsEntries: state.form.skillsForm,
-//    };
-//  };
  
  const Skills = reduxForm({
    form: 'skillsForm'

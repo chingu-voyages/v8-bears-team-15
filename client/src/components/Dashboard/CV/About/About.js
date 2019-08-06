@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -61,9 +60,6 @@ class AboutForm extends React.Component{
               name="introduction"
             />
           </div>
-          {/* <div>
-            <label>Professional experience since</label>
-          </div> */}
           <div className="about-row">
             <div>
               <button type="submit">SAVE</button>
@@ -78,14 +74,6 @@ class AboutForm extends React.Component{
   }
 }
 
-// export default About;
-
-// const mapStatetToProps = (state) => {
-//  // console.log("state at about", state.form.aboutForm)
-//   return {
-//     aboutEntries: state.form.aboutForm,
-//   };
-// };
 
 const About = reduxForm({
   form: 'aboutForm'

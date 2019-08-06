@@ -4,7 +4,6 @@ import * as actionTypes from '../actionConstants';
 import { history } from '../../App';
 
 export function signIn(email) {
-  console.log("logging in");
   return (dispatch) => {
     axios.post('http://localhost:4000/login', {
       email
@@ -20,7 +19,6 @@ export function signIn(email) {
           type: actionTypes.SIGN_IN,
           payload: {
             data: response.data.user,
-            // openInterval: false, 
           }
         })
         localStorage.setItem('token', response.data.token)

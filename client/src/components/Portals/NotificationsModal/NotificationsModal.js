@@ -18,9 +18,6 @@ class NotificationsModal extends Component {
         <div role="dialog" className="notifications-modal-dialog">
           <FontAwesomeIcon icon="sort-up" id="modal-arrow" />
           <div className="modal-content">
-              {/* <div id="item-0" className="items">
-                
-              </div> */}
               <div id="item-1" className="items"
                 onClick={() => this.props.onClose('notes')}
               >
@@ -31,11 +28,6 @@ class NotificationsModal extends Component {
               >
                 <p>You have no new notifications</p>
               </div>
-              {/* <div id="item-3" className="items"
-                onClick={() => this.props.onClose('logout')}
-              >
-                <p>Log Out</p>
-              </div> */}
           </div>
         </div>
       </div>

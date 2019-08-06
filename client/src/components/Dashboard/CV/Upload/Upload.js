@@ -65,8 +65,6 @@ class Uploader extends React.Component{
   
 }
 
-// export default Uploader;
-
 const MapStateToProps = (state) => {
   return {
     user: state.userState

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import About from '../About/About';
 import Skills from '../Skills/Skills';
 import AddLanguage from '../Language/Language';
-// import Experience from '../Experience/Experience';
+
 import AddExperience from '../AddExperience/AddExperience';
 import AddEducation from './../AddEducation/AddEducation';
 import AddLinks from '../Links/Links';
@@ -138,7 +138,6 @@ class Profile extends React.Component{
       educationArray,
     } = this.state;
 
-    // let freeArray = [];
     return (
        <div id="wrapper">
         <div id="profile-container">

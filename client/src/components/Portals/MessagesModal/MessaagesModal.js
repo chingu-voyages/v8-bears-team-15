@@ -19,9 +19,6 @@ class MessagesModal extends Component {
         <div role="dialog" className="messages-modal-dialog">
           <FontAwesomeIcon icon="sort-up" id="modal-arrow" />
           <div className="modal-content">
-              {/* <div id="item-0" className="items">
-                
-              </div> */}
               <div id="item-1" className="items"
                 onClick={() => this.props.onClose('messages')}
               >

@@ -1,6 +1,5 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -16,8 +15,6 @@ import Modal from "../Modal/Modal";
 import * as homeActions from "../../actions/Home/HomeActions";
 import * as userActions from "../../actions/User/UserActions";
 import Footer from "../Footer/Footer";
-
-// import AuthPortal from '../Portals/Auth/Portal/AuthPortal';
 import AuthWindow from "./../Portal/Pop";
 
 class Home extends React.Component {
@@ -31,21 +28,13 @@ class Home extends React.Component {
   intervalId = 0;
 
   componentWillReceiveProps(nextProps) {
-    // let timerFunction ;
     if (nextProps !== this.props) {
-      console.log("ALL next PROPS", nextProps)
       if (nextProps.interval === true) {
          this.intervalId = setInterval( () => {
-          console.log("checking at props");
           this.props.actions.checkLogin();
         }, 1000);
         this.props.actions.setIntervalID(this.intervalId);
       }
-      
-      // if(nextProps.interval === false){
-      //   clearInterval(this.intervalId);
-      // }
-      
     }
   }
 
@@ -60,11 +49,6 @@ class Home extends React.Component {
   handleAuth(provider, e) {
     e.preventDefault();
     this.props.actions.popAuth(provider);
-    // this.props.actions.checkLogin();
-    // setInterval( () => {
-    //     console.log("checking");
-    //     this.props.actions.checkLogin();
-    //   }, 1000);
   }
 
   closeAuth(e) {
@@ -78,7 +62,6 @@ class Home extends React.Component {
 
     const { inputValue } = this.state;
     console.log("value", inputValue);
-    // validate input for errors
     this.props.actions.signIn(inputValue);
   }
 
@@ -111,7 +94,6 @@ class Home extends React.Component {
           <header>
             <a id="brand" href="http://fakelink">
               <img id="white-logo" src={whiteLogo} alt="white-logo" />
-              {/* <span>BRAND</span> */}
             </a>
             <nav>
               <li>

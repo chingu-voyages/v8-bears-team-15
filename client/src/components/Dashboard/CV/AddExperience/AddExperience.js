@@ -53,27 +53,6 @@ class AddExperienceForm extends React.Component{
               />
             </div>
           </div>
-
-          {/* <div  className="experience-row">
-            <div className="experience-col" >
-              <label>From</label>
-              <div className="experience-row from">
-                <Field 
-                  type="text"
-                  name="position"
-                  component="input" 
-                />
-                <Field type="text" />
-              </div>
-            </div>
-            <div className="experience-col" >
-              <label>To</label>
-              <div className="experience-row from">
-                <Field type="text" />
-                <Field type="text" />
-              </div>
-            </div>
-          </div> */}
           <div className="about-col">
             <label>Additional Information <span>optional</span></label>
             <Field id="intro-box" name="summary" component="textarea" />
@@ -99,71 +78,3 @@ const Skills = reduxForm({
 })(AddExperienceForm)
 
 export default Skills;
-
-//  export class AddClippedExperience extends React.Component{
-//   render(){
-//     return (
-//       <form id="experience-form">
-//         <div id="experience-layout">
-//           <div id="experience-head" className="experience-row">
-//             <div>
-              
-//             </div>
-//             <div id="bin">
-//               <FontAwesomeIcon  
-//                 icon="trash" 
-//                 onClick={this.props.handleClose}
-//               />
-//             </div>
-//           </div>
-//           <div className="experience-col" >
-//               <label>Position</label>
-//               <Field type="text" />
-//             </div>
-//           <div  className="experience-row">
-//             <div className="experience-col company" >
-//               <label>Company</label>
-//               <Field type="text" />
-//             </div>
-//             <div className="experience-col company" >
-//               <label>Location</label>
-//               <Field type="text" />
-//             </div>
-//           </div>
-
-//           <div  className="experience-row">
-//             <div className="experience-col" >
-//               <label>From</label>
-//               <div className="experience-row from">
-//                 <Field type="text" />
-//                 <Field type="text" />
-//               </div>
-//             </div>
-//             <div className="experience-col" >
-//               <label>To</label>
-//               <div className="experience-row from">
-//                 <Field type="text" />
-//                 <Field type="text" />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="about-col">
-//             <label>Additional Information <span>optional</span></label>
-//             <textarea id="intro-box" />
-//           </div>
-
-//           <div className="experience-row">
-//             <div>
-//               <button>SAVE</button>
-//             </div>
-//             <div>
-//               <button>CANCEL</button>
-//             </div>
-//           </div>
-//         </div>
-//       </form>
-//     )
-//   }
-// }
-
-// export default AddExperience;

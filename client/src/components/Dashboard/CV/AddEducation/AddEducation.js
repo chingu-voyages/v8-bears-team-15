@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './AddEducation.css';
@@ -64,23 +63,6 @@ class AddEducationForm extends React.Component{
               />
             </div>
           </div>
-
-          {/* <div  className="experience-row">
-            <div className="experience-col" >
-              <label>From</label>
-              <div className="experience-row from">
-                <Field type="text" name="from-date" />
-                <Field  type="text" name="from-year" />
-              </div>
-            </div>
-            <div className="experience-col" >
-              <label>To</label>
-              <div className="experience-row from">
-                <Field type="text" name="to-date"/>
-                <Field type="text" name="to-year"/>
-              </div>
-            </div>
-          </div> */}
           <div className="about-col">
             <label>Additional Information <span>optional</span></label>
             <Field id="intro-box" component="textarea" name="information" />
@@ -99,12 +81,6 @@ class AddEducationForm extends React.Component{
     )
   }
 }
-
-// const mapStatetToProps = (state) => {
-//   return {
-//     educationsEntries: state.form.educationForm,
-//   };
-// };
 
 const AddEducation = reduxForm({
   form: 'educationForm'

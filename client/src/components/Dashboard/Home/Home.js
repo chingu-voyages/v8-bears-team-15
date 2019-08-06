@@ -72,7 +72,6 @@ class DashBoardHome extends Component{
           <div className="categories">
              <div id="all">
                <button 
-                // onClick={this.getAllArray.bind(this)}
                >All jobs</button>
              </div>
              <div className="select">
@@ -98,7 +97,6 @@ class DashBoardHome extends Component{
   }
 }
 
-// export default DashBoardHome;
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -107,7 +105,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state at dashboard", state)
   return {
     user: state.userState.user, 
     listings: state.userState.allListings,

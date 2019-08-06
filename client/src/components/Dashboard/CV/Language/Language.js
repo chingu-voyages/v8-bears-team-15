@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Language.css';
@@ -52,11 +51,6 @@ class LanguageForm extends React.Component{
   }
 }
 
-// const mapStatetToProps = (state) => {
-//   return {
-//     languageEntries: state.form.LanguageForm,
-//   };
-// };
 
 const EditLanguage = reduxForm({
   form: 'LanguageForm'

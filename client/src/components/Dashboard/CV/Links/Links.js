@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-// import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Links.css';
@@ -63,15 +62,6 @@ class LinksForm extends React.Component{
                 name="facebook"
               />
             </div>
-            {/* <div className="links-row profile">
-              <label className="label">Facebook</label>
-              <Field 
-                type="text" 
-                placeholder="Type a language" 
-                component="input"
-                name=""
-              />
-            </div> */}
             <div className="links-row profile">
               <label className="label">Twitter handle</label>
               <Field 
@@ -105,11 +95,7 @@ class LinksForm extends React.Component{
   }
 }
 
-// const mapStatetToProps = (state) => {
-//   return {
-//     linkEntries: state.form.LinksForm,
-//   };
-// };
+
 
 const EditLinks = reduxForm({
   form: 'LinksForm'

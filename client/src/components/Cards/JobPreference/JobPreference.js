@@ -1,10 +1,5 @@
 import React from 'react';
-
 import './JobPreference.css';
-
-// const findCard = (props) => {
-//   console.log(props)
-// }
 
 const JobPreference = (props) => {
   return (
@@ -12,7 +7,6 @@ const JobPreference = (props) => {
       <span> {props.value}</span>
       <span
       onClick={props.destroyCard}
-      // key={props.value}
       >
         X
       </span>   

@@ -15,11 +15,9 @@ import {DayPicker,
 
 import facebook from '../../../images/social-media/facebook.png';
 import goog from '../../../images/auth/goog.png';
-// import googlep from '../../../images/social-media/googleplus.png';
 import linkedin from '../../../images/social-media/linkedin.png';
 
 
-// const google = window.google;
 class GeneralPreferences extends React.Component{
   constructor(props) {
     super(props);
@@ -72,7 +70,7 @@ class GeneralPreferences extends React.Component{
   }
 
   handleScriptLoad() {
-    // console.log(this.locationInput.current)
+
     let options = {
       types: ['(cities)']
     }
@@ -80,7 +78,7 @@ class GeneralPreferences extends React.Component{
     this.autocomplete = new google.maps.places.Autocomplete(
       this.locationInput.current, options
     )
-    // console.log(typeof this.autocomplete)
+
     this.autocomplete2 = new google.maps.places.Autocomplete(
       this.countryInput.current, options
     ) 
@@ -254,9 +252,6 @@ class GeneralPreferences extends React.Component{
             like to hear more about?
           </p>
           <div id="describe">
-            {/* <input type="text" 
-              placeholder="Describe what you expect to find on jobbatical" 
-            /> */}
             <textarea 
              placeholder="Describe what you expect to find on jobbatical" 
              className="pr-fade"
