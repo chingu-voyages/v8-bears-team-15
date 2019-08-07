@@ -67,14 +67,12 @@ export function checkLogin(){
 export function userDashBoard(){
   return (dispatch) => {
     let token = localStorage.getItem('token');
-    console.log("Token", token)
     axios.get('http://localhost:4000/jobs', {
       headers: {
         Authorization: `Bearer ${token}`
       }
     })
     .then((response) => {
-      console.log("dash response", response.data)
       dispatch({
         type: actionTypes.USER_DASHBOARD,
         payload: response.data,
