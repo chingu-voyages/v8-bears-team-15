@@ -76,16 +76,20 @@ router.get('/jobs',
 
 // ************SOCIAL AUTH SUCCESS***************
 router.get('/success', (req, res) => {  
-  const response = {
-    success: true,
-    user: sess,
-    token: generateToken(sess)
-  }
-  setTimeout( () => {
-    if(sess !== undefined){
-      res.json(response)
+  // let response;
+
+     const response = {
+      success: true,
+      user: sess,
+      token: generateToken(sess)
     }
-  }, 2000)
+
+    setTimeout( () => {
+      if(sess !== undefined){
+        res.json(response)
+      }
+    }, 2000)
+
 });
 
 

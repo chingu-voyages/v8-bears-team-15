@@ -36,6 +36,7 @@ const app = express();
 const MongoStore = connectStore(session);
 app.server = http.createServer(app);
 
+app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -55,9 +56,10 @@ app.use(session({
   }
 }));
 
-app.use(morgan('dev'));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use('/', routes);
 
