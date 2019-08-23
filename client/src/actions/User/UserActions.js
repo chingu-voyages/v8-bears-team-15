@@ -5,7 +5,7 @@ import { history } from '../../App';
 
 export function signIn(email) {
   return (dispatch) => {
-    axios.post('http://localhost:4000/login', {
+    axios.post('/login', {
       email
     })
     .then((response) => {
@@ -39,7 +39,7 @@ export function signIn(email) {
 
 export function checkLogin(){
   return (dispatch) => {
-    axios.get('http://localhost:4000/success')
+    axios.get('/success')
     .then((response) => {
         if((response.status !== 401 || response.status !== 400)){
           dispatch({
@@ -67,7 +67,7 @@ export function checkLogin(){
 export function userDashBoard(){
   return (dispatch) => {
     let token = localStorage.getItem('token');
-    axios.get('http://localhost:4000/jobs', {
+    axios.get('/jobs', {
       headers: {
         Authorization: `Bearer ${token}`
       }
