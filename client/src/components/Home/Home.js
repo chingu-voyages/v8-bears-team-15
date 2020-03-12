@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
+
 import "./Home.css";
 import "../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -10,6 +11,7 @@ import whiteLogo from "../../images/jb_logo_white.svg";
 import googleImage from "../../images/auth/google_icon.png";
 import facebookImage from "../../images/auth/facebook.png";
 import linkedinImage from "../../images/auth/linkedin.png";
+
 
 import Modal from "../Modal/Modal";
 import * as homeActions from "../../actions/Home/HomeActions";
@@ -67,13 +69,23 @@ class Home extends React.Component {
     this.setState({
       inputValue: e.target.value
     });
-  }
+	}
+	
 
   render() {
     const { showModal, showPopUp } = this.props;
     return (
       <div className="main">
         {showModal ? <Modal closeModal={this.closeModal.bind(this)} /> : ""}
+				<div
+				 style={{ 
+					 background: '#0CC28F', 
+					 color: 'white',
+					 textAlign: 'center'
+					}}
+				>
+					<p>The social media buttons are disabled, the app uses a seed data which can be tested by using a test-user email-address 'test@user1.com'. </p>
+				</div>
         <section className="intro">
           <div className="video-div">
             <video autoPlay muted loop id="hero-video">
