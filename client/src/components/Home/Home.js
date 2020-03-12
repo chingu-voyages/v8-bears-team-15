@@ -126,21 +126,23 @@ class Home extends React.Component {
             <section id="all-forms">
               <form className="social-medias" id="form-1">
                 <span className="auth-intro">Sign Up or Log in using:</span>
-                <button id="google" onClick={e => this.handleAuth("google", e)}>
+                <button id="google" onClick={e => this.handleAuth("google", e)} disabled>
                   <img src={googleImage} alt="google-brand" />
                   <span className="content">Continue with Google</span>
                 </button>
                 {showPopUp ? <AuthWindow /> : ""}
                 <button
                   id="facebook"
-                  onClick={e => this.handleAuth("facebook", e)}
+									onClick={e => this.handleAuth("facebook", e)}
+									disabled
                 >
                   <img src={facebookImage} alt="facebook-brand" />
                   <span className="content">Continue with Facebook</span>
                 </button>
                 <button
                   id="linkedin"
-                  onClick={e => this.handleAuth("linkedin", e)}
+									onClick={e => this.handleAuth("linkedin", e)}
+									disabled
                 >
                   <img src={linkedinImage} alt="linkedin-brand" />
                   <span className="content">Continue with LinkedIn</span>
