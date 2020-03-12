@@ -19,7 +19,7 @@
     "heroku-postbuild": "cd client && yarn install  --only=dev &&  yarn install  && yarn run build"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
