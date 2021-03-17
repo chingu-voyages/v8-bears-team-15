@@ -90,13 +90,13 @@ class Home extends React.Component {
           <div className="video-div">
             <video autoPlay muted loop id="hero-video">
               <source
-                src="https://s3-eu-west-1.amazonaws.com/jpublic/home/homepage_desktop_bg.mp4"
+                src="/videos/Iphone2967.mp4"
                 type="video/mp4"
               />
-              <source
+              {/* <source
                 src="https://s3-eu-west-1.amazonaws.com/jpublic/home/homepage_desktop_bg.webm"
                 type="video/webm"
-              />
+              /> */}
             </video>
           </div>
           <header>

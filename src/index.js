@@ -20,7 +20,12 @@ import { logger } from './helper/logger';
 const config = envConfig();
 
 // Connect database
-mongoose.connect(config.database, { useNewUrlParser: true })
+mongoose.connect(config.database, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,  
+  useFindAndModify: false,
+  useCreateIndex: true
+})
   .then(() => {
     logger.info(`Connected to DB: ${config.database}`);
   })

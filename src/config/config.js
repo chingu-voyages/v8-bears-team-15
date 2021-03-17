@@ -1,11 +1,5 @@
 import dotenv from 'dotenv';
-
 dotenv.config();
-
-const env = process.env.NODE_ENV || 'development';
-
-console.log("the environment in use", env, ' at port ', process.env.PORT)
-
 
 export const allConfig = {
   test: {
@@ -21,8 +15,8 @@ export const allConfig = {
     jwtSecret: process.env.JWT_SECRET,
   },
   production: {
-    port: process.env.PORT || 4000,
-    database: process.env.MONGODB_URI || 'mongodb://admin:bears15admin@ds151066.mlab.com:51066/jobbatical-clone',
+    port: process.env.PORT,
+    database: process.env.MONGODB_URI,
     jwtPrivateKey: process.env.JWT_PRIVATE || 'private super secret key',
     jwtSecret: process.env.JWT_SECRET,
   }
